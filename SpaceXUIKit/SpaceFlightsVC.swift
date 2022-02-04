@@ -15,19 +15,25 @@ class SpaceFlightsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         title = "Flights"
         view.backgroundColor = .systemBackground
-        
+        configureTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        configureTableView()
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: selectedIndexPath, animated: animated)
+        }
     }
     
 }
 
-extension SpaceFlightsVC: UITableViewDataSource, UITableViewDelegate {
+extension SpaceFlightsVC: UITableViewDataSource {
     
     // Number of cells
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -39,6 +45,16 @@ extension SpaceFlightsVC: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: FlightCell.reusableID, for: indexPath) as! FlightCell
         cell.flightLabel.text = dummyData[indexPath.row]
         return cell
+    }
+    
+}
+
+extension SpaceFlightsVC: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let spaceFlightDetailVC = SpaceFlightDetailVC()
+        spaceFlightDetailVC.flightName = dummyData[indexPath.row]
+        navigationController?.pushViewController(spaceFlightDetailVC, animated: true)
     }
     
 }

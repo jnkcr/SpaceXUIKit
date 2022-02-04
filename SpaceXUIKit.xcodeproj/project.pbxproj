@@ -16,6 +16,7 @@
 		F49E9FB927AC32BA0081238D /* SpaceXUIKitUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E9FB827AC32BA0081238D /* SpaceXUIKitUITestsLaunchTests.swift */; };
 		F4A4D11E27AD20F700163607 /* SpaceFlightsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4D11D27AD20F700163607 /* SpaceFlightsVC.swift */; };
 		F4A4D12127AD64BE00163607 /* FlightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4D12027AD64BE00163607 /* FlightCell.swift */; };
+		F4A4D12327AD76F900163607 /* SpaceFlightDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4D12227AD76F900163607 /* SpaceFlightDetailVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		F49E9FB827AC32BA0081238D /* SpaceXUIKitUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXUIKitUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F4A4D11D27AD20F700163607 /* SpaceFlightsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceFlightsVC.swift; sourceTree = "<group>"; };
 		F4A4D12027AD64BE00163607 /* FlightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightCell.swift; sourceTree = "<group>"; };
+		F4A4D12227AD76F900163607 /* SpaceFlightDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceFlightDetailVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				F49E9F9527AC32B80081238D /* AppDelegate.swift */,
 				F49E9F9727AC32B80081238D /* SceneDelegate.swift */,
 				F4A4D11D27AD20F700163607 /* SpaceFlightsVC.swift */,
+				F4A4D12227AD76F900163607 /* SpaceFlightDetailVC.swift */,
 				F4A4D11F27AD648100163607 /* CustomViews */,
 				F49E9F9E27AC32BA0081238D /* Assets.xcassets */,
 				F49E9FA027AC32BA0081238D /* LaunchScreen.storyboard */,
@@ -269,6 +272,7 @@
 				F4A4D12127AD64BE00163607 /* FlightCell.swift in Sources */,
 				F49E9F9627AC32B80081238D /* AppDelegate.swift in Sources */,
 				F49E9F9827AC32B80081238D /* SceneDelegate.swift in Sources */,
+				F4A4D12327AD76F900163607 /* SpaceFlightDetailVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
