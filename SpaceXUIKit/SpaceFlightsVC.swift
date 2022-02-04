@@ -15,15 +15,16 @@ class SpaceFlightsVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         title = "Flights"
         view.backgroundColor = .systemBackground
+        
+        addSubviews()
         configureTableView()
+        addConstraints()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         navigationController?.navigationBar.prefersLargeTitles = true
         
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
@@ -32,6 +33,8 @@ class SpaceFlightsVC: UIViewController {
     }
     
 }
+
+// MARK: - Table functions
 
 extension SpaceFlightsVC: UITableViewDataSource {
     
@@ -51,6 +54,7 @@ extension SpaceFlightsVC: UITableViewDataSource {
 
 extension SpaceFlightsVC: UITableViewDelegate {
     
+    // Navigate to detail screen by selecting table row
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let spaceFlightDetailVC = SpaceFlightDetailVC()
         spaceFlightDetailVC.flightName = dummyData[indexPath.row]
@@ -59,10 +63,15 @@ extension SpaceFlightsVC: UITableViewDelegate {
     
 }
 
+// MARK: - UI Configuration
+
 extension SpaceFlightsVC {
     
-    private func configureTableView() {
+    private func addSubviews() {
         view.addSubview(tableView)
+    }
+    
+    private func configureTableView() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .systemBackground
         tableView.separatorStyle = .none
@@ -72,12 +81,17 @@ extension SpaceFlightsVC {
         tableView.delegate = self
         tableView.register(FlightCell.self, forCellReuseIdentifier: FlightCell.reusableID)
         
+    }
+    
+    private func addConstraints() {
+        
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
+        
     }
     
 }
