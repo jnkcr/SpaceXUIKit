@@ -21,6 +21,7 @@ class SpaceFlightsVC: UIViewController {
         addSubviews()
         configureTableView()
         addConstraints()
+        configurePullToRefresh()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,6 +31,25 @@ class SpaceFlightsVC: UIViewController {
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: selectedIndexPath, animated: animated)
         }
+    }
+    
+}
+
+#warning("Pull to refresh: missing implementation")
+extension SpaceFlightsVC {
+    
+    private func configurePullToRefresh() {
+        let refreshControl = UIRefreshControl()
+        tableView.refreshControl = refreshControl
+        tableView.refreshControl?.addTarget(self, action: #selector(handleRefreshing), for: .valueChanged)
+    }
+    
+    @objc
+    private func handleRefreshing() {
+        DispatchQueue.main.async {
+            self.tableView.refreshControl?.endRefreshing()
+        }
+        
     }
     
 }

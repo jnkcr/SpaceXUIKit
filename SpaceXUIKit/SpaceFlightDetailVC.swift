@@ -15,7 +15,6 @@ class SpaceFlightDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .systemBackground
         title = "Flight detail"
         navigationController?.navigationBar.prefersLargeTitles = false
