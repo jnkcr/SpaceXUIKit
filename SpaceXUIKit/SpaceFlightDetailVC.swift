@@ -9,7 +9,7 @@ import UIKit
 
 class SpaceFlightDetailVC: UIViewController {
     
-    var flightName: String!
+    var flightName: String?
     
     let nameLabel: UILabel = UILabel()
     

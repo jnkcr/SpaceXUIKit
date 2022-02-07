@@ -10,6 +10,7 @@ import UIKit
 class FlightCell: UITableViewCell {
     
     static let reusableID: String = "flightCell"
+    
     let flightImage: UIImageView = UIImageView()
     let flightLabel: UILabel = UILabel()
     
@@ -48,8 +49,10 @@ extension FlightCell {
     
     private func configureFlightLabel() {
         flightLabel.translatesAutoresizingMaskIntoConstraints = false
-        flightLabel.font = UIFont.preferredFont(forTextStyle: .title3)
+        flightLabel.font = UIFont.preferredFont(forTextStyle: .headline)
         flightLabel.tintColor = .systemIndigo
+        flightLabel.lineBreakMode = .byTruncatingTail
+        flightLabel.adjustsFontSizeToFitWidth = false
     }
     
     private func addConstraints() {
@@ -58,7 +61,7 @@ extension FlightCell {
         
         // Image constraints
         NSLayoutConstraint.activate([
-            flightImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            flightImage.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 15),
             flightImage.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: padding),
             flightImage.widthAnchor.constraint(equalToConstant: size),
             flightImage.heightAnchor.constraint(equalToConstant: size)
@@ -66,7 +69,7 @@ extension FlightCell {
         
         // Label constraints
         NSLayoutConstraint.activate([
-            flightLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            flightLabel.centerYAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.centerYAnchor),
             flightLabel.leadingAnchor.constraint(equalTo: flightImage.trailingAnchor, constant: padding),
             flightLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
             flightLabel.heightAnchor.constraint(equalToConstant: size)
