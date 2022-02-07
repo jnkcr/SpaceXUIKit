@@ -14,7 +14,7 @@ struct FlightsDownloader: SpaceFlightsDownloadable {
     
     func downloadAllPastFlights() async throws -> [Flight] {
         // Download data
-        let (data, response) = try await session.data(from: URLAdress.allPastLaunches)
+        let (data, response) = try await session.data(from: URLAdresses.allPastLaunches)
         // Verify response
         guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw FlightError.invalidResponse }
         // Decode data
