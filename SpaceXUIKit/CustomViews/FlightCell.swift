@@ -10,15 +10,25 @@ import UIKit
 class FlightCell: UITableViewCell {
     
     static let reusableID: String = "flightCell"
+    var flightData: Flight? {
+        didSet {
+            flightDateLabel.text = CustomDateFormatter.formatUTCDate(from: flightData?.dateUtc)
+            flightNameLabel.text = flightData?.name
+        }
+    }
     
-    let flightImage: UIImageView = UIImageView()
-    let flightLabel: UILabel = UILabel()
+    let flightPatchImage: UIImageView = UIImageView()
+    let flightInfoView: UIStackView = UIStackView()
+    let flightDateLabel: UILabel = UILabel()
+    let flightNameLabel: UILabel = UILabel()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         // Cell configuration:
         addSubviews()
         configureFlightImage()
+        configureInfoView()
+        configureDateLabel()
         configureFlightLabel()
         addConstraints()
     }
@@ -34,45 +44,74 @@ class FlightCell: UITableViewCell {
 
 }
 
+// MARK: - UI Configurations
+
 extension FlightCell {
     
     private func addSubviews() {
-        contentView.addSubview(flightImage)
-        contentView.addSubview(flightLabel)
+        contentView.addSubview(flightPatchImage)
+        contentView.addSubview(flightInfoView)
+        flightInfoView.addArrangedSubview(flightDateLabel)
+        flightInfoView.addArrangedSubview(flightNameLabel)
     }
     
     private func configureFlightImage() {
-        flightImage.translatesAutoresizingMaskIntoConstraints = false
-        flightImage.image = UIImage(systemName: "airplane.circle")
-        flightImage.tintColor = .secondaryLabel
+        flightPatchImage.translatesAutoresizingMaskIntoConstraints = false
+        flightPatchImage.image = UIImage(systemName: "airplane.circle")
+        flightPatchImage.tintColor = .secondaryLabel
+    }
+    
+    private func configureInfoView() {
+        flightInfoView.translatesAutoresizingMaskIntoConstraints = false
+        flightInfoView.backgroundColor = .systemBackground
+        flightInfoView.axis = .vertical
+        flightInfoView.spacing = 5
+    }
+    
+    private func configureDateLabel() {
+        flightDateLabel.translatesAutoresizingMaskIntoConstraints = false
+        flightDateLabel.font = UIFont.preferredFont(forTextStyle: .caption1)
+        flightDateLabel.textColor = .secondaryLabel
+        flightDateLabel.lineBreakMode = .byTruncatingTail
+        flightDateLabel.adjustsFontSizeToFitWidth = false
     }
     
     private func configureFlightLabel() {
-        flightLabel.translatesAutoresizingMaskIntoConstraints = false
-        flightLabel.font = UIFont.preferredFont(forTextStyle: .headline)
-        flightLabel.tintColor = .systemIndigo
-        flightLabel.lineBreakMode = .byTruncatingTail
-        flightLabel.adjustsFontSizeToFitWidth = false
+        flightNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        flightNameLabel.font = UIFont.preferredFont(forTextStyle: .headline)
+        flightNameLabel.lineBreakMode = .byTruncatingTail
+        flightNameLabel.adjustsFontSizeToFitWidth = false
     }
     
     private func addConstraints() {
         let padding: CGFloat = 16
-        let size: CGFloat = 40
+        let size: CGFloat = 50
         
-        // Image constraints
+        // Image
         NSLayoutConstraint.activate([
-            flightImage.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor, constant: 15),
-            flightImage.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: padding),
-            flightImage.widthAnchor.constraint(equalToConstant: size),
-            flightImage.heightAnchor.constraint(equalToConstant: size)
+            flightPatchImage.centerYAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.centerYAnchor),
+            flightPatchImage.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: padding),
+            flightPatchImage.widthAnchor.constraint(equalToConstant: size),
+            flightPatchImage.heightAnchor.constraint(equalToConstant: size)
         ])
         
-        // Label constraints
+        // InfoView
         NSLayoutConstraint.activate([
-            flightLabel.centerYAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.centerYAnchor),
-            flightLabel.leadingAnchor.constraint(equalTo: flightImage.trailingAnchor, constant: padding),
-            flightLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding),
-            flightLabel.heightAnchor.constraint(equalToConstant: size)
+            flightInfoView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            flightInfoView.leadingAnchor.constraint(equalTo: flightPatchImage.trailingAnchor, constant: padding),
+            flightInfoView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding)
+        ])
+        
+        // Date
+        NSLayoutConstraint.activate([
+            flightDateLabel.leadingAnchor.constraint(equalTo: flightInfoView.leadingAnchor),
+            flightDateLabel.trailingAnchor.constraint(equalTo: flightInfoView.trailingAnchor),
+        ])
+        
+        // Name
+        NSLayoutConstraint.activate([
+            flightNameLabel.leadingAnchor.constraint(equalTo: flightInfoView.leadingAnchor),
+            flightNameLabel.trailingAnchor.constraint(equalTo: flightInfoView.trailingAnchor),
         ])
     }
     

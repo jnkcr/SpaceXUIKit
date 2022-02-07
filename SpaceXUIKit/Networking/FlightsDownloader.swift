@@ -21,7 +21,7 @@ struct FlightsDownloader: SpaceFlightsDownloadable {
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         guard let flights = try? decoder.decode([Flight].self, from: data) else { throw FlightError.unableToParse }
         #if DEBUG
-        dump(flights[0...4])
+        dump(flights[0...2])
         #endif
         // Return result
         return flights

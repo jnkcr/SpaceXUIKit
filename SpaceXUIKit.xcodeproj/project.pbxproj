@@ -13,6 +13,7 @@
 		F477088827B112AC00847540 /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477088727B112AC00847540 /* CustomErrors.swift */; };
 		F477088B27B115C300847540 /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477088A27B115C300847540 /* Flight.swift */; };
 		F477088D27B1215000847540 /* SpaceFlightsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477088C27B1215000847540 /* SpaceFlightsViewModel.swift */; };
+		F477089127B1791F00847540 /* CustomDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477089027B1791F00847540 /* CustomDateFormatter.swift */; };
 		F49E9F9627AC32B80081238D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E9F9527AC32B80081238D /* AppDelegate.swift */; };
 		F49E9F9827AC32B80081238D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E9F9727AC32B80081238D /* SceneDelegate.swift */; };
 		F49E9F9F27AC32BA0081238D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F49E9F9E27AC32BA0081238D /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		F477088727B112AC00847540 /* CustomErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrors.swift; sourceTree = "<group>"; };
 		F477088A27B115C300847540 /* Flight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
 		F477088C27B1215000847540 /* SpaceFlightsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceFlightsViewModel.swift; sourceTree = "<group>"; };
+		F477089027B1791F00847540 /* CustomDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateFormatter.swift; sourceTree = "<group>"; };
 		F49E9F9227AC32B80081238D /* SpaceXUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceXUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49E9F9527AC32B80081238D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F49E9F9727AC32B80081238D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +114,24 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		F477088E27B1690900847540 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				F4A4D11D27AD20F700163607 /* SpaceFlightsVC.swift */,
+				F4A4D12227AD76F900163607 /* SpaceFlightDetailVC.swift */,
+				F4A4D12427AD881B00163607 /* CrewVC.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		F477088F27B178F600847540 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F477089027B1791F00847540 /* CustomDateFormatter.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		F49E9F8927AC32B80081238D = {
 			isa = PBXGroup;
 			children = (
@@ -137,12 +157,11 @@
 			children = (
 				F49E9F9527AC32B80081238D /* AppDelegate.swift */,
 				F49E9F9727AC32B80081238D /* SceneDelegate.swift */,
-				F4A4D11D27AD20F700163607 /* SpaceFlightsVC.swift */,
-				F4A4D12227AD76F900163607 /* SpaceFlightDetailVC.swift */,
-				F4A4D12427AD881B00163607 /* CrewVC.swift */,
+				F477088E27B1690900847540 /* Screens */,
 				F477088927B115AB00847540 /* Models */,
 				F477088027B10E9000847540 /* Networking */,
 				F4A4D11F27AD648100163607 /* CustomViews */,
+				F477088F27B178F600847540 /* Helpers */,
 				F49E9F9E27AC32BA0081238D /* Assets.xcassets */,
 				F49E9FA027AC32BA0081238D /* LaunchScreen.storyboard */,
 				F49E9FA327AC32BA0081238D /* Info.plist */,
@@ -308,6 +327,7 @@
 				F477088627B111EC00847540 /* URLAdresses.swift in Sources */,
 				F477088827B112AC00847540 /* CustomErrors.swift in Sources */,
 				F4A4D11E27AD20F700163607 /* SpaceFlightsVC.swift in Sources */,
+				F477089127B1791F00847540 /* CustomDateFormatter.swift in Sources */,
 				F4A4D12127AD64BE00163607 /* FlightCell.swift in Sources */,
 				F477088427B10EEB00847540 /* FlightsDownloader.swift in Sources */,
 				F49E9F9627AC32B80081238D /* AppDelegate.swift in Sources */,

@@ -17,12 +17,11 @@ class SpaceFlightsVC: UIViewController {
         super.viewDidLoad()
         title = "Flights"
         view.backgroundColor = .systemBackground
-        
+        // Configure UI
         addSubviews()
         configureTableView()
         addConstraints()
         configurePullToRefresh()
-        
         // Download flights
         spaceFlightsViewModel.loadingDelegate = self
         spaceFlightsViewModel.loadFlights()
@@ -35,7 +34,6 @@ class SpaceFlightsVC: UIViewController {
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: selectedIndexPath, animated: animated)
         }
-        
     }
     
 }
@@ -88,7 +86,7 @@ extension SpaceFlightsVC: UITableViewDataSource {
     // Cell creation and setup
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FlightCell.reusableID, for: indexPath) as? FlightCell else { fatalError("Cannot downcast to FlightCell") }
-        cell.flightLabel.text = spaceFlightsViewModel.flights?[indexPath.row].name
+        cell.flightData = spaceFlightsViewModel.flights?[indexPath.row]
         return cell
     }
     
