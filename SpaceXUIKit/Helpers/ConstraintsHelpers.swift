@@ -11,4 +11,5 @@ enum ConstraintsHelper {
     static let padding: CGFloat = 16
     static let screenSize: CGFloat = UIScreen.main.bounds.width
     static let screenSizeWithoutPadding: CGFloat = UIScreen.main.bounds.width - (2 * padding)
+    static let screenSizeWithoutPaddingDividedByThree: CGFloat = (UIScreen.main.bounds.width - (2 * padding)) / 3
 }

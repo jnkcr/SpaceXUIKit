@@ -26,7 +26,8 @@ final class SpaceFlightsViewModel {
     func loadFlights() {
         Task {
             do {
-                flights = try await networkManager.downloadFlights()
+                let flightsData = try await networkManager.downloadFlights()
+                flights = flightsData.sorted { $0.dateUtc > $1.dateUtc }
                 loadingDelegate?.didFinishLoading(with: .success(Void()))
             } catch FlightError.unableToDownload {
                 loadingDelegate?.didFinishLoading(with: .failure(FlightError.unableToDownload))

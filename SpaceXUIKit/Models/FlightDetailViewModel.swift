@@ -28,7 +28,11 @@ final class FlightDetailVM {
     }
     
     var crewMembersDescription: String {
-        "\(flightData.crew.count) memb"
+        "\(flightData.crew.count) Mmbrs"
+    }
+    
+    var successDescription: String {
+        flightData.success ? "Success" : "Failure"
     }
     
 }

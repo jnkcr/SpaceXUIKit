@@ -33,7 +33,7 @@ class DetailHeaderView: UIStackView {
         translatesAutoresizingMaskIntoConstraints = false
         axis = .vertical
         alignment = .center
-        spacing = 10
+        spacing = 20
         // Labels text
         self.nameLabel.text = name
         self.descriptionLabel.text = description
