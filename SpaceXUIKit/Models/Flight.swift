@@ -30,7 +30,6 @@ struct Links: Codable {
     let patch: Patch
     let flickr: Flickr
     let webcast: String?
-    let youtubeId: String?
     let article: String?
     let wikipedia: String?
 }

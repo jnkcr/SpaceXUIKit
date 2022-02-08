@@ -7,10 +7,14 @@
 
 import Foundation
 
-struct FlightsDownloader: SpaceFlightsDownloadable {
+protocol FlightsDownloadable {
+    func downloadAllPastFlights() async throws -> [Flight]
+}
+
+struct FlightsDownloader: FlightsDownloadable {
     
-    let session = URLSession.shared
-    let decoder = JSONDecoder()
+    private let session = URLSession.shared
+    private let decoder = JSONDecoder()
     
     func downloadAllPastFlights() async throws -> [Flight] {
         // Download data

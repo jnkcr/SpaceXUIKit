@@ -16,12 +16,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // Navigation controllers
         let spaceFlightsNC = UINavigationController(rootViewController: SpaceFlightsVC())
+        spaceFlightsNC.navigationBar.tintColor = .systemYellow
         spaceFlightsNC.tabBarItem = UITabBarItem(title: "Flights", image: UIImage(systemName: "airplane.circle.fill"), tag: 0)
         let crewNC = UINavigationController(rootViewController: CrewVC())
+        crewNC.navigationBar.tintColor = .systemYellow
         crewNC.tabBarItem = UITabBarItem(title: "Crew", image: UIImage(systemName: "person.2.circle.fill"), tag: 1)
         
         // Tabbar
         let tabbar = UITabBarController()
+        tabbar.tabBar.tintColor = .systemYellow
         tabbar.viewControllers = [spaceFlightsNC, crewNC]
         
         // Window configuration

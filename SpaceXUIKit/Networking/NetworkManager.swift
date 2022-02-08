@@ -6,17 +6,20 @@
 //
 
 import Foundation
+import UIKit
 
-protocol SpaceFlightsDownloadable {
-    func downloadAllPastFlights() async throws -> [Flight]
-}
+
+
+
 
 final class NetworkManager {
     
-    private let flightsDownloader: SpaceFlightsDownloadable
+    private let flightsDownloader: FlightsDownloadable
+    private let imageDownloader: ImageDownloadable
     
-    init(flightsDownloader: SpaceFlightsDownloadable = FlightsDownloader()) {
+    init(flightsDownloader: FlightsDownloadable = FlightsDownloader(), imageDownloader: ImageDownloadable = ImageDownloader()) {
         self.flightsDownloader = flightsDownloader
+        self.imageDownloader = imageDownloader
     }
     
     func downloadFlights() async throws -> [Flight] {

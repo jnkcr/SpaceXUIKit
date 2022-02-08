@@ -50,23 +50,17 @@ extension SpaceFlightsVC {
     @objc
     private func refreshTableData() {
         spaceFlightsViewModel.loadFlights()
-        DispatchQueue.main.async {
-            self.tableView.refreshControl?.endRefreshing()
-        }
-        
+        DispatchQueue.main.async { self.tableView.refreshControl?.endRefreshing() }
     }
  
 }
 
-extension SpaceFlightsVC: SpaceFlightsDownloadingDelegate {
+extension SpaceFlightsVC: FlightsDownloadingDelegate {
     
     func didFinishLoading(with result: Result<Void, FlightError>) {
         switch result {
         case .success():
-            print("Reloading data....")
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
+            DispatchQueue.main.async { self.tableView.reloadData() }
         case .failure(let error):
             print(error.localizedDescription)
         }
@@ -97,7 +91,8 @@ extension SpaceFlightsVC: UITableViewDelegate {
     // Navigate to detail screen by selecting table row
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let spaceFlightDetailVC = SpaceFlightDetailVC()
-        spaceFlightDetailVC.flightName = spaceFlightsViewModel.flights?[indexPath.row].name
+        guard let flight = spaceFlightsViewModel.flights?[indexPath.row] else { fatalError("There has to be a flight with given index path") }
+        spaceFlightDetailVC.flightDetailVM = FlightDetailVM(flight: flight)
         navigationController?.pushViewController(spaceFlightDetailVC, animated: true)
     }
     
@@ -120,18 +115,15 @@ extension SpaceFlightsVC {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(FlightCell.self, forCellReuseIdentifier: FlightCell.reusableID)
-        
     }
     
     private func addConstraints() {
-        
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ])
-        
     }
     
 }

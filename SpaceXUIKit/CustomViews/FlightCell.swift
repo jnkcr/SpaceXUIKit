@@ -10,9 +10,14 @@ import UIKit
 class FlightCell: UITableViewCell {
     
     static let reusableID: String = "flightCell"
+    var patchImage: UIImage? {
+        didSet {
+            flightPatchImage.image = patchImage
+        }
+    }
     var flightData: Flight? {
         didSet {
-            flightDateLabel.text = CustomDateFormatter.formatUTCDate(from: flightData?.dateUtc)
+            flightDateLabel.text = CustomDateFormatter.formatUTCDate(from: flightData?.dateUtc, as: .long)
             flightNameLabel.text = flightData?.name
         }
     }
@@ -57,13 +62,12 @@ extension FlightCell {
     
     private func configureFlightImage() {
         flightPatchImage.translatesAutoresizingMaskIntoConstraints = false
+        flightPatchImage.tintColor = .systemYellow
         flightPatchImage.image = UIImage(systemName: "airplane.circle")
-        flightPatchImage.tintColor = .secondaryLabel
     }
     
     private func configureInfoView() {
         flightInfoView.translatesAutoresizingMaskIntoConstraints = false
-        flightInfoView.backgroundColor = .systemBackground
         flightInfoView.axis = .vertical
         flightInfoView.spacing = 5
     }

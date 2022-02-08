@@ -6,15 +6,16 @@
 //
 
 import Foundation
+import UIKit
 
-protocol SpaceFlightsDownloadingDelegate {
+protocol FlightsDownloadingDelegate {
     func didFinishLoading(with result: Result<Void, FlightError>)
 }
 
 final class SpaceFlightsViewModel {
     
     private let networkManager: NetworkManager
-    var loadingDelegate: SpaceFlightsDownloadingDelegate?
+    var loadingDelegate: FlightsDownloadingDelegate?
     
     var flights: [Flight]? = []
     
