@@ -23,7 +23,7 @@ class FlightCell: UITableViewCell {
     }
     
     let flightPatchImage: UIImageView = UIImageView()
-    let flightInfoView: UIStackView = UIStackView()
+    let flightInfoStack: UIStackView = UIStackView()
     let flightDateLabel: UILabel = UILabel()
     let flightNameLabel: UILabel = UILabel()
     
@@ -55,9 +55,9 @@ extension FlightCell {
     
     private func addSubviews() {
         contentView.addSubview(flightPatchImage)
-        contentView.addSubview(flightInfoView)
-        flightInfoView.addArrangedSubview(flightDateLabel)
-        flightInfoView.addArrangedSubview(flightNameLabel)
+        contentView.addSubview(flightInfoStack)
+        flightInfoStack.addArrangedSubview(flightDateLabel)
+        flightInfoStack.addArrangedSubview(flightNameLabel)
     }
     
     private func configureFlightImage() {
@@ -67,9 +67,9 @@ extension FlightCell {
     }
     
     private func configureInfoView() {
-        flightInfoView.translatesAutoresizingMaskIntoConstraints = false
-        flightInfoView.axis = .vertical
-        flightInfoView.spacing = 5
+        flightInfoStack.translatesAutoresizingMaskIntoConstraints = false
+        flightInfoStack.axis = .vertical
+        flightInfoStack.spacing = ConstraintsHelper.tinySpacing
     }
     
     private func configureDateLabel() {
@@ -88,34 +88,33 @@ extension FlightCell {
     }
     
     private func addConstraints() {
-        let padding: CGFloat = 16
         let size: CGFloat = 50
         
         // Image
         NSLayoutConstraint.activate([
             flightPatchImage.centerYAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.centerYAnchor),
-            flightPatchImage.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor, constant: padding),
+            flightPatchImage.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor),
             flightPatchImage.widthAnchor.constraint(equalToConstant: size),
             flightPatchImage.heightAnchor.constraint(equalToConstant: size)
         ])
         
         // InfoView
         NSLayoutConstraint.activate([
-            flightInfoView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            flightInfoView.leadingAnchor.constraint(equalTo: flightPatchImage.trailingAnchor, constant: padding),
-            flightInfoView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -padding)
+            flightInfoStack.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            flightInfoStack.leadingAnchor.constraint(equalTo: flightPatchImage.trailingAnchor, constant: ConstraintsHelper.padding),
+            flightInfoStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
         ])
         
         // Date
         NSLayoutConstraint.activate([
-            flightDateLabel.leadingAnchor.constraint(equalTo: flightInfoView.leadingAnchor),
-            flightDateLabel.trailingAnchor.constraint(equalTo: flightInfoView.trailingAnchor),
+            flightDateLabel.leadingAnchor.constraint(equalTo: flightInfoStack.leadingAnchor),
+            flightDateLabel.trailingAnchor.constraint(equalTo: flightInfoStack.trailingAnchor),
         ])
         
         // Name
         NSLayoutConstraint.activate([
-            flightNameLabel.leadingAnchor.constraint(equalTo: flightInfoView.leadingAnchor),
-            flightNameLabel.trailingAnchor.constraint(equalTo: flightInfoView.trailingAnchor),
+            flightNameLabel.leadingAnchor.constraint(equalTo: flightInfoStack.leadingAnchor),
+            flightNameLabel.trailingAnchor.constraint(equalTo: flightInfoStack.trailingAnchor),
         ])
     }
     

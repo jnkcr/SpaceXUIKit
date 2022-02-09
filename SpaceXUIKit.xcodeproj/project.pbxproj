@@ -125,8 +125,6 @@
 			children = (
 				F477088A27B115C300847540 /* Flight.swift */,
 				F483709627B3CC6600D2146E /* ButtonLinks.swift */,
-				F477088C27B1215000847540 /* SpaceFlightsViewModel.swift */,
-				F477089427B2650600847540 /* FlightDetailViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -148,6 +146,15 @@
 				F477089A27B2C7D300847540 /* ConstraintsHelpers.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		F483709827B3D90A00D2146E /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				F477088C27B1215000847540 /* SpaceFlightsViewModel.swift */,
+				F477089427B2650600847540 /* FlightDetailViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		F49E9F8927AC32B80081238D = {
@@ -177,6 +184,7 @@
 				F49E9F9727AC32B80081238D /* SceneDelegate.swift */,
 				F477088E27B1690900847540 /* Screens */,
 				F477088927B115AB00847540 /* Models */,
+				F483709827B3D90A00D2146E /* ViewModels */,
 				F477088027B10E9000847540 /* Networking */,
 				F4A4D11F27AD648100163607 /* CustomViews */,
 				F477088F27B178F600847540 /* Helpers */,

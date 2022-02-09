@@ -9,22 +9,39 @@ import UIKit
 
 class SpaceFlightsVC: UIViewController {
     
-    let tableView: UITableView = UITableView(frame: .zero, style: .plain)
-    
     let spaceFlightsViewModel = SpaceFlightsViewModel()
+    
+    private let tableView: UITableView = {
+        let table = UITableView(frame: .zero, style: .plain)
+        table.translatesAutoresizingMaskIntoConstraints = false
+        table.backgroundColor = .systemBackground
+        table.separatorStyle = .none
+        table.rowHeight = 70
+        return table
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Flights"
         view.backgroundColor = .systemBackground
-        // Configure UI
-        addSubviews()
-        configureTableView()
-        addConstraints()
+        // Delegates
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(FlightCell.self, forCellReuseIdentifier: FlightCell.reusableID)
+        // Subviews
+        view.addSubview(tableView)
+        // Pull to refresh
         configurePullToRefresh()
-        // Download flights
+        // Download data
         spaceFlightsViewModel.loadingDelegate = self
         spaceFlightsViewModel.loadFlights()
+        // Configure UI
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: ConstraintsHelper.padding),
+            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -ConstraintsHelper.padding)
+        ])
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,7 +55,8 @@ class SpaceFlightsVC: UIViewController {
     
 }
 
-#warning("Pull to refresh: mby incomplete implementation")
+// MARK: - Additional functionality
+
 extension SpaceFlightsVC {
     
     private func configurePullToRefresh() {
@@ -94,36 +112,6 @@ extension SpaceFlightsVC: UITableViewDelegate {
         guard let flight = spaceFlightsViewModel.flights?[indexPath.row] else { fatalError("There has to be a flight with given index path") }
         spaceFlightDetailVC.flightDetailVM = FlightDetailVM(flight: flight)
         navigationController?.pushViewController(spaceFlightDetailVC, animated: true)
-    }
-    
-}
-
-// MARK: - UI Configuration
-
-extension SpaceFlightsVC {
-    
-    private func addSubviews() {
-        view.addSubview(tableView)
-    }
-    
-    private func configureTableView() {
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = .systemBackground
-        tableView.separatorStyle = .none
-        tableView.rowHeight = 70
-        
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.register(FlightCell.self, forCellReuseIdentifier: FlightCell.reusableID)
-    }
-    
-    private func addConstraints() {
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
-        ])
     }
     
 }

@@ -15,6 +15,7 @@ class SpaceFlightDetailVC: UIViewController {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.alwaysBounceVertical = true
+        scrollView.showsVerticalScrollIndicator = false
         return scrollView
     }()
     private let stackView: UIStackView = {
@@ -53,9 +54,13 @@ class SpaceFlightDetailVC: UIViewController {
             scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: ConstraintsHelper.padding),
             scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,constant: -ConstraintsHelper.padding),
             scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            scrollView.contentLayoutGuide.widthAnchor.constraint(equalTo: stackView.widthAnchor), // Stops horizontal scrolling
+            scrollView.contentLayoutGuide.topAnchor.constraint(equalTo: stackView.topAnchor),
+            scrollView.contentLayoutGuide.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
+            scrollView.contentLayoutGuide.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
+            scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: stackView.bottomAnchor),
             // STACK
             stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: ConstraintsHelper.padding),
+            stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -ConstraintsHelper.padding),
             stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         ])
     }
