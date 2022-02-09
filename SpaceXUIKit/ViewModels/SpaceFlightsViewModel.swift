@@ -17,7 +17,7 @@ final class SpaceFlightsViewModel {
     private let networkManager: NetworkManager
     var loadingDelegate: FlightsDownloadingDelegate?
     
-    var flights: [Flight]? = []
+    var flights: [FlightAndPatch] = []
     
     init(manager: NetworkManager = NetworkManager()) {
         networkManager = manager
@@ -27,7 +27,15 @@ final class SpaceFlightsViewModel {
         Task {
             do {
                 let flightsData = try await networkManager.downloadFlights()
-                flights = flightsData.sorted { $0.dateUtc > $1.dateUtc }
+                let flightsAndPatches: [FlightAndPatch] = try await flightsData.asyncMap { flight in
+                    if let urlStr = flight.links.patch.small {
+                        let patch = try await networkManager.downloadImage(from: urlStr)
+                        return FlightAndPatch(patchImage: patch, flight: flight)
+                    } else {
+                        return FlightAndPatch(patchImage: nil, flight: flight)
+                    }
+                }
+                flights = flightsAndPatches.sorted { $0.flight.dateUtc > $1.flight.dateUtc }
                 loadingDelegate?.didFinishLoading(with: .success(Void()))
             } catch FlightError.unableToDownload {
                 loadingDelegate?.didFinishLoading(with: .failure(FlightError.unableToDownload))
@@ -43,6 +51,12 @@ final class SpaceFlightsViewModel {
                 print("Shit, general failure...")
             }
         }
+    }
+    
+    func generateCellData(for index: Int) -> CellData {
+        let flight: FlightAndPatch = flights[index]
+        let date: String = CustomDateFormatter.formatUTCDate(from: flight.flight.dateUtc, as: .long)
+        return CellData(image: flight.patchImage, date: date, title: flight.flight.name)
     }
     
 }

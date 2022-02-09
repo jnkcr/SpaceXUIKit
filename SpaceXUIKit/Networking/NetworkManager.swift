@@ -21,4 +21,8 @@ final class NetworkManager {
         try await flightsDownloader.downloadAllPastFlights()
     }
     
+    func downloadImage(from urlStr: String) async throws -> UIImage? {
+        try await imageDownloader.downloadImage(from: urlStr)
+    }
+    
 }

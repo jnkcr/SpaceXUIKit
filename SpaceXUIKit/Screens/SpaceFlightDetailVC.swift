@@ -41,13 +41,13 @@ class SpaceFlightDetailVC: UIViewController {
         view.backgroundColor = .systemBackground
         title = "Detail"
         navigationController?.navigationBar.prefersLargeTitles = false
-        
+        // Subviews
         view.addSubview(scrollView)
         scrollView.addSubview(stackView)
         stackView.addArrangedSubview(headerView)
         stackView.addArrangedSubview(highlightsView)
         stackView.addArrangedSubview(linksStack)
-        
+        // UI Constraints
         NSLayoutConstraint.activate([
             // SCROLLVIEW
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
