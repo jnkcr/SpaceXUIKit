@@ -19,6 +19,8 @@
 		F477089727B2692100847540 /* DetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477089627B2692100847540 /* DetailHeaderView.swift */; };
 		F477089927B28EDC00847540 /* DetailHighlightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477089827B28EDC00847540 /* DetailHighlightsView.swift */; };
 		F477089B27B2C7D300847540 /* ConstraintsHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477089A27B2C7D300847540 /* ConstraintsHelpers.swift */; };
+		F483709527B3BDCA00D2146E /* DetailLinksStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F483709427B3BDCA00D2146E /* DetailLinksStack.swift */; };
+		F483709727B3CC6600D2146E /* ButtonLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F483709627B3CC6600D2146E /* ButtonLinks.swift */; };
 		F49E9F9627AC32B80081238D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E9F9527AC32B80081238D /* AppDelegate.swift */; };
 		F49E9F9827AC32B80081238D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E9F9727AC32B80081238D /* SceneDelegate.swift */; };
 		F49E9F9F27AC32BA0081238D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F49E9F9E27AC32BA0081238D /* Assets.xcassets */; };
@@ -62,6 +64,8 @@
 		F477089627B2692100847540 /* DetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderView.swift; sourceTree = "<group>"; };
 		F477089827B28EDC00847540 /* DetailHighlightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHighlightsView.swift; sourceTree = "<group>"; };
 		F477089A27B2C7D300847540 /* ConstraintsHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsHelpers.swift; sourceTree = "<group>"; };
+		F483709427B3BDCA00D2146E /* DetailLinksStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLinksStack.swift; sourceTree = "<group>"; };
+		F483709627B3CC6600D2146E /* ButtonLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonLinks.swift; sourceTree = "<group>"; };
 		F49E9F9227AC32B80081238D /* SpaceXUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceXUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49E9F9527AC32B80081238D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F49E9F9727AC32B80081238D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				F477088A27B115C300847540 /* Flight.swift */,
+				F483709627B3CC6600D2146E /* ButtonLinks.swift */,
 				F477088C27B1215000847540 /* SpaceFlightsViewModel.swift */,
 				F477089427B2650600847540 /* FlightDetailViewModel.swift */,
 			);
@@ -205,6 +210,7 @@
 				F4A4D12027AD64BE00163607 /* FlightCell.swift */,
 				F477089627B2692100847540 /* DetailHeaderView.swift */,
 				F477089827B28EDC00847540 /* DetailHighlightsView.swift */,
+				F483709427B3BDCA00D2146E /* DetailLinksStack.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -342,7 +348,9 @@
 				F477089B27B2C7D300847540 /* ConstraintsHelpers.swift in Sources */,
 				F477088627B111EC00847540 /* URLAdresses.swift in Sources */,
 				F477088827B112AC00847540 /* CustomErrors.swift in Sources */,
+				F483709527B3BDCA00D2146E /* DetailLinksStack.swift in Sources */,
 				F477089327B18B1500847540 /* ImageDownloader.swift in Sources */,
+				F483709727B3CC6600D2146E /* ButtonLinks.swift in Sources */,
 				F4A4D11E27AD20F700163607 /* SpaceFlightsVC.swift in Sources */,
 				F477089127B1791F00847540 /* CustomDateFormatter.swift in Sources */,
 				F4A4D12127AD64BE00163607 /* FlightCell.swift in Sources */,

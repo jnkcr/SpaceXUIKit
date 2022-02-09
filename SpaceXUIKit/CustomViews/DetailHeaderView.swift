@@ -18,6 +18,7 @@ class DetailHeaderView: UIStackView {
         label.textAlignment = .natural
         return label
     }()
+    
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -33,7 +34,7 @@ class DetailHeaderView: UIStackView {
         translatesAutoresizingMaskIntoConstraints = false
         axis = .vertical
         alignment = .center
-        spacing = 20
+        spacing = ConstraintsHelper.mediumSpacing
         // Labels text
         self.nameLabel.text = name
         self.descriptionLabel.text = description

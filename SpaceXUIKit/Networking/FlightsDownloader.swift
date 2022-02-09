@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol FlightsDownloadable {
     func downloadAllPastFlights() async throws -> [Flight]

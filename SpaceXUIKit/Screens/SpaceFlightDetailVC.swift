@@ -22,14 +22,17 @@ class SpaceFlightDetailVC: UIViewController {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .center
-        stack.spacing = 40
+        stack.spacing = ConstraintsHelper.largeSpacing
         return stack
     }()
     private lazy var headerView: DetailHeaderView = {
         DetailHeaderView(name: flightDetailVM!.name, description: flightDetailVM!.description)
     }()
     private lazy var highlightsView: DetailHighlightsView = {
-        DetailHighlightsView(dateDesc: flightDetailVM!.dateDescription, crewDesc: flightDetailVM!.crewMembersDescription, successDesc: flightDetailVM!.successDescription)
+        DetailHighlightsView(dateDesc: flightDetailVM!.dateDescription, crewDesc: flightDetailVM!.crewMembersDescription, successDesc: flightDetailVM!.successDescription, successImg: flightDetailVM!.successImage)
+    }()
+    private lazy var linksStack: DetailLinksStack = {
+        DetailLinksStack(links: flightDetailVM!.buttonLinks)
     }()
     
     override func viewDidLoad() {
@@ -42,16 +45,17 @@ class SpaceFlightDetailVC: UIViewController {
         scrollView.addSubview(stackView)
         stackView.addArrangedSubview(headerView)
         stackView.addArrangedSubview(highlightsView)
+        stackView.addArrangedSubview(linksStack)
         
         NSLayoutConstraint.activate([
             // SCROLLVIEW
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: ConstraintsHelper.padding),
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: ConstraintsHelper.padding),
             scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor,constant: -ConstraintsHelper.padding),
             scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            scrollView.contentLayoutGuide.widthAnchor.constraint(equalTo: view.widthAnchor), // Stops horizontal scrolling
+            scrollView.contentLayoutGuide.widthAnchor.constraint(equalTo: stackView.widthAnchor), // Stops horizontal scrolling
             // STACK
-            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: ConstraintsHelper.padding),
             stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         ])
     }

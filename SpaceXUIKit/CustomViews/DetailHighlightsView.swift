@@ -62,7 +62,7 @@ class DetailHighlightsView: UIStackView {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .center
-        stack.spacing = 5
+        stack.spacing = ConstraintsHelper.tinySpacing
         return stack
     }()
     
@@ -71,7 +71,7 @@ class DetailHighlightsView: UIStackView {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .center
-        stack.spacing = 5
+        stack.spacing = ConstraintsHelper.tinySpacing
         return stack
     }()
     
@@ -80,7 +80,7 @@ class DetailHighlightsView: UIStackView {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .center
-        stack.spacing = 5
+        stack.spacing = ConstraintsHelper.tinySpacing
         return stack
     }()
     
@@ -93,13 +93,14 @@ class DetailHighlightsView: UIStackView {
         return stack
     }()
     
-    init(dateDesc: String, crewDesc: String, successDesc: String) {
+    init(dateDesc: String, crewDesc: String, successDesc: String, successImg: UIImage) {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
         // Labels text
         dateLabel.text = dateDesc
         crewLabel.text = crewDesc
         successLabel.text = successDesc
+        successIcon.image = successImg
         // Add subviews
         addSubview(highlightStack)
         highlightStack.addArrangedSubview(dateStack)
