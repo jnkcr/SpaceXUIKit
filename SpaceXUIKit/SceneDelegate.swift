@@ -10,22 +10,32 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    
+    let spaceFlightsVC = SpaceFlightsVC()
+    let crewVC = CrewVC()
+    let settingsVC = SettingsVC()
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         // Navigation controllers
-        let spaceFlightsNC = UINavigationController(rootViewController: SpaceFlightsVC())
+        lazy var spaceFlightsNC = UINavigationController(rootViewController: spaceFlightsVC)
         spaceFlightsNC.navigationBar.tintColor = .systemYellow
         spaceFlightsNC.tabBarItem = UITabBarItem(title: "Flights", image: UIImage(systemName: "airplane.circle.fill"), tag: 0)
-        let crewNC = UINavigationController(rootViewController: CrewVC())
+        lazy var crewNC = UINavigationController(rootViewController: crewVC)
         crewNC.navigationBar.tintColor = .systemYellow
         crewNC.tabBarItem = UITabBarItem(title: "Crew", image: UIImage(systemName: "person.2.circle.fill"), tag: 1)
+        lazy var settingsNC = UINavigationController(rootViewController: settingsVC)
+        settingsNC.navigationBar.tintColor = .systemYellow
+        settingsNC.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear.circle.fill"), tag: 2)
         
         // Tabbar
         let tabbar = UITabBarController()
         tabbar.tabBar.tintColor = .systemYellow
-        tabbar.viewControllers = [spaceFlightsNC, crewNC]
+        tabbar.viewControllers = [spaceFlightsNC, crewNC, settingsNC]
+        
+        // Appearance delegation
+        settingsVC.appearanceDelegate = self
         
         // Window configuration
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
@@ -62,5 +72,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
     }
 
+}
+
+extension SceneDelegate: AppearanceDelegate {
+    
+    func didChangeAppearanceStyle(to style: UIUserInterfaceStyle) {
+        window?.overrideUserInterfaceStyle = style
+    }
+    
 }
 

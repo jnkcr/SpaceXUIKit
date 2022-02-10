@@ -43,6 +43,7 @@ class SpaceFlightsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = true
         title = "Flights"
         view.backgroundColor = .systemBackground
         navigationItem.leftBarButtonItem = refreshBarButton
@@ -60,7 +61,6 @@ class SpaceFlightsVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = true
         // Deselect row after navigationg back from detail view
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: selectedIndexPath, animated: animated)

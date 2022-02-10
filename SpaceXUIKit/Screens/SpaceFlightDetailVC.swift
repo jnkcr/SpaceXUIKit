@@ -38,9 +38,9 @@ class SpaceFlightDetailVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.largeTitleDisplayMode = .never
         view.backgroundColor = .systemBackground
         title = "Detail"
-        navigationController?.navigationBar.prefersLargeTitles = false
         // Subviews
         view.addSubview(scrollView)
         scrollView.addSubview(stackView)
