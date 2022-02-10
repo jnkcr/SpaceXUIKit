@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 protocol FlightsDownloadingDelegate {
+    func didChangeProgress(to value: Float)
     func didFinishLoading(with result: Result<Void, FlightError>)
 }
 
@@ -27,12 +28,23 @@ final class SpaceFlightsViewModel {
         Task {
             do {
                 let flightsData = try await networkManager.downloadFlights()
-                let flightsAndPatches: [FlightAndPatch] = try await flightsData.asyncMap { flight in
-                    if let urlStr = flight.links.patch.small {
-                        let patch = try await networkManager.downloadImage(from: urlStr)
-                        return FlightAndPatch(patchImage: patch, flight: flight)
-                    } else {
-                        return FlightAndPatch(patchImage: nil, flight: flight)
+                var flightsAndPatches: [FlightAndPatch] = []
+                try await withThrowingTaskGroup(of: (UIImage?, Flight).self) { group in
+                    var progress: Float = 0
+                    for flight in flightsData {
+                        group.addTask {
+                            if let urlStr = flight.links.patch.small {
+                                let image = try await self.networkManager.downloadImage(from: urlStr)
+                                return (image, flight)
+                            } else {
+                                return (nil, flight)
+                            }
+                        }
+                    }
+                    for try await (image, flight) in group {
+                        flightsAndPatches.append(FlightAndPatch(patchImage: image, flight: flight))
+                        progress += 1
+                        loadingDelegate?.didChangeProgress(to: progress / Float(flightsData.count))
                     }
                 }
                 flights = flightsAndPatches.sorted { $0.flight.dateUtc > $1.flight.dateUtc }

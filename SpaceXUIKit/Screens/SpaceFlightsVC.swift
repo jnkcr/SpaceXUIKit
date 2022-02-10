@@ -11,7 +11,7 @@ class SpaceFlightsVC: UIViewController {
     
     let spaceFlightsVM = SpaceFlightsViewModel()
     
-    private let loadingIndicatorView: UIView = {
+    private let loadingIndicatorView: LoadingIndicatorView = {
         LoadingIndicatorView()
     }()
     private let tableView: UITableView = {
@@ -93,6 +93,10 @@ extension SpaceFlightsVC {
 }
 
 extension SpaceFlightsVC: FlightsDownloadingDelegate {
+    
+    func didChangeProgress(to value: Float) {
+        DispatchQueue.main.async { self.loadingIndicatorView.progressBar.setProgress(value, animated: true) }
+    }
     
     func didFinishLoading(with result: Result<Void, FlightError>) {
         switch result {

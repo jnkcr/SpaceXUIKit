@@ -9,16 +9,11 @@ import UIKit
 
 class CrewVC: UIViewController {
     
-    let button: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("open link", for: .normal)
-        button.configuration = .filled()
-        button.configuration?.cornerStyle = .large
-        button.configuration?.buttonSize = .large
-        button.tintColor = .systemYellow
-        button.addTarget(self, action: #selector(openLink), for: .touchUpInside)
-        return button
+    let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(named: "clever")
+        return imageView
     }()
 
     override func viewDidLoad() {
@@ -26,13 +21,13 @@ class CrewVC: UIViewController {
         view.backgroundColor = .systemBackground
         title = "Crew"
         
-        view.addSubview(button)
+        view.addSubview(imageView)
         
         NSLayoutConstraint.activate([
-            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            button.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-//            button.widthAnchor.constraint(equalToConstant: 100),
-//            button.heightAnchor.constraint(equalToConstant: 40)
+            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            imageView.widthAnchor.constraint(equalToConstant: 250),
+            imageView.heightAnchor.constraint(equalToConstant: 250)
         ])
     }
     
