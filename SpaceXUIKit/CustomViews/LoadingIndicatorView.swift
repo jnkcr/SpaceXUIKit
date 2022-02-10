@@ -27,8 +27,10 @@ class LoadingIndicatorView: UIView {
     init() {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
+        // Subviews
         addSubview(imageView)
         addSubview(progressBar)
+        // UI Constraints
         NSLayoutConstraint.activate([
             // IMAGE
             imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),

@@ -11,7 +11,7 @@ class SpaceFlightsVC: UIViewController {
     
     let spaceFlightsVM = SpaceFlightsViewModel()
     
-    private let loadingIndicatorView: LoadingIndicatorView = {
+    private var loadingIndicatorView: LoadingIndicatorView? = {
         LoadingIndicatorView()
     }()
     private let tableView: UITableView = {
@@ -23,32 +23,36 @@ class SpaceFlightsVC: UIViewController {
         table.rowHeight = 70
         return table
     }()
-    lazy var loadingIndicatorConstraints: [NSLayoutConstraint] = {
+    lazy var loadingIndicatorConstraints: [NSLayoutConstraint]? = {
         [
-            loadingIndicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loadingIndicatorView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            loadingIndicatorView!.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loadingIndicatorView!.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ]
     }()
     lazy var tableViewConstraints: [NSLayoutConstraint] = {
         [
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: ConstraintsHelper.padding),
-            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -ConstraintsHelper.padding)
+            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ]
+    }()
+    let refreshBarButton: UIBarButtonItem = {
+        UIBarButtonItem(image: UIImage(systemName: "arrow.triangle.2.circlepath"), style: .plain, target: self, action: #selector(redownloadAndRefreshTableData))
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Flights"
         view.backgroundColor = .systemBackground
+        navigationItem.leftBarButtonItem = refreshBarButton
         // Table
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(FlightCell.self, forCellReuseIdentifier: FlightCell.reusableID)
-        // Configuration
-        view.addSubview(loadingIndicatorView)
-        NSLayoutConstraint.activate(loadingIndicatorConstraints)
+        // UI Configuration
+        view.addSubview(loadingIndicatorView!)
+        NSLayoutConstraint.activate(loadingIndicatorConstraints!)
         // Download data
         spaceFlightsVM.loadingDelegate = self
         spaceFlightsVM.loadFlights()
@@ -71,7 +75,8 @@ extension SpaceFlightsVC {
     
     private func activateTableView() {
         DispatchQueue.main.async { [self] in
-            loadingIndicatorView.removeFromSuperview()
+            loadingIndicatorView?.removeFromSuperview()
+            loadingIndicatorView = nil
             view.addSubview(tableView)
             NSLayoutConstraint.activate(tableViewConstraints)
             configurePullToRefresh()
@@ -81,11 +86,11 @@ extension SpaceFlightsVC {
     private func configurePullToRefresh() {
         let refreshControl = UIRefreshControl()
         tableView.refreshControl = refreshControl
-        tableView.refreshControl?.addTarget(self, action: #selector(refreshTableData), for: .valueChanged)
+        tableView.refreshControl?.addTarget(self, action: #selector(redownloadAndRefreshTableData), for: .valueChanged)
     }
     
     @objc
-    private func refreshTableData() {
+    private func redownloadAndRefreshTableData() {
         spaceFlightsVM.loadFlights()
         DispatchQueue.main.async { self.tableView.refreshControl?.endRefreshing() }
     }
@@ -95,7 +100,7 @@ extension SpaceFlightsVC {
 extension SpaceFlightsVC: FlightsDownloadingDelegate {
     
     func didChangeProgress(to value: Float) {
-        DispatchQueue.main.async { self.loadingIndicatorView.progressBar.setProgress(value, animated: true) }
+        DispatchQueue.main.async { self.loadingIndicatorView?.progressBar.setProgress(value, animated: true) }
     }
     
     func didFinishLoading(with result: Result<Void, FlightError>) {

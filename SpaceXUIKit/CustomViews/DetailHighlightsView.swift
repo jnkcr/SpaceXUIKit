@@ -101,7 +101,7 @@ class DetailHighlightsView: UIStackView {
         crewLabel.text = crewDesc
         successLabel.text = successDesc
         successIcon.image = successImg
-        // Add subviews
+        // Subviews
         addSubview(highlightStack)
         highlightStack.addArrangedSubview(dateStack)
         highlightStack.addArrangedSubview(crewStack)

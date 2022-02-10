@@ -20,9 +20,9 @@ class CrewVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         title = "Crew"
-        
+        // Subviews
         view.addSubview(imageView)
-        
+        // UIConfiguration
         NSLayoutConstraint.activate([
             imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
@@ -36,14 +36,4 @@ class CrewVC: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
 
-}
-
-extension CrewVC {
-    
-    @objc
-    func openLink() {
-        let url = URL(string: "http://www.spacex.com/news/2013/02/11/falcon-1-flight-3-mission-summary")!
-        UIApplication.shared.open(url)
-    }
-    
 }

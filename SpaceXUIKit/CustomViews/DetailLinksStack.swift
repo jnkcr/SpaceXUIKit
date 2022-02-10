@@ -78,7 +78,7 @@ class DetailLinksStack: UIStackView {
         articleButton.addTarget(self, action: #selector(handleArticle), for: .touchUpInside)
         wikipediaButton.addTarget(self, action: #selector(handleWiki), for: .touchUpInside)
         youtubeButton.addTarget(self, action: #selector(handleYoutube), for: .touchUpInside)
-        // Add subviews
+        // Subviews
         addArrangedSubview(titleLabel)
         addArrangedSubview(allButtonsStack)
         allButtonsStack.addArrangedSubview(writtenTextButtonsStack)

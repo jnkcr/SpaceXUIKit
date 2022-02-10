@@ -62,13 +62,13 @@ class FlightCell: UITableViewCell {
         NSLayoutConstraint.activate([
             // PATCH IMAGE
             patchImage.centerYAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.centerYAnchor),
-            patchImage.leadingAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.leadingAnchor),
+            patchImage.leadingAnchor.constraint(equalTo: contentView.readableContentGuide.leadingAnchor),
             patchImage.widthAnchor.constraint(equalToConstant: size),
             patchImage.heightAnchor.constraint(equalToConstant: size),
             // STACK
             infoStack.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             infoStack.leadingAnchor.constraint(equalTo: patchImage.trailingAnchor, constant: ConstraintsHelper.padding),
-            infoStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            infoStack.trailingAnchor.constraint(equalTo: contentView.readableContentGuide.trailingAnchor),
             // DATE
             dateLabel.leadingAnchor.constraint(equalTo: infoStack.leadingAnchor),
             dateLabel.trailingAnchor.constraint(equalTo: infoStack.trailingAnchor),
@@ -85,6 +85,10 @@ class FlightCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
+    }
+    
+    override func prepareForReuse() {
+        flightData = nil
     }
 
 }

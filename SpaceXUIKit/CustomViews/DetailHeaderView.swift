@@ -25,7 +25,7 @@ class DetailHeaderView: UIStackView {
         label.font = UIFont.preferredFont(forTextStyle: .subheadline)
         label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
-        label.textAlignment = .natural
+        label.textAlignment = .justified
         return label
     }()
     
@@ -38,10 +38,10 @@ class DetailHeaderView: UIStackView {
         // Labels text
         self.nameLabel.text = name
         self.descriptionLabel.text = description
-        // Adding subviews
+        // Subviews
         addArrangedSubview(nameLabel)
         addArrangedSubview(descriptionLabel)
-        // Constraints
+        // UI Constraints
         NSLayoutConstraint.activate([
             nameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             nameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),

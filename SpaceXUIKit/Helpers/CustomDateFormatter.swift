@@ -9,7 +9,7 @@ import Foundation
 
 struct CustomDateFormatter {
     
-    static func formatUTCDate(from string: String?, as style: Date.FormatStyle.DateStyle) -> String {
+    static func formatUTCDate(from string: String?, as style: Date.FormatStyle.DateStyle = .long) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         guard let str = string else { return "n/a" }
