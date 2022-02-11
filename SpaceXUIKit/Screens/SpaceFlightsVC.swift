@@ -9,7 +9,7 @@ import UIKit
 
 class SpaceFlightsVC: UIViewController {
     
-    let spaceFlightsVM = SpaceFlightsViewModel()
+    let spaceFlightsVM = SpaceFlightsVM()
     
     private var loadingIndicatorView: LoadingIndicatorView? = {
         LoadingIndicatorView()
@@ -107,7 +107,7 @@ extension SpaceFlightsVC: FlightsDownloadingDelegate {
         }
     }
     
-    func didFinishLoading(with result: Result<Void, FlightError>) {
+    func didFinishLoading(with result: Result<Void, DownloadError>) {
         switch result {
         case .success():
             activateTableView()

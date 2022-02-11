@@ -9,10 +9,10 @@ import UIKit
 
 protocol FlightsDownloadingDelegate {
     func didChangeProgress(to value: Float)
-    func didFinishLoading(with result: Result<Void, FlightError>)
+    func didFinishLoading(with result: Result<Void, DownloadError>)
 }
 
-final class SpaceFlightsViewModel {
+final class SpaceFlightsVM {
     
     private let networkManager: NetworkManager
     var loadingDelegate: FlightsDownloadingDelegate?
@@ -48,17 +48,14 @@ final class SpaceFlightsViewModel {
                 }
                 flights = flightsAndPatches.sorted { $0.flight.dateUtc > $1.flight.dateUtc }
                 loadingDelegate?.didFinishLoading(with: .success(Void()))
-            } catch FlightError.unableToDownload {
-                loadingDelegate?.didFinishLoading(with: .failure(FlightError.unableToDownload))
-                print("Shit, unable to download...")
-            } catch FlightError.invalidResponse {
-                loadingDelegate?.didFinishLoading(with: .failure(FlightError.invalidResponse))
+            } catch DownloadError.invalidResponse {
+                loadingDelegate?.didFinishLoading(with: .failure(DownloadError.invalidResponse))
                 print("Shit, invalid response...")
-            } catch FlightError.unableToParse {
-                loadingDelegate?.didFinishLoading(with: .failure(FlightError.unableToParse))
+            } catch DownloadError.unableToParse {
+                loadingDelegate?.didFinishLoading(with: .failure(DownloadError.unableToParse))
                 print("Shit, unable to parse...")
             } catch {
-                loadingDelegate?.didFinishLoading(with: .failure(FlightError.generalError))
+                loadingDelegate?.didFinishLoading(with: .failure(DownloadError.generalError))
                 print("Shit, general failure...")
             }
         }

@@ -6,13 +6,12 @@
 //
 
 import Foundation
-import UIKit
 
 protocol FlightsDownloadable {
     func downloadAllPastFlights() async throws -> [Flight]
 }
 
-struct FlightsDownloader: FlightsDownloadable {
+struct FlightDownloader: FlightsDownloadable {
     
     private let session = URLSession.shared
     private let decoder = JSONDecoder()
@@ -21,10 +20,10 @@ struct FlightsDownloader: FlightsDownloadable {
         // Download data
         let (data, response) = try await session.data(from: URLAdresses.allPastLaunches)
         // Verify response
-        guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw FlightError.invalidResponse }
+        guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw DownloadError.invalidResponse }
         // Decode data
         decoder.keyDecodingStrategy = .convertFromSnakeCase
-        guard let flights = try? decoder.decode([Flight].self, from: data) else { throw FlightError.unableToParse }
+        guard let flights = try? decoder.decode([Flight].self, from: data) else { throw DownloadError.unableToParse }
         #if DEBUG
         dump(flights[0...2])
         #endif

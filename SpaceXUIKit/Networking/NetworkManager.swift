@@ -12,7 +12,7 @@ final class NetworkManager {
     private let flightsDownloader: FlightsDownloadable
     private let imageDownloader: ImageDownloadable
     
-    init(flightsDownloader: FlightsDownloadable = FlightsDownloader(), imageDownloader: ImageDownloadable = ImageDownloader()) {
+    init(flightsDownloader: FlightsDownloadable = FlightDownloader(), imageDownloader: ImageDownloadable = ImageDownloader()) {
         self.flightsDownloader = flightsDownloader
         self.imageDownloader = imageDownloader
     }

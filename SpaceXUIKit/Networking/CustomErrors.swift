@@ -7,8 +7,7 @@
 
 import Foundation
 
-enum FlightError: String, Error {
-    case unableToDownload
+enum DownloadError: String, Error {
     case invalidResponse
     case unableToParse
     case generalError
