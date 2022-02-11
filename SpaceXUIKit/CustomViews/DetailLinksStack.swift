@@ -9,7 +9,7 @@ import UIKit
 
 class DetailLinksStack: UIStackView {
     
-    var links: ButtonLinks?
+    var links: FlightButtonLinks?
 
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -52,7 +52,7 @@ class DetailLinksStack: UIStackView {
         return stack
     }()
     
-    init(links: ButtonLinks) {
+    init(links: FlightButtonLinks) {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
         spacing = ConstraintsHelper.mediumSpacing

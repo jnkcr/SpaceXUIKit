@@ -61,10 +61,10 @@ final class SpaceFlightsVM {
         }
     }
     
-    func generateCellData(for index: Int) -> CellData {
+    func generateCellData(for index: Int) -> FlightCellData {
         let flight: FlightAndPatch = flights[index]
         let date: String = CustomDateFormatter.formatUTCDate(from: flight.flight.dateUtc, as: .long)
-        return CellData(image: flight.patchImage, date: date, title: flight.flight.name)
+        return FlightCellData(image: flight.patchImage, date: date, title: flight.flight.name)
     }
     
 }

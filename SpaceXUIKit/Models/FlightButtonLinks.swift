@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ButtonLinks {
+struct FlightButtonLinks {
     let articleURL: URL
     let wikipediaURL: URL
     let youtubeURL: URL

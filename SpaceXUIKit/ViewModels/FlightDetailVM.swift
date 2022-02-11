@@ -39,8 +39,8 @@ final class FlightDetailVM {
         flightData.flight.success ? UIImage(systemName: "checkmark.circle")! : UIImage(systemName: "xmark.circle")!
     }
     
-    lazy var buttonLinks: ButtonLinks = {
-        ButtonLinks(articleURL: generateURL(for: .article), wikipediaURL: generateURL(for: .wiki), youtubeURL: generateURL(for: .youtube))
+    lazy var buttonLinks: FlightButtonLinks = {
+        FlightButtonLinks(articleURL: generateURL(for: .article), wikipediaURL: generateURL(for: .wiki), youtubeURL: generateURL(for: .youtube))
     }()
     
 }

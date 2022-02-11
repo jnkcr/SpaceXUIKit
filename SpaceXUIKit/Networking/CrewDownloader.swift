@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct CrewDownloader {
+protocol CrewDownloadable {
+    func downloadAllCrewMembers() async throws -> [CrewMember]
+}
+
+struct CrewDownloader: CrewDownloadable {
     
     private let session = URLSession.shared
     private let decoder = JSONDecoder()

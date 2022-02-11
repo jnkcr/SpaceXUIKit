@@ -10,7 +10,7 @@ import UIKit
 class FlightCell: UITableViewCell {
     
     static let reusableID: String = "flightCell"
-    var flightData: CellData? {
+    var flightData: FlightCellData? {
         didSet {
             patchImage.image = flightData?.image ?? UIImage(systemName: "airplane.circle")
             dateLabel.text = flightData?.date
