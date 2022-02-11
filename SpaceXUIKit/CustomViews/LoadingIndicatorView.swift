@@ -46,8 +46,6 @@ class LoadingIndicatorView: UIStackView {
         // UI Constraints
         NSLayoutConstraint.activate([
             // IMAGE
-//            imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-//            imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -40),
             imageView.widthAnchor.constraint(equalToConstant: 68),
             imageView.heightAnchor.constraint(equalToConstant: 85),
             // LABEL
