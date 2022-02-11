@@ -20,6 +20,7 @@ class SpaceFlightsVC: UIViewController {
         table.backgroundColor = .systemBackground
         table.separatorStyle = .none
         table.showsVerticalScrollIndicator = false
+        table.register(FlightCell.self, forCellReuseIdentifier: FlightCell.reusableID)
         table.rowHeight = 70
         return table
     }()
@@ -50,7 +51,6 @@ class SpaceFlightsVC: UIViewController {
         // Table
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(FlightCell.self, forCellReuseIdentifier: FlightCell.reusableID)
         // UI Configuration
         view.addSubview(loadingIndicatorView!)
         NSLayoutConstraint.activate(loadingIndicatorConstraints!)

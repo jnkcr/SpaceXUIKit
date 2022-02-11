@@ -9,6 +9,8 @@ import UIKit
 
 class CrewVC: UIViewController {
     
+    let crewVM: CrewVM = CrewVM()
+    
     let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false

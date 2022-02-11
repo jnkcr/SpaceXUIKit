@@ -12,13 +12,13 @@ class FlightCell: UITableViewCell {
     static let reusableID: String = "flightCell"
     var flightData: FlightCellData? {
         didSet {
-            patchImage.image = flightData?.image ?? UIImage(systemName: "airplane.circle")
+            patchImageView.image = flightData?.image ?? UIImage(systemName: "airplane.circle")
             dateLabel.text = flightData?.date
             titleLabel.text = flightData?.title
         }
     }
     
-    private let patchImage: UIImageView = {
+    private let patchImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.tintColor = .systemYellow
@@ -32,7 +32,7 @@ class FlightCell: UITableViewCell {
         stack.spacing = ConstraintsHelper.tinySpacing
         return stack
     }()
-    let dateLabel: UILabel = {
+    private let dateLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .caption1)
@@ -41,7 +41,7 @@ class FlightCell: UITableViewCell {
         label.adjustsFontSizeToFitWidth = false
         return label
     }()
-    let titleLabel: UILabel = {
+    private let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .headline)
@@ -53,7 +53,7 @@ class FlightCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         // Subviews
-        contentView.addSubview(patchImage)
+        contentView.addSubview(patchImageView)
         contentView.addSubview(infoStack)
         infoStack.addArrangedSubview(dateLabel)
         infoStack.addArrangedSubview(titleLabel)
@@ -61,13 +61,13 @@ class FlightCell: UITableViewCell {
         let size: CGFloat = 50
         NSLayoutConstraint.activate([
             // PATCH IMAGE
-            patchImage.centerYAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.centerYAnchor),
-            patchImage.leadingAnchor.constraint(equalTo: contentView.readableContentGuide.leadingAnchor),
-            patchImage.widthAnchor.constraint(equalToConstant: size),
-            patchImage.heightAnchor.constraint(equalToConstant: size),
+            patchImageView.centerYAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.centerYAnchor),
+            patchImageView.leadingAnchor.constraint(equalTo: contentView.readableContentGuide.leadingAnchor),
+            patchImageView.widthAnchor.constraint(equalToConstant: size),
+            patchImageView.heightAnchor.constraint(equalToConstant: size),
             // STACK
             infoStack.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            infoStack.leadingAnchor.constraint(equalTo: patchImage.trailingAnchor, constant: ConstraintsHelper.padding),
+            infoStack.leadingAnchor.constraint(equalTo: patchImageView.trailingAnchor, constant: ConstraintsHelper.padding),
             infoStack.trailingAnchor.constraint(equalTo: contentView.readableContentGuide.trailingAnchor),
             // DATE
             dateLabel.leadingAnchor.constraint(equalTo: infoStack.leadingAnchor),
