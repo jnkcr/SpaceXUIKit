@@ -7,14 +7,23 @@
 
 import UIKit
 
-class LoadingIndicatorView: UIView {
+class LoadingIndicatorView: UIStackView {
     
-    let imageView: UIImageView = {
+    private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.tintColor = .systemYellow
         imageView.image = UIImage(systemName: "arrow.down.to.line")
         return imageView
+    }()
+    let percentageLabel: UILabel = {
+        let label: UILabel = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 24, weight: .medium)
+        label.textColor = .secondaryLabel
+        label.textAlignment = .center
+        label.text = "0 %"
+        return label
     }()
     let progressBar: UIProgressView = {
         let bar = UIProgressView()
@@ -27,19 +36,24 @@ class LoadingIndicatorView: UIView {
     init() {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
+        axis = .vertical
+        alignment = .center
+        spacing = ConstraintsHelper.mediumSpacing
         // Subviews
-        addSubview(imageView)
-        addSubview(progressBar)
+        addArrangedSubview(imageView)
+        addArrangedSubview(percentageLabel)
+        addArrangedSubview(progressBar)
         // UI Constraints
         NSLayoutConstraint.activate([
             // IMAGE
-            imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -40),
+//            imageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+//            imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -40),
             imageView.widthAnchor.constraint(equalToConstant: 68),
             imageView.heightAnchor.constraint(equalToConstant: 85),
+            // LABEL
+            percentageLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            percentageLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             // PROGRESS
-            progressBar.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: ConstraintsHelper.mediumSpacing),
-            progressBar.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             progressBar.widthAnchor.constraint(equalToConstant: 200),
         ])
     }
@@ -48,7 +62,7 @@ class LoadingIndicatorView: UIView {
         super.init(frame: frame)
     }
     
-    required init?(coder: NSCoder) {
+    required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     

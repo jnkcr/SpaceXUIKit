@@ -5,7 +5,6 @@
 //  Created by Jan Kučera on 07.02.2022.
 //
 
-import Foundation
 import UIKit
 
 protocol FlightsDownloadingDelegate {
@@ -27,7 +26,7 @@ final class SpaceFlightsViewModel {
     func loadFlights() {
         Task {
             do {
-                let flightsData = try await networkManager.downloadFlights()
+                let flightsData: [Flight] = try await networkManager.downloadFlights()
                 var flightsAndPatches: [FlightAndPatch] = []
                 try await withThrowingTaskGroup(of: (UIImage?, Flight).self) { group in
                     var progress: Float = 0

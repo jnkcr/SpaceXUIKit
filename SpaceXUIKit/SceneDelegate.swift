@@ -19,13 +19,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         // Navigation controllers
-        lazy var spaceFlightsNC = UINavigationController(rootViewController: spaceFlightsVC)
+        let spaceFlightsNC = UINavigationController(rootViewController: spaceFlightsVC)
         spaceFlightsNC.navigationBar.tintColor = .systemYellow
         spaceFlightsNC.tabBarItem = UITabBarItem(title: "Flights", image: UIImage(systemName: "airplane.circle.fill"), tag: 0)
-        lazy var crewNC = UINavigationController(rootViewController: crewVC)
+        let crewNC = UINavigationController(rootViewController: crewVC)
         crewNC.navigationBar.tintColor = .systemYellow
         crewNC.tabBarItem = UITabBarItem(title: "Crew", image: UIImage(systemName: "person.2.circle.fill"), tag: 1)
-        lazy var settingsNC = UINavigationController(rootViewController: settingsVC)
+        let settingsNC = UINavigationController(rootViewController: settingsVC)
         settingsNC.navigationBar.tintColor = .systemYellow
         settingsNC.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear.circle.fill"), tag: 2)
         

@@ -23,13 +23,13 @@ class SpaceFlightsVC: UIViewController {
         table.rowHeight = 70
         return table
     }()
-    lazy var loadingIndicatorConstraints: [NSLayoutConstraint]? = {
+    private lazy var loadingIndicatorConstraints: [NSLayoutConstraint]? = {
         [
             loadingIndicatorView!.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             loadingIndicatorView!.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ]
     }()
-    lazy var tableViewConstraints: [NSLayoutConstraint] = {
+    private lazy var tableViewConstraints: [NSLayoutConstraint] = {
         [
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
@@ -37,7 +37,7 @@ class SpaceFlightsVC: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ]
     }()
-    let refreshBarButton: UIBarButtonItem = {
+    private let refreshBarButton: UIBarButtonItem = {
         UIBarButtonItem(image: UIImage(systemName: "arrow.triangle.2.circlepath"), style: .plain, target: self, action: #selector(redownloadAndRefreshTableData))
     }()
     
@@ -100,7 +100,11 @@ extension SpaceFlightsVC {
 extension SpaceFlightsVC: FlightsDownloadingDelegate {
     
     func didChangeProgress(to value: Float) {
-        DispatchQueue.main.async { self.loadingIndicatorView?.progressBar.setProgress(value, animated: true) }
+        DispatchQueue.main.async { [self] in
+            let percentage = Int(value * 100)
+            loadingIndicatorView?.percentageLabel.text = "\(percentage) %"
+            loadingIndicatorView?.progressBar.setProgress(value, animated: true)
+        }
     }
     
     func didFinishLoading(with result: Result<Void, FlightError>) {
@@ -128,6 +132,7 @@ extension SpaceFlightsVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FlightCell.reusableID, for: indexPath) as? FlightCell else { fatalError("Cannot downcast to FlightCell") }
         cell.flightData = spaceFlightsVM.generateCellData(for: indexPath.row)
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
     

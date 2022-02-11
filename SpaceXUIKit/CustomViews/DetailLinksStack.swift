@@ -20,34 +20,19 @@ class DetailLinksStack: UIStackView {
         label.text = "Links"
         return label
     }()
-    let articleButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.configuration = .tinted()
-        button.configuration?.cornerStyle = .capsule
-        button.configuration?.buttonSize = .large
-        button.tintColor = .systemYellow
-        button.setTitle("Article", for: .normal)
+    let articleButton: LargeTintedButton = {
+        let button: LargeTintedButton = LargeTintedButton(text: "Article")
+        button.addTarget(self, action: #selector(handleArticle), for: .touchUpInside)
         return button
     }()
-    let wikipediaButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.configuration = .tinted()
-        button.configuration?.cornerStyle = .capsule
-        button.configuration?.buttonSize = .large
-        button.tintColor = .systemYellow
-        button.setTitle("Wikipedia", for: .normal)
+    let wikipediaButton: LargeTintedButton = {
+        let button: LargeTintedButton = LargeTintedButton(text: "Wikipedia")
+        button.addTarget(self, action: #selector(handleWiki), for: .touchUpInside)
         return button
     }()
-    let youtubeButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.configuration = .tinted()
-        button.configuration?.cornerStyle = .capsule
-        button.configuration?.buttonSize = .large
-        button.tintColor = .systemYellow
-        button.setTitle("Youtube", for: .normal)
+    let youtubeButton: LargeTintedButton = {
+        let button: LargeTintedButton = LargeTintedButton(text: "Youtube")
+        button.addTarget(self, action: #selector(handleYoutube), for: .touchUpInside)
         return button
     }()
     private lazy var writtenTextButtonsStack: UIStackView = {
