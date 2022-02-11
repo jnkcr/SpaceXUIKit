@@ -15,7 +15,7 @@
 		F477088D27B1215000847540 /* SpaceFlightsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477088C27B1215000847540 /* SpaceFlightsVM.swift */; };
 		F477089127B1791F00847540 /* CustomDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477089027B1791F00847540 /* CustomDateFormatter.swift */; };
 		F477089327B18B1500847540 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477089227B18B1500847540 /* ImageDownloader.swift */; };
-		F477089527B2650600847540 /* FlightDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477089427B2650600847540 /* FlightDetailViewModel.swift */; };
+		F477089527B2650600847540 /* FlightDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477089427B2650600847540 /* FlightDetailVM.swift */; };
 		F477089727B2692100847540 /* DetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477089627B2692100847540 /* DetailHeaderView.swift */; };
 		F477089927B28EDC00847540 /* DetailHighlightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477089827B28EDC00847540 /* DetailHighlightsView.swift */; };
 		F477089B27B2C7D300847540 /* ConstraintsHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477089A27B2C7D300847540 /* ConstraintsHelpers.swift */; };
@@ -68,7 +68,7 @@
 		F477088C27B1215000847540 /* SpaceFlightsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceFlightsVM.swift; sourceTree = "<group>"; };
 		F477089027B1791F00847540 /* CustomDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateFormatter.swift; sourceTree = "<group>"; };
 		F477089227B18B1500847540 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
-		F477089427B2650600847540 /* FlightDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetailViewModel.swift; sourceTree = "<group>"; };
+		F477089427B2650600847540 /* FlightDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetailVM.swift; sourceTree = "<group>"; };
 		F477089627B2692100847540 /* DetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderView.swift; sourceTree = "<group>"; };
 		F477089827B28EDC00847540 /* DetailHighlightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHighlightsView.swift; sourceTree = "<group>"; };
 		F477089A27B2C7D300847540 /* ConstraintsHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsHelpers.swift; sourceTree = "<group>"; };
@@ -174,7 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				F477088C27B1215000847540 /* SpaceFlightsVM.swift */,
-				F477089427B2650600847540 /* FlightDetailViewModel.swift */,
+				F477089427B2650600847540 /* FlightDetailVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -401,7 +401,7 @@
 				F477088B27B115C300847540 /* Flight.swift in Sources */,
 				F483709C27B40F6D00D2146E /* FlightAndPatch.swift in Sources */,
 				F4A4D12327AD76F900163607 /* SpaceFlightDetailVC.swift in Sources */,
-				F477089527B2650600847540 /* FlightDetailViewModel.swift in Sources */,
+				F477089527B2650600847540 /* FlightDetailVM.swift in Sources */,
 				F477088D27B1215000847540 /* SpaceFlightsVM.swift in Sources */,
 				F48370A427B6560A00D2146E /* LargeTintedButton.swift in Sources */,
 				F48370A627B67C0800D2146E /* Crew.swift in Sources */,

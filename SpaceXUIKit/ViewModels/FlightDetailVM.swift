@@ -1,5 +1,5 @@
 //
-//  FlightDetailViewModel.swift
+//  FlightDetailVM.swift
 //  SpaceXUIKit
 //
 //  Created by Jan Kučera on 08.02.2022.
