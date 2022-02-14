@@ -34,7 +34,7 @@ class CrewCell: UICollectionViewCell {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.spacing = ConstraintsHelper.smallSpacing
-        stack.alignment = .center
+//        stack.alignment = .center
         return stack
     }()
     
@@ -48,13 +48,9 @@ class CrewCell: UICollectionViewCell {
         stackView.addArrangedSubview(nameLabel)
         // UI Constraints
         NSLayoutConstraint.activate([
-            // STACK
-            stackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             // PHOTO
+            photoView.widthAnchor.constraint(equalToConstant: contentView.bounds.width),
             photoView.heightAnchor.constraint(equalTo: photoView.widthAnchor),
-            // NAME
-            nameLabel.widthAnchor.constraint(equalTo: photoView.widthAnchor),
         ])
     }
     

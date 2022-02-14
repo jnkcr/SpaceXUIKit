@@ -24,20 +24,21 @@ class CrewVC: UIViewController {
         }
         return dataSource
     }()
-    let layout: UICollectionViewCompositionalLayout = {
+    let collectionLayout: UICollectionViewLayout = {
         let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.3), heightDimension: .fractionalHeight(1))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.3))
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.25))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 3)
+        group.interItemSpacing = .fixed(ConstraintsHelper.padding)
         let section = NSCollectionLayoutSection(group: group)
-        return UICollectionViewCompositionalLayout(section: section)
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        return layout
     }()
     lazy var collectionView: UICollectionView = {
-        let collection: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        let collection: UICollectionView = UICollectionView(frame: view.bounds, collectionViewLayout: collectionLayout)
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.register(CrewCell.self, forCellWithReuseIdentifier: CrewCell.reusableID)
         collection.showsVerticalScrollIndicator = false
-        collection.backgroundColor = .systemIndigo
         return collection
     }()
     
@@ -45,14 +46,16 @@ class CrewVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         title = "Crew"
+        // Download
+        handleCrewDownload()
         // Subviews
         view.addSubview(collectionView)
         // UIConfiguration
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.readableContentGuide.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.readableContentGuide.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
     
@@ -65,12 +68,23 @@ class CrewVC: UIViewController {
 
 extension CrewVC {
     
-    @objc
     func handleCrewDownload() {
         let downloader = CrewDownloader()
         Task {
-            try? await downloader.downloadAllCrewMembers()
+            let data = try await downloader.downloadAllCrewMembers()
+            var crewData: [CrewCellData] = []
+            for dt in data {
+                crewData.append(CrewCellData(id: dt.id, image: UIImage(named: "clever")!, name: dt.name))
+            }
+            updateDataSource(with: crewData)
         }
+    }
+    
+    func updateDataSource(with data: [CrewCellData]) {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, CrewCellData>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(data)
+        DispatchQueue.main.async { self.collectionDataSource.apply(snapshot, animatingDifferences: true) }
     }
     
 }
