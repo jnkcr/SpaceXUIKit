@@ -14,19 +14,19 @@ protocol FlightsDownloadingDelegate {
 
 final class SpaceFlightsVM {
     
-    private let networkManager: NetworkManager
+    private let networkManager: FlightsAndImagesDownloadable
     var loadingDelegate: FlightsDownloadingDelegate?
     
     var flights: [FlightAndPatch] = []
     
-    init(manager: NetworkManager = NetworkManager()) {
+    init(manager: FlightsAndImagesDownloadable = NetworkManager()) {
         networkManager = manager
     }
     
     func loadFlights() {
         Task {
             do {
-                let flightsData: [Flight] = try await networkManager.downloadFlights()
+                let flightsData: [Flight] = try await networkManager.downloadAllPastFlights()
                 var flightsAndPatches: [FlightAndPatch] = []
                 try await withThrowingTaskGroup(of: (UIImage?, Flight).self) { group in
                     var progress: Float = 0

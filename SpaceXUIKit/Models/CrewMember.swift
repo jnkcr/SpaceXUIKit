@@ -1,5 +1,5 @@
 //
-//  Crew.swift
+//  CrewMember.swift
 //  SpaceXUIKit
 //
 //  Created by Jan Kučera on 11.02.2022.

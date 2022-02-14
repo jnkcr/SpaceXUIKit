@@ -7,13 +7,13 @@
 
 import UIKit
 
+enum Section {
+    case main
+}
+
 class CrewVC: UIViewController {
     
     let crewVM: CrewVM = CrewVM()
-    
-    enum Section {
-        case main
-    }
     
     lazy var collectionDataSource: UICollectionViewDiffableDataSource<Section, CrewCellData> = {
         let dataSource = UICollectionViewDiffableDataSource<Section, CrewCellData>(collectionView: collectionView) { (colView, index, crewData) -> UICollectionViewCell? in
@@ -46,8 +46,9 @@ class CrewVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         title = "Crew"
-        // Download
-        handleCrewDownload()
+        // Download data
+        crewVM.downloadingDelegate = self
+        crewVM.downloadCrew()
         // Subviews
         view.addSubview(collectionView)
         // UIConfiguration
@@ -66,25 +67,15 @@ class CrewVC: UIViewController {
 
 }
 
-extension CrewVC {
+extension CrewVC: CrewDownloadingDelegate {
     
-    func handleCrewDownload() {
-        let downloader = CrewDownloader()
-        Task {
-            let data = try await downloader.downloadAllCrewMembers()
-            var crewData: [CrewCellData] = []
-            for dt in data {
-                crewData.append(CrewCellData(id: dt.id, image: UIImage(named: "clever")!, name: dt.name))
-            }
-            updateDataSource(with: crewData)
+    func didFinishDownloading(with result: Result<NSDiffableDataSourceSnapshot<Section, CrewCellData>, DownloadError>) {
+        switch result {
+        case .success(let snapshot):
+            DispatchQueue.main.async { self.collectionDataSource.apply(snapshot) }
+        case .failure(let error):
+            print(error.localizedDescription)
         }
-    }
-    
-    func updateDataSource(with data: [CrewCellData]) {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, CrewCellData>()
-        snapshot.appendSections([.main])
-        snapshot.appendItems(data)
-        DispatchQueue.main.async { self.collectionDataSource.apply(snapshot, animatingDifferences: true) }
     }
     
 }

@@ -8,7 +8,6 @@
 import UIKit
 
 struct CrewCellData: Hashable {
-    let id: String
-    let image: UIImage
+    let image: UIImage?
     let name: String
 }
