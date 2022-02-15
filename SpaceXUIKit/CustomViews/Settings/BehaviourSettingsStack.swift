@@ -1,5 +1,5 @@
 //
-//  BehaviorSettingsStack.swift
+//  BehaviourSettingsStack.swift
 //  SpaceXUIKit
 //
 //  Created by Jan Kučera on 15.02.2022.
@@ -7,10 +7,10 @@
 
 import UIKit
 
-class BehaviorSettingsStack: UIStackView {
+class BehaviourSettingsStack: UIStackView {
     
     private let title: SectionTitleLabel = {
-        return SectionTitleLabel(titled: "Behavior")
+        return SectionTitleLabel(titled: "Behaviour")
     }()
     let switchStack: LoadingSwitchStack = {
         return LoadingSwitchStack()

@@ -12,7 +12,7 @@
 		F44DA4B127BBC8010011851B /* SettingsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4B027BBC8010011851B /* SettingsVM.swift */; };
 		F44DA4B527BBEB000011851B /* LoadingSwitchStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4B427BBEB000011851B /* LoadingSwitchStack.swift */; };
 		F44DA4B827BBF5B40011851B /* AppearanceSettingsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4B727BBF5B40011851B /* AppearanceSettingsStack.swift */; };
-		F44DA4BA27BBFDEE0011851B /* BehaviorSettingsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4B927BBFDEE0011851B /* BehaviorSettingsStack.swift */; };
+		F44DA4BA27BBFDEE0011851B /* BehaviourSettingsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4B927BBFDEE0011851B /* BehaviourSettingsStack.swift */; };
 		F44DA4BC27BBFF1C0011851B /* SectionTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4BB27BBFF1C0011851B /* SectionTitleLabel.swift */; };
 		F477088227B10EAA00847540 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477088127B10EAA00847540 /* NetworkManager.swift */; };
 		F477088427B10EEB00847540 /* FlightDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477088327B10EEB00847540 /* FlightDownloader.swift */; };
@@ -76,7 +76,7 @@
 		F44DA4B027BBC8010011851B /* SettingsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVM.swift; sourceTree = "<group>"; };
 		F44DA4B427BBEB000011851B /* LoadingSwitchStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingSwitchStack.swift; sourceTree = "<group>"; };
 		F44DA4B727BBF5B40011851B /* AppearanceSettingsStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceSettingsStack.swift; sourceTree = "<group>"; };
-		F44DA4B927BBFDEE0011851B /* BehaviorSettingsStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehaviorSettingsStack.swift; sourceTree = "<group>"; };
+		F44DA4B927BBFDEE0011851B /* BehaviourSettingsStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehaviourSettingsStack.swift; sourceTree = "<group>"; };
 		F44DA4BB27BBFF1C0011851B /* SectionTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitleLabel.swift; sourceTree = "<group>"; };
 		F477088127B10EAA00847540 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F477088327B10EEB00847540 /* FlightDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDownloader.swift; sourceTree = "<group>"; };
@@ -169,7 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				F44DA4B727BBF5B40011851B /* AppearanceSettingsStack.swift */,
-				F44DA4B927BBFDEE0011851B /* BehaviorSettingsStack.swift */,
+				F44DA4B927BBFDEE0011851B /* BehaviourSettingsStack.swift */,
 				F44DA4B427BBEB000011851B /* LoadingSwitchStack.swift */,
 			);
 			path = Settings;
@@ -459,7 +459,7 @@
 				F48370AE27B6B90500D2146E /* CrewCell.swift in Sources */,
 				F477088227B10EAA00847540 /* NetworkManager.swift in Sources */,
 				F4A4D12527AD881B00163607 /* CrewVC.swift in Sources */,
-				F44DA4BA27BBFDEE0011851B /* BehaviorSettingsStack.swift in Sources */,
+				F44DA4BA27BBFDEE0011851B /* BehaviourSettingsStack.swift in Sources */,
 				F44DA4B527BBEB000011851B /* LoadingSwitchStack.swift in Sources */,
 				F49E9F9827AC32B80081238D /* SceneDelegate.swift in Sources */,
 				F48370B027B6CD3C00D2146E /* CrewCellData.swift in Sources */,

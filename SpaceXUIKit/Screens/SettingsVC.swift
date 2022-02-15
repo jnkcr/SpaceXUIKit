@@ -21,8 +21,8 @@ class SettingsVC: UIViewController {
         stack.segmentedControl.addTarget(self, action: #selector(handleSegmentedControl), for: .valueChanged)
         return stack
     }()
-    let behaviorStack: BehaviorSettingsStack = {
-        let stack: BehaviorSettingsStack = BehaviorSettingsStack()
+    let behaviorStack: BehaviourSettingsStack = {
+        let stack: BehaviourSettingsStack = BehaviourSettingsStack()
         stack.switchStack.switchControl.addTarget(self, action: #selector(handleSwitch), for: .valueChanged)
         return stack
     }()
