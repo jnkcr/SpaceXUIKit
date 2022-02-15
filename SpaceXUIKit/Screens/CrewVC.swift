@@ -44,6 +44,7 @@ class CrewVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = .systemBackground
         title = "Crew"
         // Download data
@@ -60,11 +61,6 @@ class CrewVC: UIViewController {
         ])
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = true
-    }
-
 }
 
 extension CrewVC: CrewDownloadingDelegate {
