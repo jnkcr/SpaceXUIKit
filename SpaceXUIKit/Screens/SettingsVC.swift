@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 protocol AppearanceDelegate {
     func didChangeAppearanceStyle(to style: UIUserInterfaceStyle)
@@ -27,6 +28,7 @@ class SettingsVC: UIViewController {
         let stack: SettingsStack = SettingsStack()
         stack.appearanceSection.segmentedControl.addTarget(self, action: #selector(handleSegmentedControl), for: .valueChanged)
         stack.behaviourSection.crewLoadingSwitchStack.switchControl.addTarget(self, action: #selector(handleSwitch), for: .valueChanged)
+        stack.otherSection.notificationStack.button.addTarget(self, action: #selector(handleNotification), for: .touchUpInside)
         return stack
     }()
     
@@ -49,7 +51,7 @@ class SettingsVC: UIViewController {
             scrollView.contentLayoutGuide.trailingAnchor.constraint(equalTo: settingsStack.trailingAnchor),
             scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: settingsStack.bottomAnchor),
             // SETTINGS
-            settingsStack.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: ConstraintsHelper.largeSpacing),
+            settingsStack.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: ConstraintsHelper.mediumSpacing),
             settingsStack.leadingAnchor.constraint(equalTo: view.readableContentGuide.leadingAnchor),
             settingsStack.trailingAnchor.constraint(equalTo: view.readableContentGuide.trailingAnchor),
         ])
@@ -77,6 +79,20 @@ extension SettingsVC {
     func handleSegmentedControl() {
         settingsVM.appearanceKey = settingsStack.appearanceSection.segmentedControl.selectedSegmentIndex
         appearanceDelegate?.didChangeAppearanceStyle(to: settingsVM.getInterfaceStyle())
+    }
+    
+    @objc
+    func handleNotification() {
+        let content = UNMutableNotificationContent()
+        content.title = "Hello"
+        content.subtitle = "Hello again"
+        content.body = "This is mighty and great local notification that is simply just a feast for your eyes.."
+        content.sound = .default
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 15, repeats: false)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        UNUserNotificationCenter.current().add(request) { error in
+            print(error?.localizedDescription)
+        }
     }
     
 }

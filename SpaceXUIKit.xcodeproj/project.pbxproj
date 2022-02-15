@@ -15,6 +15,8 @@
 		F44DA4BA27BBFDEE0011851B /* BehaviourSettingsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4B927BBFDEE0011851B /* BehaviourSettingsStack.swift */; };
 		F44DA4BC27BBFF1C0011851B /* SectionTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4BB27BBFF1C0011851B /* SectionTitleLabel.swift */; };
 		F44DA4BE27BC082A0011851B /* SettingsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4BD27BC082A0011851B /* SettingsStack.swift */; };
+		F44DA4C027BC18160011851B /* ButtonAndTitleStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4BF27BC18160011851B /* ButtonAndTitleStack.swift */; };
+		F44DA4C227BC19CC0011851B /* OtherSettingsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4C127BC19CC0011851B /* OtherSettingsStack.swift */; };
 		F477088227B10EAA00847540 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477088127B10EAA00847540 /* NetworkManager.swift */; };
 		F477088427B10EEB00847540 /* FlightDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477088327B10EEB00847540 /* FlightDownloader.swift */; };
 		F477088627B111EC00847540 /* URLAdresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477088527B111EC00847540 /* URLAdresses.swift */; };
@@ -80,6 +82,8 @@
 		F44DA4B927BBFDEE0011851B /* BehaviourSettingsStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehaviourSettingsStack.swift; sourceTree = "<group>"; };
 		F44DA4BB27BBFF1C0011851B /* SectionTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitleLabel.swift; sourceTree = "<group>"; };
 		F44DA4BD27BC082A0011851B /* SettingsStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStack.swift; sourceTree = "<group>"; };
+		F44DA4BF27BC18160011851B /* ButtonAndTitleStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAndTitleStack.swift; sourceTree = "<group>"; };
+		F44DA4C127BC19CC0011851B /* OtherSettingsStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherSettingsStack.swift; sourceTree = "<group>"; };
 		F477088127B10EAA00847540 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F477088327B10EEB00847540 /* FlightDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDownloader.swift; sourceTree = "<group>"; };
 		F477088527B111EC00847540 /* URLAdresses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLAdresses.swift; sourceTree = "<group>"; };
@@ -173,7 +177,9 @@
 				F44DA4BD27BC082A0011851B /* SettingsStack.swift */,
 				F44DA4B727BBF5B40011851B /* AppearanceSettingsStack.swift */,
 				F44DA4B927BBFDEE0011851B /* BehaviourSettingsStack.swift */,
+				F44DA4C127BC19CC0011851B /* OtherSettingsStack.swift */,
 				F44DA4B427BBEB000011851B /* SwitchAndTitleStack.swift */,
+				F44DA4BF27BC18160011851B /* ButtonAndTitleStack.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -451,10 +457,12 @@
 				F4A4D11E27AD20F700163607 /* SpaceFlightsVC.swift in Sources */,
 				F48370A227B56B8800D2146E /* SettingsVC.swift in Sources */,
 				F477089127B1791F00847540 /* CustomDateFormatter.swift in Sources */,
+				F44DA4C227BC19CC0011851B /* OtherSettingsStack.swift in Sources */,
 				F48370AA27B69BE700D2146E /* CrewVM.swift in Sources */,
 				F48370A827B67D3300D2146E /* CrewDownloader.swift in Sources */,
 				F4A4D12127AD64BE00163607 /* FlightCell.swift in Sources */,
 				F477088427B10EEB00847540 /* FlightDownloader.swift in Sources */,
+				F44DA4C027BC18160011851B /* ButtonAndTitleStack.swift in Sources */,
 				F477089927B28EDC00847540 /* DetailHighlightsView.swift in Sources */,
 				F483709A27B40AE800D2146E /* FlightCellData.swift in Sources */,
 				F49E9F9627AC32B80081238D /* AppDelegate.swift in Sources */,

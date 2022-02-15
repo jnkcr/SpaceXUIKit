@@ -10,16 +10,16 @@ import UIKit
 class BehaviourSettingsStack: UIStackView {
     
     private let title: SectionTitleLabel = {
-        return SectionTitleLabel(titled: "Behaviour")
+        SectionTitleLabel(titled: "Behaviour")
     }()
     let crewLoadingSwitchStack: SwitchAndTitleStack = {
-        return SwitchAndTitleStack(labeled: "Load crew on app start up")
+        SwitchAndTitleStack(labeled: "Load crew on start-up")
     }()
     let firstRandomSwitchStack: SwitchAndTitleStack = {
-        return SwitchAndTitleStack(labeled: "Non-funtional #01")
+        SwitchAndTitleStack(labeled: "Non-funtional #01")
     }()
     let secondRandomSwitchStack: SwitchAndTitleStack = {
-        return SwitchAndTitleStack(labeled: "Non-funtional #02")
+        SwitchAndTitleStack(labeled: "Non-funtional #02")
     }()
 
     init() {

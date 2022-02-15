@@ -10,10 +10,13 @@ import UIKit
 class SettingsStack: UIStackView {
     
     let appearanceSection: AppearanceSettingsStack = {
-        return AppearanceSettingsStack()
+        AppearanceSettingsStack()
     }()
     let behaviourSection: BehaviourSettingsStack = {
-        return BehaviourSettingsStack()
+        BehaviourSettingsStack()
+    }()
+    let otherSection: OtherSettingsStack = {
+        OtherSettingsStack()
     }()
 
     init() {
@@ -25,6 +28,7 @@ class SettingsStack: UIStackView {
         // Subviews
         addArrangedSubview(appearanceSection)
         addArrangedSubview(behaviourSection)
+        addArrangedSubview(otherSection)
     }
     
     required init(coder: NSCoder) {

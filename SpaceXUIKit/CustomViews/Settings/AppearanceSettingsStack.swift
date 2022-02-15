@@ -10,7 +10,7 @@ import UIKit
 class AppearanceSettingsStack: UIStackView {
     
     private let title: SectionTitleLabel = {
-        return SectionTitleLabel(titled: "Appearance")
+        SectionTitleLabel(titled: "Appearance")
     }()
     let segmentedControl: UISegmentedControl = {
         let segControl: UISegmentedControl = UISegmentedControl(items: ["auto", "light", "dark"])
