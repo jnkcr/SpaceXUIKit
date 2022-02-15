@@ -16,14 +16,17 @@ class SettingsVC: UIViewController {
     let settingsVM: SettingsVM = SettingsVM()
     var appearanceDelegate: AppearanceDelegate?
     
-    let appearanceStack: AppearanceSettingsStack = {
-        let stack: AppearanceSettingsStack = AppearanceSettingsStack()
-        stack.segmentedControl.addTarget(self, action: #selector(handleSegmentedControl), for: .valueChanged)
-        return stack
+    let scrollView: UIScrollView = {
+        let sv: UIScrollView = UIScrollView()
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        sv.alwaysBounceVertical = true
+        sv.showsVerticalScrollIndicator = false
+        return sv
     }()
-    let behaviorStack: BehaviourSettingsStack = {
-        let stack: BehaviourSettingsStack = BehaviourSettingsStack()
-        stack.crewLoadingSwitchStack.switchControl.addTarget(self, action: #selector(handleSwitch), for: .valueChanged)
+    let settingsStack: SettingsStack = {
+        let stack: SettingsStack = SettingsStack()
+        stack.appearanceSection.segmentedControl.addTarget(self, action: #selector(handleSegmentedControl), for: .valueChanged)
+        stack.behaviourSection.crewLoadingSwitchStack.switchControl.addTarget(self, action: #selector(handleSwitch), for: .valueChanged)
         return stack
     }()
     
@@ -32,26 +35,31 @@ class SettingsVC: UIViewController {
         view.backgroundColor = .systemBackground
         title = "Settings"
         // Subviews
-        view.addSubview(appearanceStack)
-        view.addSubview(behaviorStack)
+        view.addSubview(scrollView)
+        scrollView.addSubview(settingsStack)
         // UI Constraints
         NSLayoutConstraint.activate([
-            // SEGMENTED CONTROL
-            appearanceStack.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -150),
-            appearanceStack.leadingAnchor.constraint(equalTo: view.readableContentGuide.leadingAnchor),
-            appearanceStack.trailingAnchor.constraint(equalTo: view.readableContentGuide.trailingAnchor),
-            // SWITCH STACK
-            behaviorStack.topAnchor.constraint(equalTo: appearanceStack.bottomAnchor, constant: ConstraintsHelper.largeSpacing),
-            behaviorStack.leadingAnchor.constraint(equalTo: view.readableContentGuide.leadingAnchor),
-            behaviorStack.trailingAnchor.constraint(equalTo: view.readableContentGuide.trailingAnchor),
+            // SCROLLVIEW
+            scrollView.topAnchor.constraint(equalTo: view.readableContentGuide.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.readableContentGuide.bottomAnchor),
+            scrollView.contentLayoutGuide.topAnchor.constraint(equalTo: settingsStack.topAnchor),
+            scrollView.contentLayoutGuide.leadingAnchor.constraint(equalTo: settingsStack.leadingAnchor),
+            scrollView.contentLayoutGuide.trailingAnchor.constraint(equalTo: settingsStack.trailingAnchor),
+            scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: settingsStack.bottomAnchor),
+            // SETTINGS
+            settingsStack.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: ConstraintsHelper.largeSpacing),
+            settingsStack.leadingAnchor.constraint(equalTo: view.readableContentGuide.leadingAnchor),
+            settingsStack.trailingAnchor.constraint(equalTo: view.readableContentGuide.trailingAnchor),
         ])
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
-        behaviorStack.crewLoadingSwitchStack.switchControl.setOn(settingsVM.getSwitchState(), animated: true)
-        appearanceStack.segmentedControl.selectedSegmentIndex = settingsVM.appearanceKey
+        settingsStack.appearanceSection.segmentedControl.selectedSegmentIndex = settingsVM.appearanceKey
+        settingsStack.behaviourSection.crewLoadingSwitchStack.switchControl.setOn(settingsVM.getSwitchState(), animated: true)
     }
     
 }
@@ -62,12 +70,12 @@ extension SettingsVC {
     
     @objc
     func handleSwitch() {
-        settingsVM.isLoadingCrewRightAway = behaviorStack.crewLoadingSwitchStack.switchControl.isOn
+        settingsVM.isLoadingCrewRightAway = settingsStack.behaviourSection.crewLoadingSwitchStack.switchControl.isOn
     }
     
     @objc
     func handleSegmentedControl() {
-        settingsVM.appearanceKey = appearanceStack.segmentedControl.selectedSegmentIndex
+        settingsVM.appearanceKey = settingsStack.appearanceSection.segmentedControl.selectedSegmentIndex
         appearanceDelegate?.didChangeAppearanceStyle(to: settingsVM.getInterfaceStyle())
     }
     
