@@ -13,6 +13,8 @@ protocol AppearanceDelegate {
 
 class SettingsVC: UIViewController {
     
+    let settingsVM: SettingsVM = SettingsVM()
+    
     let statusLabel: UILabel = {
         let label: UILabel = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -20,35 +22,35 @@ class SettingsVC: UIViewController {
         label.text = "Automatic"
         return label
     }()
-    let autoStyleButton: UIButton = {
-        let button: UIButton = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.configuration = .tinted()
-        button.configuration?.cornerStyle = .capsule
-        button.tintColor = .systemYellow
-        button.setTitle("Automatic", for: .normal)
+    let autoStyleButton: LargeTintedButton = {
+        let button: LargeTintedButton = LargeTintedButton(text: "Automatic")
         button.addTarget(self, action: #selector(handleAutomatic), for: .touchUpInside)
         return button
     }()
-    let lightStyleButton: UIButton = {
-        let button: UIButton = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.configuration = .tinted()
-        button.configuration?.cornerStyle = .capsule
-        button.tintColor = .systemYellow
-        button.setTitle("Light", for: .normal)
+    let lightStyleButton: LargeTintedButton = {
+        let button: LargeTintedButton = LargeTintedButton(text: "Light")
         button.addTarget(self, action: #selector(handleLight), for: .touchUpInside)
         return button
     }()
-    let darkStyleButton: UIButton = {
-        let button: UIButton = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.configuration = .tinted()
-        button.configuration?.cornerStyle = .capsule
-        button.tintColor = .systemYellow
-        button.setTitle("Dark", for: .normal)
+    let darkStyleButton: LargeTintedButton = {
+        let button: LargeTintedButton = LargeTintedButton(text: "Dark")
         button.addTarget(self, action: #selector(handleDark), for: .touchUpInside)
         return button
+    }()
+    let switcher: UISwitch = {
+        let switcher = UISwitch()
+        switcher.translatesAutoresizingMaskIntoConstraints = false
+        switcher.onTintColor = .systemYellow
+        switcher.preferredStyle = .automatic
+        switcher.addTarget(self, action: #selector(handleSwitch), for: .valueChanged)
+        return switcher
+    }()
+    let segmentedControl: UISegmentedControl = {
+        let segControl: UISegmentedControl = UISegmentedControl(items: ["auto", "light", "dark"])
+        segControl.translatesAutoresizingMaskIntoConstraints = false
+        segControl.selectedSegmentTintColor = .systemYellow
+        segControl.selectedSegmentIndex = 0
+        return segControl
     }()
     
     var appearanceDelegate: AppearanceDelegate?
@@ -62,11 +64,13 @@ class SettingsVC: UIViewController {
         view.addSubview(autoStyleButton)
         view.addSubview(lightStyleButton)
         view.addSubview(darkStyleButton)
+        view.addSubview(switcher)
+        view.addSubview(segmentedControl)
         // UI Constraints
         let buttonWidth: CGFloat = 200
         NSLayoutConstraint.activate([
             // STATUS
-            statusLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -120),
+            statusLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -180),
             statusLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             // AUTOMATIC
             autoStyleButton.topAnchor.constraint(equalTo: statusLabel.bottomAnchor,constant: ConstraintsHelper.largeSpacing),
@@ -83,12 +87,20 @@ class SettingsVC: UIViewController {
             darkStyleButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             darkStyleButton.widthAnchor.constraint(equalToConstant: buttonWidth),
             darkStyleButton.heightAnchor.constraint(equalToConstant: 50),
+            // SWITCH
+            switcher.topAnchor.constraint(equalTo: darkStyleButton.bottomAnchor, constant: ConstraintsHelper.largeSpacing),
+            switcher.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            // SEGMENTED CONTROL
+            segmentedControl.topAnchor.constraint(equalTo: switcher.bottomAnchor, constant: ConstraintsHelper.largeSpacing),
+            segmentedControl.leadingAnchor.constraint(equalTo: view.readableContentGuide.leadingAnchor),
+            segmentedControl.trailingAnchor.constraint(equalTo: view.readableContentGuide.trailingAnchor),
         ])
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
+        setupSwitch()
     }
     
 }
@@ -111,6 +123,25 @@ extension SettingsVC {
     private func handleDark() {
         statusLabel.text = "Dark"
         appearanceDelegate?.didChangeAppearanceStyle(to: .dark)
+    }
+    
+    @objc
+    func handleSwitch() {
+        switch switcher.isOn {
+        case true:
+            settingsVM.isLoadingCrewRightAway = true
+        case false:
+            settingsVM.isLoadingCrewRightAway = false
+        }
+    }
+    
+    func setupSwitch() {
+        switch settingsVM.isLoadingCrewRightAway {
+        case true:
+            switcher.setOn(true, animated: true)
+        case false:
+            switcher.setOn(false, animated: true)
+        }
     }
     
 }

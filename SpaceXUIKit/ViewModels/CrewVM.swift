@@ -61,7 +61,7 @@ final class CrewVM {
         }
     }
     
-    // MARK: - Generating functions
+    // MARK: - Generating content functions
     
     private func generateCellData(from data: [CrewMemberAndPhoto]) -> [CrewCellData] {
         data.map { CrewCellData(image: $0.photo, name: $0.crewMember.name) }
@@ -69,7 +69,7 @@ final class CrewVM {
     
     private func ganerateSnapshot(from data: [CrewCellData]) -> NSDiffableDataSourceSnapshot<Section, CrewCellData> {
         var snapshot = NSDiffableDataSourceSnapshot<Section, CrewCellData>()
-        snapshot.appendSections([.main])
+        snapshot.appendSections([.nasa])
         snapshot.appendItems(data)
         return snapshot
     }

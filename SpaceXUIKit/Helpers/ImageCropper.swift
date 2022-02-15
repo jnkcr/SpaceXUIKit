@@ -12,12 +12,12 @@ struct ImageCropper {
     static func crop(_ image: UIImage?) -> UIImage? {
         // Check if there is any photo
         guard let image = image else { return nil }
-        // Check aspect ratio
-        let ratio = image.size.width / image.size.height
         // Cropping area
         var size = CGSize(width: 0, height: 0)
         var originPoint = CGPoint(x: 0, y: 0)
         var cropArea = CGRect(origin: originPoint, size: size)
+        // Check aspect ratio
+        let ratio = image.size.width / image.size.height
         // Calculate cropping area
         switch ratio <= 1 {
         case true:

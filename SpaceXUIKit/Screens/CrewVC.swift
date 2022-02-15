@@ -8,7 +8,7 @@
 import UIKit
 
 enum Section {
-    case main
+    case nasa
 }
 
 class CrewVC: UIViewController {

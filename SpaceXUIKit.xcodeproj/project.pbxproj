@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		F434382227BA981300A57272 /* CrewMemberAndPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = F434382127BA981300A57272 /* CrewMemberAndPhoto.swift */; };
+		F44DA4AF27BBC48C0011851B /* PropertyWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4AE27BBC48C0011851B /* PropertyWrappers.swift */; };
+		F44DA4B127BBC8010011851B /* SettingsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4B027BBC8010011851B /* SettingsVM.swift */; };
 		F477088227B10EAA00847540 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477088127B10EAA00847540 /* NetworkManager.swift */; };
 		F477088427B10EEB00847540 /* FlightDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477088327B10EEB00847540 /* FlightDownloader.swift */; };
 		F477088627B111EC00847540 /* URLAdresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477088527B111EC00847540 /* URLAdresses.swift */; };
@@ -66,6 +68,8 @@
 
 /* Begin PBXFileReference section */
 		F434382127BA981300A57272 /* CrewMemberAndPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewMemberAndPhoto.swift; sourceTree = "<group>"; };
+		F44DA4AE27BBC48C0011851B /* PropertyWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWrappers.swift; sourceTree = "<group>"; };
+		F44DA4B027BBC8010011851B /* SettingsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVM.swift; sourceTree = "<group>"; };
 		F477088127B10EAA00847540 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F477088327B10EEB00847540 /* FlightDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDownloader.swift; sourceTree = "<group>"; };
 		F477088527B111EC00847540 /* URLAdresses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLAdresses.swift; sourceTree = "<group>"; };
@@ -134,6 +138,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F44DA4B227BBE1E20011851B /* FlightDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F477089627B2692100847540 /* DetailHeaderView.swift */,
+				F477089827B28EDC00847540 /* DetailHighlightsView.swift */,
+				F483709427B3BDCA00D2146E /* DetailLinksStack.swift */,
+			);
+			path = FlightDetail;
+			sourceTree = "<group>";
+		};
+		F44DA4B327BBE20D0011851B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F4A4D12027AD64BE00163607 /* FlightCell.swift */,
+				F48370AD27B6B90500D2146E /* CrewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		F477088027B10E9000847540 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +202,7 @@
 				F48370AB27B6B37800D2146E /* ImageCropper.swift */,
 				F477089A27B2C7D300847540 /* ConstraintsHelpers.swift */,
 				F483709D27B41B8100D2146E /* Extensions.swift */,
+				F44DA4AE27BBC48C0011851B /* PropertyWrappers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -189,6 +213,7 @@
 				F477088C27B1215000847540 /* SpaceFlightsVM.swift */,
 				F477089427B2650600847540 /* FlightDetailVM.swift */,
 				F48370A927B69BE700D2146E /* CrewVM.swift */,
+				F44DA4B027BBC8010011851B /* SettingsVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -251,13 +276,10 @@
 		F4A4D11F27AD648100163607 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				F4A4D12027AD64BE00163607 /* FlightCell.swift */,
-				F477089627B2692100847540 /* DetailHeaderView.swift */,
-				F477089827B28EDC00847540 /* DetailHighlightsView.swift */,
-				F483709427B3BDCA00D2146E /* DetailLinksStack.swift */,
+				F44DA4B227BBE1E20011851B /* FlightDetail */,
+				F44DA4B327BBE20D0011851B /* Cells */,
 				F483709F27B423E500D2146E /* LoadingIndicatorView.swift */,
 				F48370A327B6560A00D2146E /* LargeTintedButton.swift */,
-				F48370AD27B6B90500D2146E /* CrewCell.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -396,6 +418,7 @@
 				F477089B27B2C7D300847540 /* ConstraintsHelpers.swift in Sources */,
 				F477088627B111EC00847540 /* URLAdresses.swift in Sources */,
 				F48370A027B423E500D2146E /* LoadingIndicatorView.swift in Sources */,
+				F44DA4B127BBC8010011851B /* SettingsVM.swift in Sources */,
 				F477088827B112AC00847540 /* CustomErrors.swift in Sources */,
 				F48370AC27B6B37800D2146E /* ImageCropper.swift in Sources */,
 				F483709527B3BDCA00D2146E /* DetailLinksStack.swift in Sources */,
@@ -422,6 +445,7 @@
 				F483709C27B40F6D00D2146E /* FlightAndPatch.swift in Sources */,
 				F4A4D12327AD76F900163607 /* SpaceFlightDetailVC.swift in Sources */,
 				F477089527B2650600847540 /* FlightDetailVM.swift in Sources */,
+				F44DA4AF27BBC48C0011851B /* PropertyWrappers.swift in Sources */,
 				F477088D27B1215000847540 /* SpaceFlightsVM.swift in Sources */,
 				F48370A427B6560A00D2146E /* LargeTintedButton.swift in Sources */,
 				F48370A627B67C0800D2146E /* CrewMember.swift in Sources */,
