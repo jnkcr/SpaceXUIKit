@@ -23,7 +23,7 @@ class SettingsVC: UIViewController {
     }()
     let behaviorStack: BehaviourSettingsStack = {
         let stack: BehaviourSettingsStack = BehaviourSettingsStack()
-        stack.switchStack.switchControl.addTarget(self, action: #selector(handleSwitch), for: .valueChanged)
+        stack.crewLoadingSwitchStack.switchControl.addTarget(self, action: #selector(handleSwitch), for: .valueChanged)
         return stack
     }()
     
@@ -37,7 +37,7 @@ class SettingsVC: UIViewController {
         // UI Constraints
         NSLayoutConstraint.activate([
             // SEGMENTED CONTROL
-            appearanceStack.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            appearanceStack.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -150),
             appearanceStack.leadingAnchor.constraint(equalTo: view.readableContentGuide.leadingAnchor),
             appearanceStack.trailingAnchor.constraint(equalTo: view.readableContentGuide.trailingAnchor),
             // SWITCH STACK
@@ -50,7 +50,7 @@ class SettingsVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
-        behaviorStack.switchStack.switchControl.setOn(settingsVM.getSwitchState(), animated: true)
+        behaviorStack.crewLoadingSwitchStack.switchControl.setOn(settingsVM.getSwitchState(), animated: true)
         appearanceStack.segmentedControl.selectedSegmentIndex = settingsVM.appearanceKey
     }
     
@@ -62,7 +62,7 @@ extension SettingsVC {
     
     @objc
     func handleSwitch() {
-        settingsVM.isLoadingCrewRightAway = behaviorStack.switchStack.switchControl.isOn
+        settingsVM.isLoadingCrewRightAway = behaviorStack.crewLoadingSwitchStack.switchControl.isOn
     }
     
     @objc

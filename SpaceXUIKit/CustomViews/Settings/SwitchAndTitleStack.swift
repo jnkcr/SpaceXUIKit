@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoadingSwitchStack: UIStackView {
+class SwitchAndTitleStack: UIStackView {
     
     private let title: UILabel = {
         let label: UILabel = UILabel()
@@ -16,7 +16,7 @@ class LoadingSwitchStack: UIStackView {
         label.numberOfLines = 0
         label.lineBreakMode = .byTruncatingTail
         label.textAlignment = .justified
-        label.text = "Load crew on start up"
+        label.text = "n/a"
         return label
     }()
     let switchControl: UISwitch = {
@@ -27,11 +27,12 @@ class LoadingSwitchStack: UIStackView {
         return switcher
     }()
     
-    init() {
+    init(labeled text: String) {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
         axis = .horizontal
         spacing = ConstraintsHelper.smallSpacing
+        title.text = text
         // Subviews
         addArrangedSubview(title)
         addArrangedSubview(switchControl)

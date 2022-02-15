@@ -12,8 +12,14 @@ class BehaviourSettingsStack: UIStackView {
     private let title: SectionTitleLabel = {
         return SectionTitleLabel(titled: "Behaviour")
     }()
-    let switchStack: LoadingSwitchStack = {
-        return LoadingSwitchStack()
+    let crewLoadingSwitchStack: SwitchAndTitleStack = {
+        return SwitchAndTitleStack(labeled: "Load crew on app start up")
+    }()
+    let firstRandomSwitchStack: SwitchAndTitleStack = {
+        return SwitchAndTitleStack(labeled: "Non-funtional #01")
+    }()
+    let secondRandomSwitchStack: SwitchAndTitleStack = {
+        return SwitchAndTitleStack(labeled: "Non-funtional #02")
     }()
 
     init() {
@@ -24,7 +30,9 @@ class BehaviourSettingsStack: UIStackView {
         alignment = .fill
         // Subviews
         addArrangedSubview(title)
-        addArrangedSubview(switchStack)
+        addArrangedSubview(crewLoadingSwitchStack)
+        addArrangedSubview(firstRandomSwitchStack)
+        addArrangedSubview(secondRandomSwitchStack)
     }
     
     required init(coder: NSCoder) {
