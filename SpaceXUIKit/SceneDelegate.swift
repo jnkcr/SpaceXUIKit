@@ -8,6 +8,8 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+    
+    @StoredInt(key: "appearance") var appearanceKey: Int
 
     var window: UIWindow?
     
@@ -41,6 +43,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         window?.rootViewController = tabbar
+        window?.overrideUserInterfaceStyle = getInterfaceStyle()
         window?.makeKeyAndVisible()
     }
 
@@ -78,6 +81,23 @@ extension SceneDelegate: AppearanceDelegate {
     
     func didChangeAppearanceStyle(to style: UIUserInterfaceStyle) {
         window?.overrideUserInterfaceStyle = style
+    }
+    
+}
+
+extension SceneDelegate {
+    
+    func getInterfaceStyle() -> UIUserInterfaceStyle {
+        switch appearanceKey {
+        case 0:
+            return UIUserInterfaceStyle.unspecified
+        case 1:
+            return UIUserInterfaceStyle.light
+        case 2:
+            return UIUserInterfaceStyle.dark
+        default:
+            return UIUserInterfaceStyle.unspecified
+        }
     }
     
 }
