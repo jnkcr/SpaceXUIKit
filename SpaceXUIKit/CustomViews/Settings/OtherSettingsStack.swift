@@ -13,13 +13,13 @@ class OtherSettingsStack: UIStackView {
         SectionTitleLabel(titled: "Other")
     }()
     let notificationStack: ButtonAndTitleStack = {
-        ButtonAndTitleStack(labeled: "Local notification", buttonText: "Get")
+        ButtonAndTitleStack(labeled: "Local notification", buttonText: "Show")
     }()
     let firstRandomStack: ButtonAndTitleStack = {
         ButtonAndTitleStack(labeled: "Non-functional #01", buttonText: "Go")
     }()
     let secondRandomStack: ButtonAndTitleStack = {
-        ButtonAndTitleStack(labeled: "Non-functional #01", buttonText: "Show")
+        ButtonAndTitleStack(labeled: "Non-functional #02", buttonText: "Get")
     }()
     
     init() {

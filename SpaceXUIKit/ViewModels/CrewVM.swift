@@ -7,6 +7,14 @@
 
 import UIKit
 
+enum Section: String, CaseIterable {
+    case nasa   = "NASA"
+    case spacex = "SpaceX"
+    case esa    = "ESA"
+    case jaxa   = "JAXA"
+    case axiom  = "Axiom Space"
+}
+
 protocol CrewDownloadingDelegate {
     func didFinishDownloading(with result: Result<NSDiffableDataSourceSnapshot<Section, CrewCellData>, DownloadError>)
 }
@@ -64,14 +72,39 @@ final class CrewVM {
     // MARK: - Generating content functions
     
     private func generateCellData(from data: [CrewMemberAndPhoto]) -> [CrewCellData] {
-        data.map { CrewCellData(image: $0.photo, name: $0.crewMember.name) }
+        data.map { CrewCellData(image: $0.photo, name: $0.crewMember.name, agency: $0.crewMember.agency) }
     }
     
     private func ganerateSnapshot(from data: [CrewCellData]) -> NSDiffableDataSourceSnapshot<Section, CrewCellData> {
         var snapshot = NSDiffableDataSourceSnapshot<Section, CrewCellData>()
-        snapshot.appendSections([.nasa])
-        snapshot.appendItems(data)
+        for section in Section.allCases {
+            let sectionData = data.filter { $0.agency == section.rawValue }
+            snapshot.appendSections([section])
+            snapshot.appendItems(sectionData, toSection: section)
+        }
         return snapshot
+    }
+    
+    func createPerSectionLayout() -> UICollectionViewLayout {
+        let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int,
+            layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+            
+            let columns = sectionIndex == 0 ? 2 : 4
+            
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                 heightDimension: .fractionalHeight(1.0))
+            let item = NSCollectionLayoutItem(layoutSize: itemSize)
+            
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                                  heightDimension: .absolute(44))
+            let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                              subitem: item,
+                                                                count: columns)
+            
+            let section = NSCollectionLayoutSection(group: group)
+            return section
+        }
+        return layout
     }
     
 }

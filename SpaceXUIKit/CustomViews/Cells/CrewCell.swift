@@ -25,7 +25,7 @@ class CrewCell: UICollectionViewCell {
         label.font = UIFont.preferredFont(forTextStyle: .headline)
         label.textAlignment = .center
         label.lineBreakMode = .byWordWrapping
-        label.numberOfLines = 2
+        label.numberOfLines = 3
         label.text = "Cosmoperson"
         return label
     }()
@@ -34,7 +34,6 @@ class CrewCell: UICollectionViewCell {
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.spacing = ConstraintsHelper.smallSpacing
-//        stack.alignment = .center
         return stack
     }()
     

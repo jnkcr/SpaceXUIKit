@@ -10,4 +10,5 @@ import UIKit
 struct CrewCellData: Hashable {
     let image: UIImage?
     let name: String
+    let agency: String
 }

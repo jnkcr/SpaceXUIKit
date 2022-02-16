@@ -85,14 +85,12 @@ extension SettingsVC {
     func handleNotification() {
         let content = UNMutableNotificationContent()
         content.title = "Hello"
-        content.subtitle = "Hello again"
+        content.subtitle = "Secret message for Maksym"
         content.body = "This is mighty and great local notification that is simply just a feast for your eyes.."
         content.sound = .default
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 15, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-        UNUserNotificationCenter.current().add(request) { error in
-            print(error?.localizedDescription)
-        }
+        UNUserNotificationCenter.current().add(request)
     }
     
 }

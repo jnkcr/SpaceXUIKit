@@ -49,14 +49,21 @@ class FlightCell: UITableViewCell {
         label.adjustsFontSizeToFitWidth = false
         return label
     }()
+    private let cellStack: UIStackView = {
+        let stack: UIStackView = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .horizontal
+        stack.spacing = ConstraintsHelper.padding
+        return stack
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         // Subviews
-        contentView.addSubview(patchImageView)
-        contentView.addSubview(infoStack)
         infoStack.addArrangedSubview(dateLabel)
         infoStack.addArrangedSubview(titleLabel)
+        contentView.addSubview(patchImageView)
+        contentView.addSubview(infoStack)
         // UI Configuration
         let size: CGFloat = 50
         NSLayoutConstraint.activate([
@@ -65,16 +72,16 @@ class FlightCell: UITableViewCell {
             patchImageView.leadingAnchor.constraint(equalTo: contentView.readableContentGuide.leadingAnchor),
             patchImageView.widthAnchor.constraint(equalToConstant: size),
             patchImageView.heightAnchor.constraint(equalToConstant: size),
-            // STACK
-            infoStack.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            infoStack.leadingAnchor.constraint(equalTo: patchImageView.trailingAnchor, constant: ConstraintsHelper.padding),
-            infoStack.trailingAnchor.constraint(equalTo: contentView.readableContentGuide.trailingAnchor),
             // DATE
             dateLabel.leadingAnchor.constraint(equalTo: infoStack.leadingAnchor),
             dateLabel.trailingAnchor.constraint(equalTo: infoStack.trailingAnchor),
             // FLIGHT TITLE
             titleLabel.leadingAnchor.constraint(equalTo: infoStack.leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: infoStack.trailingAnchor),
+            // STACK
+            infoStack.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            infoStack.leadingAnchor.constraint(equalTo: patchImageView.trailingAnchor, constant: ConstraintsHelper.padding),
+            infoStack.trailingAnchor.constraint(equalTo: contentView.readableContentGuide.trailingAnchor),
         ])
     }
     
