@@ -12,6 +12,9 @@ class CrewVC: UIViewController {
     let crewVM: CrewVM = CrewVM()
     let crewLayoutProvider: CrewCollectionLayoutProvider = CrewCollectionLayoutProvider()
     
+    private var loadingIndicatorView: LoadingIndicatorView? = {
+        LoadingIndicatorView()
+    }()
     let headerRegistrations: [String: UICollectionView.SupplementaryRegistration<CrewHeader>] = {
         var registrations: [String: UICollectionView.SupplementaryRegistration<CrewHeader>] = [:]
         for section in Section.allCases {
@@ -60,6 +63,20 @@ class CrewVC: UIViewController {
         collection.showsVerticalScrollIndicator = false
         return collection
     }()
+    private lazy var loadingIndicatorConstraints: [NSLayoutConstraint]? = {
+        [
+            loadingIndicatorView!.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loadingIndicatorView!.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        ]
+    }()
+    private lazy var collectionViewConstraints: [NSLayoutConstraint] = {
+        [
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.readableContentGuide.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.readableContentGuide.trailingAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ]
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,26 +87,49 @@ class CrewVC: UIViewController {
         crewVM.downloadingDelegate = self
         crewVM.downloadCrew()
         // Subviews
-        view.addSubview(collectionView)
+        view.addSubview(loadingIndicatorView!)
         // UIConfiguration
-        NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.readableContentGuide.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.readableContentGuide.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-        ])
+        NSLayoutConstraint.activate(loadingIndicatorConstraints!)
     }
     
 }
+
+// MARK: - Functionality extension
+
+extension CrewVC {
+    
+    private func activateCollectionView() {
+        DispatchQueue.main.async { [self] in
+            loadingIndicatorView?.removeFromSuperview()
+            loadingIndicatorView = nil
+            view.addSubview(collectionView)
+            NSLayoutConstraint.activate(collectionViewConstraints)
+        }
+    }
+    
+}
+
+// MARK: - Downloading delegation
 
 extension CrewVC: CrewDownloadingDelegate {
     
     func didFinishDownloading(with result: Result<NSDiffableDataSourceSnapshot<Section, CrewCellData>, DownloadError>) {
         switch result {
         case .success(let snapshot):
-            DispatchQueue.main.async { self.collectionDataSource.apply(snapshot) }
+            DispatchQueue.main.async { [self] in
+                collectionDataSource.apply(snapshot)
+                activateCollectionView()
+            }
         case .failure(let error):
             print(error.localizedDescription)
+        }
+    }
+    
+    func didChangeProgress(to value: Float) {
+        DispatchQueue.main.async { [self] in
+            let percentage = Int(value * 100)
+            loadingIndicatorView?.percentageLabel.text = "\(percentage) %"
+            loadingIndicatorView?.progressBar.setProgress(value, animated: true)
         }
     }
     

@@ -154,8 +154,8 @@ extension SpaceFlightsVC: UITableViewDelegate {
     
     // Navigate to detail screen by selecting table row
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let spaceFlightDetailVC = SpaceFlightDetailVC()
-        spaceFlightDetailVC.flightDetailVM = FlightDetailVM(flight: spaceFlightsVM.flights[indexPath.row])
+        let viewModel = FlightDetailVM(flight: spaceFlightsVM.flights[indexPath.row])
+        let spaceFlightDetailVC = SpaceFlightDetailVC(viewModel: viewModel)
         navigationController?.pushViewController(spaceFlightDetailVC, animated: true)
     }
     

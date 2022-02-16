@@ -9,7 +9,7 @@ import UIKit
 
 class SpaceFlightDetailVC: UIViewController {
     
-    var flightDetailVM: FlightDetailVM?
+    var flightDetailVM: FlightDetailVM
     
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -27,13 +27,13 @@ class SpaceFlightDetailVC: UIViewController {
         return stack
     }()
     private lazy var headerView: DetailHeaderView = {
-        DetailHeaderView(name: flightDetailVM!.name, description: flightDetailVM!.description)
+        DetailHeaderView(name: flightDetailVM.name, description: flightDetailVM.description)
     }()
     private lazy var highlightsView: DetailHighlightsView = {
-        DetailHighlightsView(dateDesc: flightDetailVM!.dateDescription, crewDesc: flightDetailVM!.crewMembersDescription, successDesc: flightDetailVM!.successDescription, successImg: flightDetailVM!.successImage)
+        DetailHighlightsView(dateDesc: flightDetailVM.dateDescription, crewDesc: flightDetailVM.crewMembersDescription, successDesc: flightDetailVM.successDescription, successImg: flightDetailVM.successImage)
     }()
     private lazy var linksStack: DetailLinksStack = {
-        DetailLinksStack(links: flightDetailVM!.buttonLinks)
+        DetailLinksStack(links: flightDetailVM.buttonLinks)
     }()
     
     override func viewDidLoad() {
@@ -63,6 +63,15 @@ class SpaceFlightDetailVC: UIViewController {
             stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -ConstraintsHelper.padding),
             stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         ])
+    }
+    
+    init(viewModel: FlightDetailVM) {
+        flightDetailVM = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }

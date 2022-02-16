@@ -17,6 +17,7 @@ enum Section: String, CaseIterable {
 
 protocol CrewDownloadingDelegate {
     func didFinishDownloading(with result: Result<NSDiffableDataSourceSnapshot<Section, CrewCellData>, DownloadError>)
+    func didChangeProgress(to value: Float)
 }
 
 final class CrewVM {
@@ -36,7 +37,7 @@ final class CrewVM {
                 let crewData: [CrewMember] = try await networkManager.downloadAllCrewMembers()
                 var crewMembersAndPhotos: [CrewMemberAndPhoto] = []
                 try await withThrowingTaskGroup(of: (UIImage?, CrewMember).self) { group in
-//                    var progress: Float = 0
+                    var progress: Float = 0
                     for crewMember in crewData {
                         group.addTask {
                             guard let image = try? await self.networkManager.downloadImage(from: crewMember.image) else {
@@ -48,8 +49,8 @@ final class CrewVM {
                     for try await (image, crewMember) in group {
                         let photo = ImageCropper.crop(image)
                         crewMembersAndPhotos.append(CrewMemberAndPhoto(photo: photo, crewMember: crewMember))
-//                        progress += 1
-//                        loadingDelegate?.didChangeProgress(to: progress / Float(flightsData.count))
+                        progress += 1
+                        downloadingDelegate?.didChangeProgress(to: progress / Float(crewData.count))
                     }
                 }
                 crew = crewMembersAndPhotos
