@@ -10,12 +10,7 @@ import Lottie
 
 class LoadingIndicatorView: UIStackView {
     
-    private let animationView: AnimationView = {
-        let animation: AnimationView = AnimationView(name: "rocket01")
-        animation.loopMode = .loop
-        animation.contentMode = .scaleAspectFit
-        return animation
-    }()
+    private let animationView: AnimationView
     let percentageLabel: UILabel = {
         let label: UILabel = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -33,14 +28,18 @@ class LoadingIndicatorView: UIStackView {
         return bar
     }()
     
-    init() {
+    init(animationName: String = "rocket01") {
+        // Animation setup
+        animationView = AnimationView(name: animationName)
+        animationView.loopMode = .loop
+        animationView.contentMode = .scaleAspectFit
+        animationView.play()
+        // View setup
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
         axis = .vertical
         alignment = .center
         spacing = ConstraintsHelper.mediumSpacing
-        // Animation
-        animationView.play()
         // Subviews
         addArrangedSubview(animationView)
         addArrangedSubview(percentageLabel)
@@ -55,10 +54,6 @@ class LoadingIndicatorView: UIStackView {
             // PROGRESS
             progressBar.widthAnchor.constraint(equalToConstant: 200),
         ])
-    }
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
     }
     
     required init(coder: NSCoder) {

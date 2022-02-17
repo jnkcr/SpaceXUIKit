@@ -11,6 +11,7 @@
 		F440003527BE439100F80C6C /* DetailHighlightBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F440003427BE439100F80C6C /* DetailHighlightBlock.swift */; };
 		F440003827BE4FE800F80C6C /* rocket01.json in Resources */ = {isa = PBXBuildFile; fileRef = F440003727BE4FE800F80C6C /* rocket01.json */; };
 		F440003B27BE50AE00F80C6C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = F440003A27BE50AE00F80C6C /* Lottie */; };
+		F440003D27BE888E00F80C6C /* astro.json in Resources */ = {isa = PBXBuildFile; fileRef = F440003C27BE888E00F80C6C /* astro.json */; };
 		F44DA4AF27BBC48C0011851B /* PropertyWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4AE27BBC48C0011851B /* PropertyWrappers.swift */; };
 		F44DA4B127BBC8010011851B /* SettingsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4B027BBC8010011851B /* SettingsVM.swift */; };
 		F44DA4B527BBEB000011851B /* SwitchAndTitleStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4B427BBEB000011851B /* SwitchAndTitleStack.swift */; };
@@ -82,6 +83,7 @@
 		F434382127BA981300A57272 /* CrewMemberAndPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewMemberAndPhoto.swift; sourceTree = "<group>"; };
 		F440003427BE439100F80C6C /* DetailHighlightBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHighlightBlock.swift; sourceTree = "<group>"; };
 		F440003727BE4FE800F80C6C /* rocket01.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rocket01.json; sourceTree = "<group>"; };
+		F440003C27BE888E00F80C6C /* astro.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astro.json; sourceTree = "<group>"; };
 		F44DA4AE27BBC48C0011851B /* PropertyWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWrappers.swift; sourceTree = "<group>"; };
 		F44DA4B027BBC8010011851B /* SettingsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVM.swift; sourceTree = "<group>"; };
 		F44DA4B427BBEB000011851B /* SwitchAndTitleStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchAndTitleStack.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				F440003727BE4FE800F80C6C /* rocket01.json */,
+				F440003C27BE888E00F80C6C /* astro.json */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				F49E9FA227AC32BA0081238D /* LaunchScreen.storyboard in Resources */,
 				F49E9F9F27AC32BA0081238D /* Assets.xcassets in Resources */,
 				F440003827BE4FE800F80C6C /* rocket01.json in Resources */,
+				F440003D27BE888E00F80C6C /* astro.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

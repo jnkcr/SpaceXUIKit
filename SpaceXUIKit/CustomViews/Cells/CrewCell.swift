@@ -39,7 +39,6 @@ class CrewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.backgroundColor = .systemBackground
         // Subviews
         contentView.addSubview(stackView)
@@ -48,8 +47,12 @@ class CrewCell: UICollectionViewCell {
         // UI Constraints
         NSLayoutConstraint.activate([
             // PHOTO
-            photoView.widthAnchor.constraint(equalToConstant: contentView.bounds.width),
             photoView.heightAnchor.constraint(equalTo: photoView.widthAnchor),
+            // STACK
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            stackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
     

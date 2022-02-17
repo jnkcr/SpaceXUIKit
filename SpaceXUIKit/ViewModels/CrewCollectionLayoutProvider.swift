@@ -22,20 +22,21 @@ final class CrewCollectionLayoutProvider {
         let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int,
             layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
             
-//            let columns = sectionIndex == 0 ? 3 : 2
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(1.0))
+            let columns = sectionIndex == 0 ? 3 : 2
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(1))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
             
-            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalHeight(0.25))
+            let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(1))
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                               subitem: item,
-                                                                count: 3)
+                                                                count: columns)
             
             group.interItemSpacing = .fixed(ConstraintsHelper.padding)
             
             let section = NSCollectionLayoutSection(group: group)
+            section.interGroupSpacing = ConstraintsHelper.padding
             section.boundarySupplementaryItems = [self.sectionHeaders[sectionIndex]]
-            section.contentInsets = NSDirectionalEdgeInsets(top: ConstraintsHelper.padding, leading: 0, bottom: 0, trailing: 0)
+            section.contentInsets = NSDirectionalEdgeInsets(top: ConstraintsHelper.padding, leading: 0, bottom: ConstraintsHelper.padding * 3, trailing: 0)
             
             return section
         }

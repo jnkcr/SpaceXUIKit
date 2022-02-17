@@ -12,9 +12,7 @@ class CrewVC: UIViewController {
     let crewVM: CrewVM = CrewVM()
     let crewLayoutProvider: CrewCollectionLayoutProvider = CrewCollectionLayoutProvider()
     
-    private var loadingIndicatorView: LoadingIndicatorView? = {
-        LoadingIndicatorView()
-    }()
+    private var loadingIndicatorView: LoadingIndicatorView?
     let headerRegistrations: [String: UICollectionView.SupplementaryRegistration<CrewHeader>] = {
         var registrations: [String: UICollectionView.SupplementaryRegistration<CrewHeader>] = [:]
         for section in Section.allCases {
@@ -59,16 +57,12 @@ class CrewVC: UIViewController {
         let collection: UICollectionView = UICollectionView(frame: view.bounds, collectionViewLayout: crewLayoutProvider.collectionLayout)
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.register(CrewCell.self, forCellWithReuseIdentifier: CrewCell.reusableID)
+        // UICollectionView.elementKindSectionHeader
         collection.register(CrewHeader.self, forSupplementaryViewOfKind: "header", withReuseIdentifier: CrewHeader.reuseID)
         collection.showsVerticalScrollIndicator = false
         return collection
     }()
-    private lazy var loadingIndicatorConstraints: [NSLayoutConstraint]? = {
-        [
-            loadingIndicatorView!.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loadingIndicatorView!.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-        ]
-    }()
+
     private lazy var collectionViewConstraints: [NSLayoutConstraint] = {
         [
             collectionView.topAnchor.constraint(equalTo: view.topAnchor),
@@ -87,9 +81,15 @@ class CrewVC: UIViewController {
         crewVM.downloadingDelegate = self
         crewVM.downloadCrew()
         // Subviews
-        view.addSubview(loadingIndicatorView!)
-        // UIConfiguration
-        NSLayoutConstraint.activate(loadingIndicatorConstraints!)
+        let loadingIndicatorView = LoadingIndicatorView(animationName: "astro")
+        view.addSubview(loadingIndicatorView)
+        // UI Config
+        NSLayoutConstraint.activate([
+            loadingIndicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loadingIndicatorView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        ])
+        
+        self.loadingIndicatorView = loadingIndicatorView
     }
     
 }
