@@ -81,15 +81,16 @@ class CrewVC: UIViewController {
         crewVM.downloadingDelegate = self
         crewVM.downloadCrew()
         // Subviews
-        let loadingIndicatorView = LoadingIndicatorView(animationName: "astro")
+        let loadingIndicatorView = LoadingIndicatorView()
         view.addSubview(loadingIndicatorView)
         // UI Config
         NSLayoutConstraint.activate([
             loadingIndicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             loadingIndicatorView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
-        
         self.loadingIndicatorView = loadingIndicatorView
+        // Delegation
+        collectionView.delegate = self
     }
     
 }
@@ -131,6 +132,22 @@ extension CrewVC: CrewDownloadingDelegate {
             loadingIndicatorView?.percentageLabel.text = "\(percentage) %"
             loadingIndicatorView?.progressBar.setProgress(value, animated: true)
         }
+    }
+    
+}
+
+// MARK: - CollectionView delegation
+
+extension CrewVC: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // Get corresponding item
+        guard let cellItem = collectionDataSource.itemIdentifier(for: indexPath) else { fatalError("There has to be cell item present") }
+        guard let item = crewVM.crew.filter({ $0.crewMember.id.contains(cellItem.id) }).first else { fatalError("There has to be item findable by id") }
+        // Navigate to detail view controller
+        let viewModel = CrewDetailVM(crewMember: item)
+        let vc = CrewDetailVC(viewModel: viewModel)
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }

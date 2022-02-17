@@ -12,6 +12,8 @@
 		F440003827BE4FE800F80C6C /* rocket01.json in Resources */ = {isa = PBXBuildFile; fileRef = F440003727BE4FE800F80C6C /* rocket01.json */; };
 		F440003B27BE50AE00F80C6C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = F440003A27BE50AE00F80C6C /* Lottie */; };
 		F440003D27BE888E00F80C6C /* astro.json in Resources */ = {isa = PBXBuildFile; fileRef = F440003C27BE888E00F80C6C /* astro.json */; };
+		F440003F27BE9BFB00F80C6C /* CrewDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F440003E27BE9BFB00F80C6C /* CrewDetailVC.swift */; };
+		F440004127BEA84200F80C6C /* CrewDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F440004027BEA84200F80C6C /* CrewDetailVM.swift */; };
 		F44DA4AF27BBC48C0011851B /* PropertyWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4AE27BBC48C0011851B /* PropertyWrappers.swift */; };
 		F44DA4B127BBC8010011851B /* SettingsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4B027BBC8010011851B /* SettingsVM.swift */; };
 		F44DA4B527BBEB000011851B /* SwitchAndTitleStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4B427BBEB000011851B /* SwitchAndTitleStack.swift */; };
@@ -84,6 +86,8 @@
 		F440003427BE439100F80C6C /* DetailHighlightBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHighlightBlock.swift; sourceTree = "<group>"; };
 		F440003727BE4FE800F80C6C /* rocket01.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rocket01.json; sourceTree = "<group>"; };
 		F440003C27BE888E00F80C6C /* astro.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astro.json; sourceTree = "<group>"; };
+		F440003E27BE9BFB00F80C6C /* CrewDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewDetailVC.swift; sourceTree = "<group>"; };
+		F440004027BEA84200F80C6C /* CrewDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewDetailVM.swift; sourceTree = "<group>"; };
 		F44DA4AE27BBC48C0011851B /* PropertyWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWrappers.swift; sourceTree = "<group>"; };
 		F44DA4B027BBC8010011851B /* SettingsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVM.swift; sourceTree = "<group>"; };
 		F44DA4B427BBEB000011851B /* SwitchAndTitleStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchAndTitleStack.swift; sourceTree = "<group>"; };
@@ -240,6 +244,7 @@
 				F4A4D11D27AD20F700163607 /* SpaceFlightsVC.swift */,
 				F4A4D12227AD76F900163607 /* SpaceFlightDetailVC.swift */,
 				F4A4D12427AD881B00163607 /* CrewVC.swift */,
+				F440003E27BE9BFB00F80C6C /* CrewDetailVC.swift */,
 				F48370A127B56B8800D2146E /* SettingsVC.swift */,
 			);
 			path = Screens;
@@ -264,6 +269,7 @@
 				F477089427B2650600847540 /* FlightDetailVM.swift */,
 				F48370A927B69BE700D2146E /* CrewVM.swift */,
 				F44DA4C527BD37E80011851B /* CrewCollectionLayoutProvider.swift */,
+				F440004027BEA84200F80C6C /* CrewDetailVM.swift */,
 				F44DA4B027BBC8010011851B /* SettingsVM.swift */,
 			);
 			path = ViewModels;
@@ -486,6 +492,7 @@
 				F48370AC27B6B37800D2146E /* ImageCropper.swift in Sources */,
 				F483709527B3BDCA00D2146E /* DetailLinksStack.swift in Sources */,
 				F434382227BA981300A57272 /* CrewMemberAndPhoto.swift in Sources */,
+				F440004127BEA84200F80C6C /* CrewDetailVM.swift in Sources */,
 				F477089327B18B1500847540 /* ImageDownloader.swift in Sources */,
 				F483709727B3CC6600D2146E /* FlightButtonLinks.swift in Sources */,
 				F44DA4C427BD095C0011851B /* CrewHeader.swift in Sources */,
@@ -516,6 +523,7 @@
 				F4A4D12327AD76F900163607 /* SpaceFlightDetailVC.swift in Sources */,
 				F44DA4B827BBF5B40011851B /* AppearanceSettingsStack.swift in Sources */,
 				F477089527B2650600847540 /* FlightDetailVM.swift in Sources */,
+				F440003F27BE9BFB00F80C6C /* CrewDetailVC.swift in Sources */,
 				F44DA4BC27BBFF1C0011851B /* SectionTitleLabel.swift in Sources */,
 				F44DA4AF27BBC48C0011851B /* PropertyWrappers.swift in Sources */,
 				F477088D27B1215000847540 /* SpaceFlightsVM.swift in Sources */,
