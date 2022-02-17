@@ -6,15 +6,15 @@
 //
 
 import UIKit
+import Lottie
 
 class LoadingIndicatorView: UIStackView {
     
-    private let imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.tintColor = .systemYellow
-        imageView.image = UIImage(systemName: "arrow.down.to.line")
-        return imageView
+    private let animationView: AnimationView = {
+        let animation: AnimationView = AnimationView(name: "rocket01")
+        animation.loopMode = .loop
+        animation.contentMode = .scaleAspectFit
+        return animation
     }()
     let percentageLabel: UILabel = {
         let label: UILabel = UILabel()
@@ -39,15 +39,16 @@ class LoadingIndicatorView: UIStackView {
         axis = .vertical
         alignment = .center
         spacing = ConstraintsHelper.mediumSpacing
+        // Animation
+        animationView.play()
         // Subviews
-        addArrangedSubview(imageView)
+        addArrangedSubview(animationView)
         addArrangedSubview(percentageLabel)
         addArrangedSubview(progressBar)
         // UI Constraints
         NSLayoutConstraint.activate([
-            // IMAGE
-            imageView.widthAnchor.constraint(equalToConstant: 68),
-            imageView.heightAnchor.constraint(equalToConstant: 85),
+            // ANIMATION
+            animationView.widthAnchor.constraint(equalToConstant: 150),
             // LABEL
             percentageLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             percentageLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),

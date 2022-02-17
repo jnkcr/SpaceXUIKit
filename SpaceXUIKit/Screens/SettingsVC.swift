@@ -84,7 +84,7 @@ extension SettingsVC {
     @objc
     func handleNotification() {
         let content = UNMutableNotificationContent()
-        content.title = "Hello"
+        content.title = "Pssst, hey"
         content.subtitle = "Secret message for Maksym"
         content.body = "This is mighty and great local notification that is simply just a feast for your eyes.."
         content.sound = .default
