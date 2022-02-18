@@ -11,18 +11,8 @@ class CrewVC: UIViewController {
     
     let crewVM: CrewVM = CrewVM()
     let crewLayoutProvider: CrewCollectionLayoutProvider = CrewCollectionLayoutProvider()
-    
     private var loadingIndicatorView: LoadingIndicatorView?
-    let headerRegistrations: [String: UICollectionView.SupplementaryRegistration<CrewHeader>] = {
-        var registrations: [String: UICollectionView.SupplementaryRegistration<CrewHeader>] = [:]
-        for section in Section.allCases {
-            let registration = UICollectionView.SupplementaryRegistration<CrewHeader>(elementKind: section.rawValue) { supplementaryView, elementKind, indexPath in
-                supplementaryView.headerLabel.text = elementKind
-            }
-            registrations[section.rawValue] = registration
-        }
-        return registrations
-    }()
+    
     lazy var collectionDataSource: UICollectionViewDiffableDataSource<Section, CrewCellData> = {
         let dataSource = UICollectionViewDiffableDataSource<Section, CrewCellData>(collectionView: collectionView) { (colView, index, crewData) -> UICollectionViewCell? in
             guard let cell = colView.dequeueReusableCell(withReuseIdentifier: CrewCell.reusableID, for: index) as? CrewCell else { fatalError("Collection cell must be downcasted right") }
@@ -31,7 +21,7 @@ class CrewVC: UIViewController {
             return cell
         }
         dataSource.supplementaryViewProvider = { [self] (view, kind, indexPath) in
-            guard let registration = headerRegistrations[Section[indexPath.section]] else { fatalError("There has to be matching kind of type \(kind)") }
+            guard let registration = crewLayoutProvider.headerRegistrations[Section[indexPath.section]] else { fatalError("There has to be matching kind of type \(kind)") }
             return collectionView.dequeueConfiguredReusableSupplementary(using: registration, for: indexPath)
         }
         return dataSource
@@ -40,7 +30,6 @@ class CrewVC: UIViewController {
         let collection: UICollectionView = UICollectionView(frame: view.bounds, collectionViewLayout: crewLayoutProvider.collectionLayout)
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.register(CrewCell.self, forCellWithReuseIdentifier: CrewCell.reusableID)
-        // UICollectionView.elementKindSectionHeader
         collection.register(CrewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CrewHeader.reuseID)
         collection.showsVerticalScrollIndicator = false
         return collection

@@ -9,6 +9,17 @@ import UIKit
 
 final class CrewCollectionLayoutProvider {
     
+    let headerRegistrations: [String: UICollectionView.SupplementaryRegistration<CrewHeader>] = {
+        var registrations: [String: UICollectionView.SupplementaryRegistration<CrewHeader>] = [:]
+        for section in Section.allCases {
+            let registration = UICollectionView.SupplementaryRegistration<CrewHeader>(elementKind: section.rawValue) { supplementaryView, elementKind, indexPath in
+                supplementaryView.headerLabel.text = elementKind
+            }
+            registrations[section.rawValue] = registration
+        }
+        return registrations
+    }()
+    
     let sectionHeaders: [NSCollectionLayoutBoundarySupplementaryItem] = {
         let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(30))
         var headers: [NSCollectionLayoutBoundarySupplementaryItem] = []
@@ -22,14 +33,24 @@ final class CrewCollectionLayoutProvider {
         let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int,
             layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
             
-            let columns = sectionIndex == 0 ? 3 : 2
+            let numOfColumns: Int = {
+                switch sectionIndex {
+                case 0:
+                    return 3
+                case 3:
+                    return 1
+                default:
+                    return 2
+                }
+            }()
+            
             let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(1))
             let item = NSCollectionLayoutItem(layoutSize: itemSize)
             
             let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(1))
             let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                               subitem: item,
-                                                                count: columns)
+                                                                count: numOfColumns)
             
             group.interItemSpacing = .fixed(ConstraintsHelper.padding)
             
