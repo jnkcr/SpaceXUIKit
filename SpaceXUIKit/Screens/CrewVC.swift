@@ -94,7 +94,7 @@ extension CrewVC: CrewDownloadingDelegate {
                 activateCollectionView()
             }
         case .failure(let error):
-            print(error.localizedDescription)
+            self.shownCustomAlert(description: error.rawValue)
         }
     }
     

@@ -9,10 +9,10 @@ import UIKit
 
 class SectionTitleLabel: UILabel {
 
-    init(titled title: String) {
+    init(titled title: String, sized size: CGFloat = 20) {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
-        font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        font = UIFont.systemFont(ofSize: size, weight: .bold)
         textAlignment = .natural
         lineBreakMode = .byTruncatingTail
         numberOfLines = 1

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class CrewDetailVM {
     
@@ -17,6 +18,10 @@ final class CrewDetailVM {
     
     var nameDescription: String {
         memberData.crewMember.name
+    }
+    
+    var memberPhoto: UIImage? {
+        memberData.photo
     }
     
 }

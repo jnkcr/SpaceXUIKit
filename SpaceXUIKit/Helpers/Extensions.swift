@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension Sequence {
     func asyncMap<T>(_ transform: (Element) async throws -> T) async rethrows -> [T] {
@@ -17,4 +18,17 @@ extension Sequence {
 
         return values
     }
+}
+
+extension UIViewController {
+    
+    func shownCustomAlert(title: String = "Error", description: String, confirmationText: String = "Ok") {
+        DispatchQueue.main.async {
+            let vc = AlertVC(titleText: title, description: description, buttonConfirmationText: confirmationText)
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .crossDissolve
+            self.present(vc, animated: true)
+        }
+    }
+    
 }

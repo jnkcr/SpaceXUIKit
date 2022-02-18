@@ -29,6 +29,7 @@ class SettingsVC: UIViewController {
         stack.appearanceSection.segmentedControl.addTarget(self, action: #selector(handleSegmentedControl), for: .valueChanged)
         stack.behaviourSection.crewLoadingSwitchStack.switchControl.addTarget(self, action: #selector(handleSwitch), for: .valueChanged)
         stack.otherSection.notificationStack.button.addTarget(self, action: #selector(handleNotification), for: .touchUpInside)
+        stack.otherSection.alertStack.button.addTarget(self, action: #selector(handleAlert), for: .touchUpInside)
         return stack
     }()
     
@@ -79,6 +80,11 @@ extension SettingsVC {
     func handleSegmentedControl() {
         settingsVM.appearanceKey = settingsStack.appearanceSection.segmentedControl.selectedSegmentIndex
         appearanceDelegate?.didChangeAppearanceStyle(to: settingsVM.getInterfaceStyle())
+    }
+    
+    @objc
+    private func handleAlert() {
+        shownCustomAlert(title: "Alert", description: "This is a generic text showcasing alert visuals.", confirmationText: "I like it")
     }
     
     @objc

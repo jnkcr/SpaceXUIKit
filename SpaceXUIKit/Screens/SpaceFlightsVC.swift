@@ -41,6 +41,9 @@ class SpaceFlightsVC: UIViewController {
     private let refreshBarButton: UIBarButtonItem = {
         UIBarButtonItem(image: UIImage(systemName: "arrow.triangle.2.circlepath"), style: .plain, target: self, action: #selector(redownloadAndRefreshTableData))
     }()
+    private let alertBarButton: UIBarButtonItem = {
+        UIBarButtonItem(image: UIImage(systemName: "multiply.circle"), style: .plain, target: self, action: #selector(showAlert))
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,6 +51,7 @@ class SpaceFlightsVC: UIViewController {
         title = "Flights"
         view.backgroundColor = .systemBackground
         navigationItem.leftBarButtonItem = refreshBarButton
+        navigationItem.rightBarButtonItem = alertBarButton
         // Table
         tableView.dataSource = self
         tableView.delegate = self
@@ -96,7 +100,7 @@ extension SpaceFlightsVC {
             if isGranted {
                 print("NOTIFICATION ACCESS GRANTED")
             } else {
-                print("NOTIFICATION ACCESS DENIED")
+                self.shownCustomAlert(title: "Alert", description: "To get notifications you may consider allowing access in device settings.", confirmationText: "Ok")
             }
         }
     }
@@ -105,6 +109,11 @@ extension SpaceFlightsVC {
     private func redownloadAndRefreshTableData() {
         spaceFlightsVM.loadFlights()
         DispatchQueue.main.async { self.tableView.refreshControl?.endRefreshing() }
+    }
+    
+    @objc
+    private func showAlert() {
+        shownCustomAlert(title: "Error", description: "Upsssss", confirmationText: "Ok")
     }
  
 }
@@ -125,7 +134,7 @@ extension SpaceFlightsVC: FlightsDownloadingDelegate {
             activateTableView()
             DispatchQueue.main.async { self.tableView.reloadData() }
         case .failure(let error):
-            print(error.localizedDescription)
+            shownCustomAlert(description: error.rawValue)
         }
     }
     

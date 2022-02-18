@@ -28,6 +28,9 @@
 		F465051127BF91B9008B5D97 /* rocket03.json in Resources */ = {isa = PBXBuildFile; fileRef = F465051027BF91B9008B5D97 /* rocket03.json */; };
 		F465051327BF91BF008B5D97 /* astronaut03.json in Resources */ = {isa = PBXBuildFile; fileRef = F465051227BF91BF008B5D97 /* astronaut03.json */; };
 		F465051527BF92FD008B5D97 /* AnimationShuffler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465051427BF92FD008B5D97 /* AnimationShuffler.swift */; };
+		F465051727BFA345008B5D97 /* AlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465051627BFA345008B5D97 /* AlertVC.swift */; };
+		F465051A27BFDD34008B5D97 /* error01.json in Resources */ = {isa = PBXBuildFile; fileRef = F465051927BFDD34008B5D97 /* error01.json */; };
+		F465051C27BFDD3A008B5D97 /* error02.json in Resources */ = {isa = PBXBuildFile; fileRef = F465051B27BFDD3A008B5D97 /* error02.json */; };
 		F477088227B10EAA00847540 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477088127B10EAA00847540 /* NetworkManager.swift */; };
 		F477088427B10EEB00847540 /* FlightDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477088327B10EEB00847540 /* FlightDownloader.swift */; };
 		F477088627B111EC00847540 /* URLAdresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477088527B111EC00847540 /* URLAdresses.swift */; };
@@ -108,6 +111,9 @@
 		F465051027BF91B9008B5D97 /* rocket03.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rocket03.json; sourceTree = "<group>"; };
 		F465051227BF91BF008B5D97 /* astronaut03.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronaut03.json; sourceTree = "<group>"; };
 		F465051427BF92FD008B5D97 /* AnimationShuffler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationShuffler.swift; sourceTree = "<group>"; };
+		F465051627BFA345008B5D97 /* AlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertVC.swift; sourceTree = "<group>"; };
+		F465051927BFDD34008B5D97 /* error01.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = error01.json; sourceTree = "<group>"; };
+		F465051B27BFDD3A008B5D97 /* error02.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = error02.json; sourceTree = "<group>"; };
 		F477088127B10EAA00847540 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F477088327B10EEB00847540 /* FlightDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDownloader.swift; sourceTree = "<group>"; };
 		F477088527B111EC00847540 /* URLAdresses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLAdresses.swift; sourceTree = "<group>"; };
@@ -189,6 +195,8 @@
 				F4A2977127BEC75400800DF8 /* astronaut01.json */,
 				F4A2977327BEC75500800DF8 /* astronaut02.json */,
 				F465051227BF91BF008B5D97 /* astronaut03.json */,
+				F465051927BFDD34008B5D97 /* error01.json */,
+				F465051B27BFDD3A008B5D97 /* error02.json */,
 				F4A2977227BEC75500800DF8 /* error404.json */,
 			);
 			path = Animations;
@@ -226,6 +234,14 @@
 				F44DA4BF27BC18160011851B /* ButtonAndTitleStack.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		F465051827BFA39B008B5D97 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				F465051627BFA345008B5D97 /* AlertVC.swift */,
+			);
+			path = Alert;
 			sourceTree = "<group>";
 		};
 		F477088027B10E9000847540 /* Networking */ = {
@@ -355,6 +371,7 @@
 				F44DA4B227BBE1E20011851B /* FlightDetail */,
 				F44DA4B627BBF5750011851B /* Settings */,
 				F44DA4B327BBE20D0011851B /* Cells */,
+				F465051827BFA39B008B5D97 /* Alert */,
 				F483709F27B423E500D2146E /* LoadingIndicatorView.swift */,
 				F48370A327B6560A00D2146E /* LargeTintedButton.swift */,
 				F44DA4BB27BBFF1C0011851B /* SectionTitleLabel.swift */,
@@ -473,8 +490,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F465051127BF91B9008B5D97 /* rocket03.json in Resources */,
+				F465051C27BFDD3A008B5D97 /* error02.json in Resources */,
 				F4A2977627BEC75500800DF8 /* error404.json in Resources */,
 				F49E9FA227AC32BA0081238D /* LaunchScreen.storyboard in Resources */,
+				F465051A27BFDD34008B5D97 /* error01.json in Resources */,
 				F49E9F9F27AC32BA0081238D /* Assets.xcassets in Resources */,
 				F4A2977727BEC75500800DF8 /* astronaut02.json in Resources */,
 				F440003827BE4FE800F80C6C /* rocket01.json in Resources */,
@@ -546,6 +565,7 @@
 				F483709C27B40F6D00D2146E /* FlightAndPatch.swift in Sources */,
 				F4A4D12327AD76F900163607 /* SpaceFlightDetailVC.swift in Sources */,
 				F44DA4B827BBF5B40011851B /* AppearanceSettingsStack.swift in Sources */,
+				F465051727BFA345008B5D97 /* AlertVC.swift in Sources */,
 				F477089527B2650600847540 /* FlightDetailVM.swift in Sources */,
 				F440003F27BE9BFB00F80C6C /* CrewDetailVC.swift in Sources */,
 				F44DA4BC27BBFF1C0011851B /* SectionTitleLabel.swift in Sources */,
