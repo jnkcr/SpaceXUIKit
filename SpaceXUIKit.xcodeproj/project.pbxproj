@@ -11,7 +11,6 @@
 		F440003527BE439100F80C6C /* DetailHighlightBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F440003427BE439100F80C6C /* DetailHighlightBlock.swift */; };
 		F440003827BE4FE800F80C6C /* rocket01.json in Resources */ = {isa = PBXBuildFile; fileRef = F440003727BE4FE800F80C6C /* rocket01.json */; };
 		F440003B27BE50AE00F80C6C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = F440003A27BE50AE00F80C6C /* Lottie */; };
-		F440003D27BE888E00F80C6C /* astro.json in Resources */ = {isa = PBXBuildFile; fileRef = F440003C27BE888E00F80C6C /* astro.json */; };
 		F440003F27BE9BFB00F80C6C /* CrewDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F440003E27BE9BFB00F80C6C /* CrewDetailVC.swift */; };
 		F440004127BEA84200F80C6C /* CrewDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F440004027BEA84200F80C6C /* CrewDetailVM.swift */; };
 		F44DA4AF27BBC48C0011851B /* PropertyWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4AE27BBC48C0011851B /* PropertyWrappers.swift */; };
@@ -25,6 +24,10 @@
 		F44DA4C227BC19CC0011851B /* OtherSettingsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4C127BC19CC0011851B /* OtherSettingsStack.swift */; };
 		F44DA4C427BD095C0011851B /* CrewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4C327BD095C0011851B /* CrewHeader.swift */; };
 		F44DA4C627BD37E80011851B /* CrewCollectionLayoutProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4C527BD37E80011851B /* CrewCollectionLayoutProvider.swift */; };
+		F465050F27BF8F47008B5D97 /* rocket02.json in Resources */ = {isa = PBXBuildFile; fileRef = F465050E27BF8F47008B5D97 /* rocket02.json */; };
+		F465051127BF91B9008B5D97 /* rocket03.json in Resources */ = {isa = PBXBuildFile; fileRef = F465051027BF91B9008B5D97 /* rocket03.json */; };
+		F465051327BF91BF008B5D97 /* astronaut03.json in Resources */ = {isa = PBXBuildFile; fileRef = F465051227BF91BF008B5D97 /* astronaut03.json */; };
+		F465051527BF92FD008B5D97 /* AnimationShuffler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465051427BF92FD008B5D97 /* AnimationShuffler.swift */; };
 		F477088227B10EAA00847540 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477088127B10EAA00847540 /* NetworkManager.swift */; };
 		F477088427B10EEB00847540 /* FlightDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477088327B10EEB00847540 /* FlightDownloader.swift */; };
 		F477088627B111EC00847540 /* URLAdresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477088527B111EC00847540 /* URLAdresses.swift */; };
@@ -58,6 +61,9 @@
 		F49E9FAD27AC32BA0081238D /* SpaceXUIKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E9FAC27AC32BA0081238D /* SpaceXUIKitTests.swift */; };
 		F49E9FB727AC32BA0081238D /* SpaceXUIKitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E9FB627AC32BA0081238D /* SpaceXUIKitUITests.swift */; };
 		F49E9FB927AC32BA0081238D /* SpaceXUIKitUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E9FB827AC32BA0081238D /* SpaceXUIKitUITestsLaunchTests.swift */; };
+		F4A2977527BEC75500800DF8 /* astronaut01.json in Resources */ = {isa = PBXBuildFile; fileRef = F4A2977127BEC75400800DF8 /* astronaut01.json */; };
+		F4A2977627BEC75500800DF8 /* error404.json in Resources */ = {isa = PBXBuildFile; fileRef = F4A2977227BEC75500800DF8 /* error404.json */; };
+		F4A2977727BEC75500800DF8 /* astronaut02.json in Resources */ = {isa = PBXBuildFile; fileRef = F4A2977327BEC75500800DF8 /* astronaut02.json */; };
 		F4A4D11E27AD20F700163607 /* SpaceFlightsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4D11D27AD20F700163607 /* SpaceFlightsVC.swift */; };
 		F4A4D12127AD64BE00163607 /* FlightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4D12027AD64BE00163607 /* FlightCell.swift */; };
 		F4A4D12327AD76F900163607 /* SpaceFlightDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4D12227AD76F900163607 /* SpaceFlightDetailVC.swift */; };
@@ -85,7 +91,6 @@
 		F434382127BA981300A57272 /* CrewMemberAndPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewMemberAndPhoto.swift; sourceTree = "<group>"; };
 		F440003427BE439100F80C6C /* DetailHighlightBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHighlightBlock.swift; sourceTree = "<group>"; };
 		F440003727BE4FE800F80C6C /* rocket01.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rocket01.json; sourceTree = "<group>"; };
-		F440003C27BE888E00F80C6C /* astro.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astro.json; sourceTree = "<group>"; };
 		F440003E27BE9BFB00F80C6C /* CrewDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewDetailVC.swift; sourceTree = "<group>"; };
 		F440004027BEA84200F80C6C /* CrewDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewDetailVM.swift; sourceTree = "<group>"; };
 		F44DA4AE27BBC48C0011851B /* PropertyWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWrappers.swift; sourceTree = "<group>"; };
@@ -99,6 +104,10 @@
 		F44DA4C127BC19CC0011851B /* OtherSettingsStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherSettingsStack.swift; sourceTree = "<group>"; };
 		F44DA4C327BD095C0011851B /* CrewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CrewHeader.swift; path = SpaceXUIKit/CustomViews/Cells/CrewHeader.swift; sourceTree = SOURCE_ROOT; };
 		F44DA4C527BD37E80011851B /* CrewCollectionLayoutProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewCollectionLayoutProvider.swift; sourceTree = "<group>"; };
+		F465050E27BF8F47008B5D97 /* rocket02.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rocket02.json; sourceTree = "<group>"; };
+		F465051027BF91B9008B5D97 /* rocket03.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rocket03.json; sourceTree = "<group>"; };
+		F465051227BF91BF008B5D97 /* astronaut03.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronaut03.json; sourceTree = "<group>"; };
+		F465051427BF92FD008B5D97 /* AnimationShuffler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationShuffler.swift; sourceTree = "<group>"; };
 		F477088127B10EAA00847540 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F477088327B10EEB00847540 /* FlightDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDownloader.swift; sourceTree = "<group>"; };
 		F477088527B111EC00847540 /* URLAdresses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLAdresses.swift; sourceTree = "<group>"; };
@@ -136,6 +145,9 @@
 		F49E9FB227AC32BA0081238D /* SpaceXUIKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceXUIKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49E9FB627AC32BA0081238D /* SpaceXUIKitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXUIKitUITests.swift; sourceTree = "<group>"; };
 		F49E9FB827AC32BA0081238D /* SpaceXUIKitUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXUIKitUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F4A2977127BEC75400800DF8 /* astronaut01.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronaut01.json; sourceTree = "<group>"; };
+		F4A2977227BEC75500800DF8 /* error404.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = error404.json; sourceTree = "<group>"; };
+		F4A2977327BEC75500800DF8 /* astronaut02.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronaut02.json; sourceTree = "<group>"; };
 		F4A4D11D27AD20F700163607 /* SpaceFlightsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceFlightsVC.swift; sourceTree = "<group>"; };
 		F4A4D12027AD64BE00163607 /* FlightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightCell.swift; sourceTree = "<group>"; };
 		F4A4D12227AD76F900163607 /* SpaceFlightDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceFlightDetailVC.swift; sourceTree = "<group>"; };
@@ -172,7 +184,12 @@
 			isa = PBXGroup;
 			children = (
 				F440003727BE4FE800F80C6C /* rocket01.json */,
-				F440003C27BE888E00F80C6C /* astro.json */,
+				F465050E27BF8F47008B5D97 /* rocket02.json */,
+				F465051027BF91B9008B5D97 /* rocket03.json */,
+				F4A2977127BEC75400800DF8 /* astronaut01.json */,
+				F4A2977327BEC75500800DF8 /* astronaut02.json */,
+				F465051227BF91BF008B5D97 /* astronaut03.json */,
+				F4A2977227BEC75500800DF8 /* error404.json */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -258,6 +275,7 @@
 				F477089A27B2C7D300847540 /* ConstraintsHelpers.swift */,
 				F483709D27B41B8100D2146E /* Extensions.swift */,
 				F44DA4AE27BBC48C0011851B /* PropertyWrappers.swift */,
+				F465051427BF92FD008B5D97 /* AnimationShuffler.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -454,10 +472,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F465051127BF91B9008B5D97 /* rocket03.json in Resources */,
+				F4A2977627BEC75500800DF8 /* error404.json in Resources */,
 				F49E9FA227AC32BA0081238D /* LaunchScreen.storyboard in Resources */,
 				F49E9F9F27AC32BA0081238D /* Assets.xcassets in Resources */,
+				F4A2977727BEC75500800DF8 /* astronaut02.json in Resources */,
 				F440003827BE4FE800F80C6C /* rocket01.json in Resources */,
-				F440003D27BE888E00F80C6C /* astro.json in Resources */,
+				F4A2977527BEC75500800DF8 /* astronaut01.json in Resources */,
+				F465051327BF91BF008B5D97 /* astronaut03.json in Resources */,
+				F465050F27BF8F47008B5D97 /* rocket02.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +506,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F483709E27B41B8100D2146E /* Extensions.swift in Sources */,
+				F465051527BF92FD008B5D97 /* AnimationShuffler.swift in Sources */,
 				F477089B27B2C7D300847540 /* ConstraintsHelpers.swift in Sources */,
 				F477088627B111EC00847540 /* URLAdresses.swift in Sources */,
 				F44DA4C627BD37E80011851B /* CrewCollectionLayoutProvider.swift in Sources */,

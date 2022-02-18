@@ -12,7 +12,7 @@ class SpaceFlightsVC: UIViewController {
     let spaceFlightsVM = SpaceFlightsVM()
     
     private var loadingIndicatorView: LoadingIndicatorView? = {
-        LoadingIndicatorView()
+        LoadingIndicatorView(animationName: AnimationShuffler.getAnimationName(for: .rocket))
     }()
     private let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .plain)

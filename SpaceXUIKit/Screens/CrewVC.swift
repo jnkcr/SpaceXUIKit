@@ -31,25 +31,8 @@ class CrewVC: UIViewController {
             return cell
         }
         dataSource.supplementaryViewProvider = { [self] (view, kind, indexPath) in
-            switch kind {
-            case "NASA":
-                guard let registration = headerRegistrations["NASA"] else { fatalError("There has to be matching kind of type \(kind)") }
-                return collectionView.dequeueConfiguredReusableSupplementary(using: registration, for: indexPath)
-            case "SpaceX":
-                guard let registration = headerRegistrations["SpaceX"] else { fatalError("There has to be matching kind of type \(kind)") }
-                return collectionView.dequeueConfiguredReusableSupplementary(using: registration, for: indexPath)
-            case "ESA":
-                guard let registration = headerRegistrations["ESA"] else { fatalError("There has to be matching kind of type \(kind)") }
-                return collectionView.dequeueConfiguredReusableSupplementary(using: registration, for: indexPath)
-            case "JAXA":
-                guard let registration = headerRegistrations["JAXA"] else { fatalError("There has to be matching kind of type \(kind)") }
-                return collectionView.dequeueConfiguredReusableSupplementary(using: registration, for: indexPath)
-            case "Axiom Space":
-                guard let registration = headerRegistrations["Axiom Space"] else { fatalError("There has to be matching kind of type \(kind)") }
-                return collectionView.dequeueConfiguredReusableSupplementary(using: registration, for: indexPath)
-            default:
-                fatalError("Crew collection view: element kind has to match")
-            }
+            guard let registration = headerRegistrations[Section[indexPath.section]] else { fatalError("There has to be matching kind of type \(kind)") }
+            return collectionView.dequeueConfiguredReusableSupplementary(using: registration, for: indexPath)
         }
         return dataSource
     }()
@@ -58,7 +41,7 @@ class CrewVC: UIViewController {
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.register(CrewCell.self, forCellWithReuseIdentifier: CrewCell.reusableID)
         // UICollectionView.elementKindSectionHeader
-        collection.register(CrewHeader.self, forSupplementaryViewOfKind: "header", withReuseIdentifier: CrewHeader.reuseID)
+        collection.register(CrewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: CrewHeader.reuseID)
         collection.showsVerticalScrollIndicator = false
         return collection
     }()
@@ -81,7 +64,7 @@ class CrewVC: UIViewController {
         crewVM.downloadingDelegate = self
         crewVM.downloadCrew()
         // Subviews
-        let loadingIndicatorView = LoadingIndicatorView()
+        let loadingIndicatorView = LoadingIndicatorView(animationName: AnimationShuffler.getAnimationName(for: .astronaut))
         view.addSubview(loadingIndicatorView)
         // UI Config
         NSLayoutConstraint.activate([

@@ -13,6 +13,23 @@ enum Section: String, CaseIterable {
     case esa    = "ESA"
     case jaxa   = "JAXA"
     case axiom  = "Axiom Space"
+    
+    static subscript(index: Int) -> String {
+        switch index {
+        case 0:
+            return "NASA"
+        case 1:
+            return "SpaceX"
+        case 2:
+            return "ESA"
+        case 3:
+            return "JAXA"
+        case 4:
+            return "Axiom Space"
+        default:
+            return "NASA"
+        }
+    }
 }
 
 protocol CrewDownloadingDelegate {

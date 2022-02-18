@@ -47,7 +47,7 @@ class LoadingIndicatorView: UIStackView {
         // UI Constraints
         NSLayoutConstraint.activate([
             // ANIMATION
-            animationView.widthAnchor.constraint(equalToConstant: 150),
+            animationView.heightAnchor.constraint(equalToConstant: 180),
             // LABEL
             percentageLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             percentageLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
