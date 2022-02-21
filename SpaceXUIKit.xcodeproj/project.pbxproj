@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F4208CFE27C39AA5009BF199 /* CrewLineStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4208CFD27C39AA5009BF199 /* CrewLineStack.swift */; };
+		F4208D0127C39F66009BF199 /* CrewInfoStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4208D0027C39F66009BF199 /* CrewInfoStack.swift */; };
 		F434382227BA981300A57272 /* CrewMemberAndPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = F434382127BA981300A57272 /* CrewMemberAndPhoto.swift */; };
 		F440003527BE439100F80C6C /* DetailHighlightBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F440003427BE439100F80C6C /* DetailHighlightBlock.swift */; };
 		F440003827BE4FE800F80C6C /* rocket01.json in Resources */ = {isa = PBXBuildFile; fileRef = F440003727BE4FE800F80C6C /* rocket01.json */; };
@@ -91,6 +93,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F4208CFD27C39AA5009BF199 /* CrewLineStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewLineStack.swift; sourceTree = "<group>"; };
+		F4208D0027C39F66009BF199 /* CrewInfoStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewInfoStack.swift; sourceTree = "<group>"; };
 		F434382127BA981300A57272 /* CrewMemberAndPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewMemberAndPhoto.swift; sourceTree = "<group>"; };
 		F440003427BE439100F80C6C /* DetailHighlightBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHighlightBlock.swift; sourceTree = "<group>"; };
 		F440003727BE4FE800F80C6C /* rocket01.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rocket01.json; sourceTree = "<group>"; };
@@ -186,6 +190,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F4208CFF27C39AAB009BF199 /* CrewDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F4208CFD27C39AA5009BF199 /* CrewLineStack.swift */,
+				F4208D0027C39F66009BF199 /* CrewInfoStack.swift */,
+			);
+			path = CrewDetail;
+			sourceTree = "<group>";
+		};
 		F440003627BE4FA400F80C6C /* Animations */ = {
 			isa = PBXGroup;
 			children = (
@@ -369,6 +382,7 @@
 			isa = PBXGroup;
 			children = (
 				F44DA4B227BBE1E20011851B /* FlightDetail */,
+				F4208CFF27C39AAB009BF199 /* CrewDetail */,
 				F44DA4B627BBF5750011851B /* Settings */,
 				F44DA4B327BBE20D0011851B /* Cells */,
 				F465051827BFA39B008B5D97 /* Alert */,
@@ -546,7 +560,9 @@
 				F48370AA27B69BE700D2146E /* CrewVM.swift in Sources */,
 				F48370A827B67D3300D2146E /* CrewDownloader.swift in Sources */,
 				F4A4D12127AD64BE00163607 /* FlightCell.swift in Sources */,
+				F4208D0127C39F66009BF199 /* CrewInfoStack.swift in Sources */,
 				F477088427B10EEB00847540 /* FlightDownloader.swift in Sources */,
+				F4208CFE27C39AA5009BF199 /* CrewLineStack.swift in Sources */,
 				F44DA4C027BC18160011851B /* ButtonAndTitleStack.swift in Sources */,
 				F477089927B28EDC00847540 /* DetailHighlightsView.swift in Sources */,
 				F483709A27B40AE800D2146E /* FlightCellData.swift in Sources */,

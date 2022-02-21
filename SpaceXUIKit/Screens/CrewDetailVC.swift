@@ -11,6 +11,13 @@ class CrewDetailVC: UIViewController {
     
     let crewDetailVM: CrewDetailVM
     
+    let scrollView: UIScrollView = {
+        let sv: UIScrollView = UIScrollView()
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        sv.alwaysBounceVertical = true
+        sv.showsVerticalScrollIndicator = false
+        return sv
+    }()
     let imageView: UIImageView = {
         let iv: UIImageView = UIImageView()
         iv.translatesAutoresizingMaskIntoConstraints = false
@@ -19,9 +26,7 @@ class CrewDetailVC: UIViewController {
         iv.clipsToBounds = true
         return iv
     }()
-    lazy var nameLabel: SectionTitleLabel = {
-        SectionTitleLabel(titled: crewDetailVM.nameDescription)
-    }()
+    lazy var infoStack: CrewInfoStack = CrewInfoStack(vm: crewDetailVM)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,16 +34,30 @@ class CrewDetailVC: UIViewController {
         view.backgroundColor = .systemBackground
         title = "Detail"
         // Subviews
-        view.addSubview(imageView)
-        view.addSubview(nameLabel)
+        view.addSubview(scrollView)
+        scrollView.addSubview(imageView)
+        scrollView.addSubview(infoStack)
         // UI Config
         NSLayoutConstraint.activate([
-            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            imageView.widthAnchor.constraint(equalToConstant: 150),
+            // SCROLLVIEW
+            scrollView.topAnchor.constraint(equalTo: view.readableContentGuide.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.readableContentGuide.bottomAnchor),
+            scrollView.contentLayoutGuide.topAnchor.constraint(equalTo: imageView.topAnchor),
+            scrollView.contentLayoutGuide.leadingAnchor.constraint(equalTo: infoStack.leadingAnchor),
+            scrollView.contentLayoutGuide.trailingAnchor.constraint(equalTo: infoStack.trailingAnchor),
+            scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: infoStack.bottomAnchor),
+            // IMAGE
+            imageView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: ConstraintsHelper.padding),
+            imageView.leadingAnchor.constraint(equalTo: view.readableContentGuide.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: view.readableContentGuide.trailingAnchor),
             imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor),
-            nameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: ConstraintsHelper.padding),
-            nameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            // NAME
+            infoStack.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: ConstraintsHelper.largeSpacing),
+            infoStack.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: ConstraintsHelper.padding),
+            infoStack.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor, constant: -ConstraintsHelper.padding),
+            infoStack.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -ConstraintsHelper.padding)
         ])
     }
     
