@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailHighlightsView: UIStackView {
+final class DetailHighlightsView: UIStackView {
     
     let dStack: DetailHighlightBlock = {
         DetailHighlightBlock(iconName: "calendar.circle")

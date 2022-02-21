@@ -8,7 +8,7 @@
 import UIKit
 import Lottie
 
-class LoadingIndicatorView: UIStackView {
+final class LoadingIndicatorView: UIStackView {
     
     private let animationView: AnimationView
     let percentageLabel: UILabel = {

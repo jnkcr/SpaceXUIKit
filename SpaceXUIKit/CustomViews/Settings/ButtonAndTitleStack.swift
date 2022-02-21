@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ButtonAndTitleStack: UIStackView {
+final class ButtonAndTitleStack: UIStackView {
     
     private let title: UILabel = {
         let label: UILabel = UILabel()

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailHeaderView: UIStackView {
+final class DetailHeaderView: UIStackView {
     
     private let nameLabel: UILabel = {
         let label = UILabel()

@@ -6,9 +6,8 @@
 //
 
 import UIKit
-import Lottie
 
-class AlertVC: UIViewController {
+final class AlertVC: UIViewController {
     
     let conteinerView: UIView = {
         let conteiner: UIView = UIView()

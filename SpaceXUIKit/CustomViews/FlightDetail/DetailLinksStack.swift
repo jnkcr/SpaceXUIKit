@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailLinksStack: UIStackView {
+final class DetailLinksStack: UIStackView {
     
     var links: FlightButtonLinks?
 

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CrewVC: UIViewController {
+final class CrewVC: UIViewController {
     
     let crewVM: CrewVM = CrewVM()
     let crewLayoutProvider: CrewCollectionLayoutProvider = CrewCollectionLayoutProvider()

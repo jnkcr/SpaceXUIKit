@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SpaceFlightsVC: UIViewController {
+final class SpaceFlightsVC: UIViewController {
     
     let spaceFlightsVM = SpaceFlightsVM()
     

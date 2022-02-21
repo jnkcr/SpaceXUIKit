@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CrewMemberInfoStack: UIStackView {
+final class CrewMemberInfoStack: UIStackView {
 
     private let typeStack: CrewDetailTypeStack = CrewDetailTypeStack()
     private let infoStack: CrewDetailInfoContentStack

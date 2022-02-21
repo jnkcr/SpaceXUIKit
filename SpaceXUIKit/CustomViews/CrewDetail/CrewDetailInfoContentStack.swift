@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CrewDetailInfoContentStack: UIStackView {
+final class CrewDetailInfoContentStack: UIStackView {
     
     private let nameLabel: CrewInfoLabel
     private let agencyLabel: CrewInfoLabel

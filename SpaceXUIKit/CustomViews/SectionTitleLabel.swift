@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SectionTitleLabel: UILabel {
+final class SectionTitleLabel: UILabel {
 
     init(titled title: String, sized size: CGFloat = 20) {
         super.init(frame: .zero)

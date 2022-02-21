@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CrewDetailTypeStack: UIStackView {
+final class CrewDetailTypeStack: UIStackView {
 
     private let nameLabel: CrewTypeLabel     = CrewTypeLabel(titled: "Name")
     private let agencyLabel: CrewTypeLabel   = CrewTypeLabel(titled: "Agency")

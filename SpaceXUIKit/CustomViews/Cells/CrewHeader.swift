@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CrewHeader: UICollectionReusableView {
+final class CrewHeader: UICollectionReusableView {
     
     static let reuseID: String = "crewHeader"
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SwitchAndTitleStack: UIStackView {
+final class SwitchAndTitleStack: UIStackView {
     
     private let title: UILabel = {
         let label: UILabel = UILabel()

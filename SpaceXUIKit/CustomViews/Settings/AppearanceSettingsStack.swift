@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AppearanceSettingsStack: UIStackView {
+final class AppearanceSettingsStack: UIStackView {
     
     private let title: SectionTitleLabel = {
         SectionTitleLabel(titled: "Appearance")

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DetailHighlightBlock: UIStackView {
+final class DetailHighlightBlock: UIStackView {
     
     let icon: UIImageView = {
         let imageView = UIImageView()

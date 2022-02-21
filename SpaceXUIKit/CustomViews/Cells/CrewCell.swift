@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CrewCell: UICollectionViewCell {
+final class CrewCell: UICollectionViewCell {
     
     static let reusableID: String = "crewCell"
     

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LargeTintedButton: UIButton {
+final class LargeTintedButton: UIButton {
     
     init(text: String, tint color: UIColor = .systemYellow) {
         super.init(frame: .zero)

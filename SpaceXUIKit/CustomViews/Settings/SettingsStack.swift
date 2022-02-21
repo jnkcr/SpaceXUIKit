@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingsStack: UIStackView {
+final class SettingsStack: UIStackView {
     
     let appearanceSection: AppearanceSettingsStack = {
         AppearanceSettingsStack()

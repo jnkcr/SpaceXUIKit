@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CrewDetailStack: UIStackView {
+final class CrewDetailStack: UIStackView {
     
     let imageView: UIImageView = {
         let iv: UIImageView = UIImageView()

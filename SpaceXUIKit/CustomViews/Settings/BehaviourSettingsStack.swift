@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BehaviourSettingsStack: UIStackView {
+final class BehaviourSettingsStack: UIStackView {
     
     private let title: SectionTitleLabel = {
         SectionTitleLabel(titled: "Behaviour")

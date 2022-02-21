@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CrewInfoLabel: UILabel {
+final class CrewInfoLabel: UILabel {
 
     init(titled title: String) {
         super.init(frame: .zero)

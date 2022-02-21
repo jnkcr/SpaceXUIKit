@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SpaceFlightDetailVC: UIViewController {
+final class SpaceFlightDetailVC: UIViewController {
     
     var flightDetailVM: FlightDetailVM
     

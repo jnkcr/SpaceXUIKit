@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OtherSettingsStack: UIStackView {
+final class OtherSettingsStack: UIStackView {
 
     private let title: SectionTitleLabel = {
         SectionTitleLabel(titled: "Other")

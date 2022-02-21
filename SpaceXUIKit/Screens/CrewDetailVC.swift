@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CrewDetailVC: UIViewController {
+final class CrewDetailVC: UIViewController {
     
     let wikiURL: URL
     

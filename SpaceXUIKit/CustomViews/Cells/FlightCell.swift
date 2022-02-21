@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FlightCell: UITableViewCell {
+final class FlightCell: UITableViewCell {
     
     static let reusableID: String = "flightCell"
     var flightData: FlightCellData? {
