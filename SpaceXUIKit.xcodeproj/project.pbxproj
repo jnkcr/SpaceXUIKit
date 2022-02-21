@@ -14,6 +14,8 @@
 		F4208D0927C3C7CE009BF199 /* CrewDetailInfoContentStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4208D0827C3C7CE009BF199 /* CrewDetailInfoContentStack.swift */; };
 		F4208D0B27C3C9C3009BF199 /* CrewMemberInfoStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4208D0A27C3C9C3009BF199 /* CrewMemberInfoStack.swift */; };
 		F4208D0D27C3D879009BF199 /* astronaut04.json in Resources */ = {isa = PBXBuildFile; fileRef = F4208D0C27C3D879009BF199 /* astronaut04.json */; };
+		F4208D0F27C3E688009BF199 /* NotificationSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4208D0E27C3E688009BF199 /* NotificationSetupVC.swift */; };
+		F4208D1227C3ED25009BF199 /* NotificationTopBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4208D1127C3ED25009BF199 /* NotificationTopBanner.swift */; };
 		F434382227BA981300A57272 /* CrewMemberAndPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = F434382127BA981300A57272 /* CrewMemberAndPhoto.swift */; };
 		F440003527BE439100F80C6C /* DetailHighlightBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F440003427BE439100F80C6C /* DetailHighlightBlock.swift */; };
 		F440003B27BE50AE00F80C6C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = F440003A27BE50AE00F80C6C /* Lottie */; };
@@ -102,6 +104,8 @@
 		F4208D0827C3C7CE009BF199 /* CrewDetailInfoContentStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewDetailInfoContentStack.swift; sourceTree = "<group>"; };
 		F4208D0A27C3C9C3009BF199 /* CrewMemberInfoStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewMemberInfoStack.swift; sourceTree = "<group>"; };
 		F4208D0C27C3D879009BF199 /* astronaut04.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronaut04.json; sourceTree = "<group>"; };
+		F4208D0E27C3E688009BF199 /* NotificationSetupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSetupVC.swift; sourceTree = "<group>"; };
+		F4208D1127C3ED25009BF199 /* NotificationTopBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTopBanner.swift; sourceTree = "<group>"; };
 		F434382127BA981300A57272 /* CrewMemberAndPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewMemberAndPhoto.swift; sourceTree = "<group>"; };
 		F440003427BE439100F80C6C /* DetailHighlightBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHighlightBlock.swift; sourceTree = "<group>"; };
 		F440003E27BE9BFB00F80C6C /* CrewDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewDetailVC.swift; sourceTree = "<group>"; };
@@ -205,6 +209,15 @@
 				F4208D0627C3C679009BF199 /* CrewInfoLabel.swift */,
 			);
 			path = CrewDetail;
+			sourceTree = "<group>";
+		};
+		F4208D1027C3E693009BF199 /* NotificationSetup */ = {
+			isa = PBXGroup;
+			children = (
+				F4208D0E27C3E688009BF199 /* NotificationSetupVC.swift */,
+				F4208D1127C3ED25009BF199 /* NotificationTopBanner.swift */,
+			);
+			path = NotificationSetup;
 			sourceTree = "<group>";
 		};
 		F440003627BE4FA400F80C6C /* Animations */ = {
@@ -392,6 +405,7 @@
 				F44DA4B627BBF5750011851B /* Settings */,
 				F44DA4B327BBE20D0011851B /* Cells */,
 				F465051827BFA39B008B5D97 /* Alert */,
+				F4208D1027C3E693009BF199 /* NotificationSetup */,
 				F483709F27B423E500D2146E /* LoadingIndicatorView.swift */,
 				F48370A327B6560A00D2146E /* LargeTintedButton.swift */,
 				F44DA4BB27BBFF1C0011851B /* SectionTitleLabel.swift */,
@@ -542,6 +556,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4208D1227C3ED25009BF199 /* NotificationTopBanner.swift in Sources */,
 				F4208D0927C3C7CE009BF199 /* CrewDetailInfoContentStack.swift in Sources */,
 				F483709E27B41B8100D2146E /* Extensions.swift in Sources */,
 				F465051527BF92FD008B5D97 /* AnimationShuffler.swift in Sources */,
@@ -591,6 +606,7 @@
 				F465051727BFA345008B5D97 /* AlertVC.swift in Sources */,
 				F477089527B2650600847540 /* FlightDetailVM.swift in Sources */,
 				F440003F27BE9BFB00F80C6C /* CrewDetailVC.swift in Sources */,
+				F4208D0F27C3E688009BF199 /* NotificationSetupVC.swift in Sources */,
 				F44DA4BC27BBFF1C0011851B /* SectionTitleLabel.swift in Sources */,
 				F4208D0527C3C5DA009BF199 /* CrewTypeLabel.swift in Sources */,
 				F44DA4AF27BBC48C0011851B /* PropertyWrappers.swift in Sources */,

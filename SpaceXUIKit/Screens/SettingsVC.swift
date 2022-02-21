@@ -12,7 +12,7 @@ protocol AppearanceDelegate {
     func didChangeAppearanceStyle(to style: UIUserInterfaceStyle)
 }
 
-class SettingsVC: UIViewController {
+final class SettingsVC: UIViewController {
     
     let settingsVM: SettingsVM = SettingsVM()
     var appearanceDelegate: AppearanceDelegate?
@@ -28,8 +28,9 @@ class SettingsVC: UIViewController {
         let stack: SettingsStack = SettingsStack()
         stack.appearanceSection.segmentedControl.addTarget(self, action: #selector(handleSegmentedControl), for: .valueChanged)
         stack.behaviourSection.crewLoadingSwitchStack.switchControl.addTarget(self, action: #selector(handleSwitch), for: .valueChanged)
-        stack.otherSection.notificationStack.button.addTarget(self, action: #selector(handleNotification), for: .touchUpInside)
         stack.otherSection.alertStack.button.addTarget(self, action: #selector(handleAlert), for: .touchUpInside)
+        stack.otherSection.notificationTimeStack.button.addTarget(self, action: #selector(handleTimeNotification), for: .touchUpInside)
+        stack.otherSection.notificationCalendarStack.button.addTarget(self, action: #selector(handleCalendarNotification), for: .touchUpInside)
         return stack
     }()
     
@@ -90,15 +91,25 @@ extension SettingsVC {
     }
     
     @objc
-    func handleNotification() {
+    func handleTimeNotification() {
         let content = UNMutableNotificationContent()
         content.title = "Pssst, hey"
         content.subtitle = "Secret message for Maksym"
         content.body = "This is mighty and great local notification that is simply just a feast for your eyes.."
         content.sound = .default
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request)
+    }
+    
+    @objc
+    func handleCalendarNotification() {
+        DispatchQueue.main.async {
+            let vc = NotificationSetupVC()
+            vc.modalPresentationStyle = .automatic
+            vc.modalTransitionStyle = .coverVertical
+            self.present(vc, animated: true)
+        }
     }
     
 }

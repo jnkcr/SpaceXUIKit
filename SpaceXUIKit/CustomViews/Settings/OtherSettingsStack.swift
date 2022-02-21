@@ -12,14 +12,14 @@ class OtherSettingsStack: UIStackView {
     private let title: SectionTitleLabel = {
         SectionTitleLabel(titled: "Other")
     }()
-    let notificationStack: ButtonAndTitleStack = {
-        ButtonAndTitleStack(labeled: "Local notification", buttonText: "Get")
-    }()
     let alertStack: ButtonAndTitleStack = {
         ButtonAndTitleStack(labeled: "Show alert", buttonText: "Show")
     }()
-    let secondRandomStack: ButtonAndTitleStack = {
-        ButtonAndTitleStack(labeled: "Non-functional #02", buttonText: "Go")
+    let notificationTimeStack: ButtonAndTitleStack = {
+        ButtonAndTitleStack(labeled: "Time-based notification", buttonText: "Get")
+    }()
+    let notificationCalendarStack: ButtonAndTitleStack = {
+        ButtonAndTitleStack(labeled: "Calendar-based notification", buttonText: "Set")
     }()
     
     init() {
@@ -30,9 +30,9 @@ class OtherSettingsStack: UIStackView {
         spacing = ConstraintsHelper.mediumSpacing
         // Subviews
         addArrangedSubview(title)
-        addArrangedSubview(notificationStack)
         addArrangedSubview(alertStack)
-        addArrangedSubview(secondRandomStack)
+        addArrangedSubview(notificationTimeStack)
+        addArrangedSubview(notificationCalendarStack)
     }
     
     required init(coder: NSCoder) {

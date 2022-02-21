@@ -18,9 +18,6 @@ class BehaviourSettingsStack: UIStackView {
     let firstRandomSwitchStack: SwitchAndTitleStack = {
         SwitchAndTitleStack(labeled: "Non-funtional #01")
     }()
-    let secondRandomSwitchStack: SwitchAndTitleStack = {
-        SwitchAndTitleStack(labeled: "Non-funtional #02")
-    }()
 
     init() {
         super.init(frame: .zero)
@@ -32,7 +29,6 @@ class BehaviourSettingsStack: UIStackView {
         addArrangedSubview(title)
         addArrangedSubview(crewLoadingSwitchStack)
         addArrangedSubview(firstRandomSwitchStack)
-        addArrangedSubview(secondRandomSwitchStack)
     }
     
     required init(coder: NSCoder) {

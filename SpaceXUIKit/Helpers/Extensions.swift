@@ -5,7 +5,6 @@
 //  Created by Jan Kučera on 09.02.2022.
 //
 
-import Foundation
 import UIKit
 
 extension Sequence {
