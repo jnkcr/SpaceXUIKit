@@ -37,6 +37,8 @@ class SettingsVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         title = "Settings"
+        // Notification delegate
+        UNUserNotificationCenter.current().delegate = self
         // Subviews
         view.addSubview(scrollView)
         scrollView.addSubview(settingsStack)
@@ -94,9 +96,17 @@ extension SettingsVC {
         content.subtitle = "Secret message for Maksym"
         content.body = "This is mighty and great local notification that is simply just a feast for your eyes.."
         content.sound = .default
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10, repeats: false)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5, repeats: false)
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request)
+    }
+    
+}
+
+extension SettingsVC: UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner])
     }
     
 }
