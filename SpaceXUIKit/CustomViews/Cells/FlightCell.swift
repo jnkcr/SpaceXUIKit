@@ -12,7 +12,7 @@ class FlightCell: UITableViewCell {
     static let reusableID: String = "flightCell"
     var flightData: FlightCellData? {
         didSet {
-            patchImageView.image = flightData?.image ?? UIImage(systemName: "airplane.circle")
+            patchImageView.image = flightData?.image ?? UIImage(named: "falconHeavy")
             dateLabel.text = flightData?.date
             titleLabel.text = flightData?.title
         }
