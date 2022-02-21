@@ -13,9 +13,9 @@
 		F4208D0727C3C679009BF199 /* CrewInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4208D0627C3C679009BF199 /* CrewInfoLabel.swift */; };
 		F4208D0927C3C7CE009BF199 /* CrewDetailInfoContentStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4208D0827C3C7CE009BF199 /* CrewDetailInfoContentStack.swift */; };
 		F4208D0B27C3C9C3009BF199 /* CrewMemberInfoStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4208D0A27C3C9C3009BF199 /* CrewMemberInfoStack.swift */; };
+		F4208D0D27C3D879009BF199 /* astronaut04.json in Resources */ = {isa = PBXBuildFile; fileRef = F4208D0C27C3D879009BF199 /* astronaut04.json */; };
 		F434382227BA981300A57272 /* CrewMemberAndPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = F434382127BA981300A57272 /* CrewMemberAndPhoto.swift */; };
 		F440003527BE439100F80C6C /* DetailHighlightBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F440003427BE439100F80C6C /* DetailHighlightBlock.swift */; };
-		F440003827BE4FE800F80C6C /* rocket01.json in Resources */ = {isa = PBXBuildFile; fileRef = F440003727BE4FE800F80C6C /* rocket01.json */; };
 		F440003B27BE50AE00F80C6C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = F440003A27BE50AE00F80C6C /* Lottie */; };
 		F440003F27BE9BFB00F80C6C /* CrewDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F440003E27BE9BFB00F80C6C /* CrewDetailVC.swift */; };
 		F440004127BEA84200F80C6C /* CrewDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F440004027BEA84200F80C6C /* CrewDetailVM.swift */; };
@@ -32,7 +32,6 @@
 		F44DA4C627BD37E80011851B /* CrewCollectionLayoutProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4C527BD37E80011851B /* CrewCollectionLayoutProvider.swift */; };
 		F465050F27BF8F47008B5D97 /* rocket02.json in Resources */ = {isa = PBXBuildFile; fileRef = F465050E27BF8F47008B5D97 /* rocket02.json */; };
 		F465051127BF91B9008B5D97 /* rocket03.json in Resources */ = {isa = PBXBuildFile; fileRef = F465051027BF91B9008B5D97 /* rocket03.json */; };
-		F465051327BF91BF008B5D97 /* astronaut03.json in Resources */ = {isa = PBXBuildFile; fileRef = F465051227BF91BF008B5D97 /* astronaut03.json */; };
 		F465051527BF92FD008B5D97 /* AnimationShuffler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465051427BF92FD008B5D97 /* AnimationShuffler.swift */; };
 		F465051727BFA345008B5D97 /* AlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465051627BFA345008B5D97 /* AlertVC.swift */; };
 		F465051A27BFDD34008B5D97 /* error01.json in Resources */ = {isa = PBXBuildFile; fileRef = F465051927BFDD34008B5D97 /* error01.json */; };
@@ -72,7 +71,6 @@
 		F49E9FB927AC32BA0081238D /* SpaceXUIKitUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E9FB827AC32BA0081238D /* SpaceXUIKitUITestsLaunchTests.swift */; };
 		F4A2977527BEC75500800DF8 /* astronaut01.json in Resources */ = {isa = PBXBuildFile; fileRef = F4A2977127BEC75400800DF8 /* astronaut01.json */; };
 		F4A2977627BEC75500800DF8 /* error404.json in Resources */ = {isa = PBXBuildFile; fileRef = F4A2977227BEC75500800DF8 /* error404.json */; };
-		F4A2977727BEC75500800DF8 /* astronaut02.json in Resources */ = {isa = PBXBuildFile; fileRef = F4A2977327BEC75500800DF8 /* astronaut02.json */; };
 		F4A4D11E27AD20F700163607 /* SpaceFlightsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4D11D27AD20F700163607 /* SpaceFlightsVC.swift */; };
 		F4A4D12127AD64BE00163607 /* FlightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4D12027AD64BE00163607 /* FlightCell.swift */; };
 		F4A4D12327AD76F900163607 /* SpaceFlightDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4D12227AD76F900163607 /* SpaceFlightDetailVC.swift */; };
@@ -103,9 +101,9 @@
 		F4208D0627C3C679009BF199 /* CrewInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewInfoLabel.swift; sourceTree = "<group>"; };
 		F4208D0827C3C7CE009BF199 /* CrewDetailInfoContentStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewDetailInfoContentStack.swift; sourceTree = "<group>"; };
 		F4208D0A27C3C9C3009BF199 /* CrewMemberInfoStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewMemberInfoStack.swift; sourceTree = "<group>"; };
+		F4208D0C27C3D879009BF199 /* astronaut04.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronaut04.json; sourceTree = "<group>"; };
 		F434382127BA981300A57272 /* CrewMemberAndPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewMemberAndPhoto.swift; sourceTree = "<group>"; };
 		F440003427BE439100F80C6C /* DetailHighlightBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHighlightBlock.swift; sourceTree = "<group>"; };
-		F440003727BE4FE800F80C6C /* rocket01.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rocket01.json; sourceTree = "<group>"; };
 		F440003E27BE9BFB00F80C6C /* CrewDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewDetailVC.swift; sourceTree = "<group>"; };
 		F440004027BEA84200F80C6C /* CrewDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewDetailVM.swift; sourceTree = "<group>"; };
 		F44DA4AE27BBC48C0011851B /* PropertyWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWrappers.swift; sourceTree = "<group>"; };
@@ -121,7 +119,6 @@
 		F44DA4C527BD37E80011851B /* CrewCollectionLayoutProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewCollectionLayoutProvider.swift; sourceTree = "<group>"; };
 		F465050E27BF8F47008B5D97 /* rocket02.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rocket02.json; sourceTree = "<group>"; };
 		F465051027BF91B9008B5D97 /* rocket03.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rocket03.json; sourceTree = "<group>"; };
-		F465051227BF91BF008B5D97 /* astronaut03.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronaut03.json; sourceTree = "<group>"; };
 		F465051427BF92FD008B5D97 /* AnimationShuffler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationShuffler.swift; sourceTree = "<group>"; };
 		F465051627BFA345008B5D97 /* AlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertVC.swift; sourceTree = "<group>"; };
 		F465051927BFDD34008B5D97 /* error01.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = error01.json; sourceTree = "<group>"; };
@@ -165,7 +162,6 @@
 		F49E9FB827AC32BA0081238D /* SpaceXUIKitUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXUIKitUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F4A2977127BEC75400800DF8 /* astronaut01.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronaut01.json; sourceTree = "<group>"; };
 		F4A2977227BEC75500800DF8 /* error404.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = error404.json; sourceTree = "<group>"; };
-		F4A2977327BEC75500800DF8 /* astronaut02.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronaut02.json; sourceTree = "<group>"; };
 		F4A4D11D27AD20F700163607 /* SpaceFlightsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceFlightsVC.swift; sourceTree = "<group>"; };
 		F4A4D12027AD64BE00163607 /* FlightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightCell.swift; sourceTree = "<group>"; };
 		F4A4D12227AD76F900163607 /* SpaceFlightDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceFlightDetailVC.swift; sourceTree = "<group>"; };
@@ -214,12 +210,10 @@
 		F440003627BE4FA400F80C6C /* Animations */ = {
 			isa = PBXGroup;
 			children = (
-				F440003727BE4FE800F80C6C /* rocket01.json */,
 				F465050E27BF8F47008B5D97 /* rocket02.json */,
 				F465051027BF91B9008B5D97 /* rocket03.json */,
 				F4A2977127BEC75400800DF8 /* astronaut01.json */,
-				F4A2977327BEC75500800DF8 /* astronaut02.json */,
-				F465051227BF91BF008B5D97 /* astronaut03.json */,
+				F4208D0C27C3D879009BF199 /* astronaut04.json */,
 				F465051927BFDD34008B5D97 /* error01.json */,
 				F465051B27BFDD3A008B5D97 /* error02.json */,
 				F4A2977227BEC75500800DF8 /* error404.json */,
@@ -516,15 +510,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F465051127BF91B9008B5D97 /* rocket03.json in Resources */,
+				F4208D0D27C3D879009BF199 /* astronaut04.json in Resources */,
 				F465051C27BFDD3A008B5D97 /* error02.json in Resources */,
 				F4A2977627BEC75500800DF8 /* error404.json in Resources */,
 				F49E9FA227AC32BA0081238D /* LaunchScreen.storyboard in Resources */,
 				F465051A27BFDD34008B5D97 /* error01.json in Resources */,
 				F49E9F9F27AC32BA0081238D /* Assets.xcassets in Resources */,
-				F4A2977727BEC75500800DF8 /* astronaut02.json in Resources */,
-				F440003827BE4FE800F80C6C /* rocket01.json in Resources */,
 				F4A2977527BEC75500800DF8 /* astronaut01.json in Resources */,
-				F465051327BF91BF008B5D97 /* astronaut03.json in Resources */,
 				F465050F27BF8F47008B5D97 /* rocket02.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

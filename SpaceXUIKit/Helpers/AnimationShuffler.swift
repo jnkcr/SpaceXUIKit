@@ -14,7 +14,7 @@ struct AnimationShuffler {
     }
     
     private static let rockets: [String] = ["rocket02", "rocket03"]
-    private static let astronauts: [String] = ["astronaut01", "astronaut02"]
+    private static let astronauts: [String] = ["astronaut01", "astronaut04"]
     
     static func getAnimationName(for kind: AnimationKind) -> String {
         switch kind {
