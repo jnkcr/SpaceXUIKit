@@ -35,4 +35,8 @@ final class CrewDetailVM {
         memberData.photo
     }
     
+    var wikiURL: URL {
+        URL(string: memberData.crewMember.wikipedia) ?? URL(string: "https://www.spacex.com")!
+    }
+    
 }
