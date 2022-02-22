@@ -45,6 +45,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = tabbar
         window?.overrideUserInterfaceStyle = getInterfaceStyle()
         window?.makeKeyAndVisible()
+        
+        UNUserNotificationCenter.current().delegate = self
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -98,6 +100,14 @@ extension SceneDelegate {
         default:
             return UIUserInterfaceStyle.unspecified
         }
+    }
+    
+}
+
+extension SceneDelegate: UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner, .sound, .list])
     }
     
 }

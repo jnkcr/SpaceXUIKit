@@ -30,4 +30,13 @@ extension UIViewController {
         }
     }
     
+    func shownCustomAlertAfter(interval: Double = 1.0, title: String = "Error", description: String, confirmationText: String = "Ok") {
+        DispatchQueue.main.asyncAfter(deadline: .now() + interval) {
+            let vc = AlertVC(titleText: title, description: description, buttonConfirmationText: confirmationText)
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .crossDissolve
+            self.present(vc, animated: true)
+        }
+    }
+    
 }

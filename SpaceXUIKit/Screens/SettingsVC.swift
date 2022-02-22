@@ -38,8 +38,6 @@ final class SettingsVC: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         title = "Settings"
-        // Notification delegate
-        UNUserNotificationCenter.current().delegate = self
         // Subviews
         view.addSubview(scrollView)
         scrollView.addSubview(settingsStack)
@@ -92,14 +90,7 @@ extension SettingsVC {
     
     @objc
     func handleTimeNotification() {
-        let content = UNMutableNotificationContent()
-        content.title = "Pssst, hey"
-        content.subtitle = "Secret message for Maksym"
-        content.body = "This is mighty and great local notification that is simply just a feast for your eyes.."
-        content.sound = .default
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: false)
-        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-        UNUserNotificationCenter.current().add(request)
+        settingsVM.showTestingLocalNotification()
     }
     
     @objc
@@ -110,16 +101,6 @@ extension SettingsVC {
             vc.modalTransitionStyle = .coverVertical
             self.present(vc, animated: true)
         }
-    }
-    
-}
-
-// MARK: - Notification delegate
-
-extension SettingsVC: UNUserNotificationCenterDelegate {
-    
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.banner, .sound, .list])
     }
     
 }
