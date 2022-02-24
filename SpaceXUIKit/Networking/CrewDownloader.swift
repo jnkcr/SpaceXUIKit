@@ -25,7 +25,7 @@ struct CrewDownloader: CrewDownloadable {
         decoder.keyDecodingStrategy = .convertFromSnakeCase
         guard let crewMembers = try? decoder.decode([CrewMember].self, from: data) else { throw DownloadError.unableToParse }
         #if DEBUG
-        dump(crewMembers)
+        dump(crewMembers[0...2])
         #endif
         // Return result
         return crewMembers

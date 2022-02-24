@@ -41,6 +41,8 @@ final class SpaceFlightDetailVC: UIViewController {
         navigationItem.largeTitleDisplayMode = .never
         view.backgroundColor = .systemBackground
         title = "Detail"
+        // Download images
+        flightDetailVM.downloadImages()
         // Subviews
         view.addSubview(scrollView)
         scrollView.addSubview(stackView)

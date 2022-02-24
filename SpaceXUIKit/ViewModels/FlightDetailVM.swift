@@ -10,9 +10,12 @@ import UIKit
 final class FlightDetailVM {
     
     private let flightData: FlightAndPatch
+    private let networkManager: ImageDownloadable
+    private var flightImages: [UIImage?] = []
     
-    init(flight: FlightAndPatch) {
+    init(flight: FlightAndPatch, ntwManager: ImageDownloadable = NetworkManager()) {
         flightData = flight
+        networkManager = ntwManager
     }
     
     var name: String {
@@ -44,6 +47,46 @@ final class FlightDetailVM {
     }()
     
 }
+
+// MARK: - Downloading
+
+extension FlightDetailVM {
+    
+    func downloadImages() {
+        Task {
+            var images: [UIImage?] = []
+            var links: [String] = []
+            if !(flightData.flight.links.flickr.small.isEmpty) {
+                flightData.flight.links.flickr.small.forEach { link in
+                    guard let strURL = link else { return }
+                    links.append(strURL)
+                }
+            } else if !(flightData.flight.links.flickr.original.isEmpty) {
+                flightData.flight.links.flickr.original.forEach { link in
+                    guard let strURL = link else { return }
+                    links.append(strURL)
+                }
+            } else {
+                return
+            }
+            try await withThrowingTaskGroup(of: UIImage?.self) { group in
+                for link in links {
+                    group.addTask {
+                        let image = try await self.networkManager.downloadImage(from: link)
+                        return image
+                    }
+                }
+                for try await img in group {
+                    images.append(img)
+                }
+            }
+            flightImages = images
+        }
+    }
+    
+}
+
+// MARK: - Helper functions
 
 extension FlightDetailVM {
     
