@@ -26,15 +26,10 @@ final class SpaceFlightDetailVC: UIViewController {
         stack.spacing = ConstraintsHelper.largeSpacing
         return stack
     }()
-    private lazy var headerView: DetailHeaderView = {
-        DetailHeaderView(name: flightDetailVM.name, description: flightDetailVM.description)
-    }()
-    private lazy var highlightsView: DetailHighlightsView = {
-        DetailHighlightsView(dateDesc: flightDetailVM.dateDescription, crewDesc: flightDetailVM.crewMembersDescription, successDesc: flightDetailVM.successDescription, successImg: flightDetailVM.successImage)
-    }()
-    private lazy var linksStack: DetailLinksStack = {
-        DetailLinksStack(links: flightDetailVM.buttonLinks)
-    }()
+    private lazy var headerView: DetailHeaderView = DetailHeaderView(name: flightDetailVM.name, description: flightDetailVM.description)
+    private lazy var highlightsView: DetailHighlightsView = DetailHighlightsView(dateDesc: flightDetailVM.dateDescription, crewDesc: flightDetailVM.crewMembersDescription, successDesc: flightDetailVM.successDescription, successImg: flightDetailVM.successImage)
+    private lazy var imagesSegueButton = ImagesSegueButtonStack()
+    private lazy var linksStack: DetailLinksStack = DetailLinksStack(links: flightDetailVM.buttonLinks)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,12 +37,14 @@ final class SpaceFlightDetailVC: UIViewController {
         view.backgroundColor = .systemBackground
         title = "Detail"
         // Download images
+        flightDetailVM.flightImagesDelegate = self
         flightDetailVM.downloadImages()
         // Subviews
         view.addSubview(scrollView)
         scrollView.addSubview(stackView)
         stackView.addArrangedSubview(headerView)
         stackView.addArrangedSubview(highlightsView)
+        stackView.addArrangedSubview(imagesSegueButton)
         stackView.addArrangedSubview(linksStack)
         // UI Constraints
         NSLayoutConstraint.activate([
@@ -63,8 +60,16 @@ final class SpaceFlightDetailVC: UIViewController {
             // STACK
             stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: ConstraintsHelper.padding),
             stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -ConstraintsHelper.padding),
-            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            
+            imagesSegueButton.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
+            imagesSegueButton.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
         ])
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        reloadInputViews()
     }
     
     init(viewModel: FlightDetailVM) {
@@ -74,6 +79,14 @@ final class SpaceFlightDetailVC: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+}
+
+extension SpaceFlightDetailVC: FlightImagesDelegate {
+    
+    func didFinishDownloadingImages() {
+        //
     }
     
 }

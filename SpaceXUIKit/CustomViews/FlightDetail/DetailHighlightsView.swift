@@ -24,7 +24,7 @@ final class DetailHighlightsView: UIStackView {
         translatesAutoresizingMaskIntoConstraints = false
         axis = .horizontal
         alignment = .fill
-        spacing = ConstraintsHelper.mediumSpacing
+        spacing = (ConstraintsHelper.mediumSpacing + ConstraintsHelper.smallSpacing)
         // Labels text
         dStack.titleLabel.text = dateDesc
         cStack.titleLabel.text = crewDesc

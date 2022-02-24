@@ -7,11 +7,17 @@
 
 import UIKit
 
+protocol FlightImagesDelegate {
+    func didFinishDownloadingImages()
+}
+
 final class FlightDetailVM {
     
     private let flightData: FlightAndPatch
     private let networkManager: ImageDownloadable
     private var flightImages: [UIImage?] = []
+    
+    var flightImagesDelegate: FlightImagesDelegate?
     
     init(flight: FlightAndPatch, ntwManager: ImageDownloadable = NetworkManager()) {
         flightData = flight
@@ -81,6 +87,7 @@ extension FlightDetailVM {
                 }
             }
             flightImages = images
+            flightImagesDelegate?.didFinishDownloadingImages()
         }
     }
     

@@ -11,15 +11,7 @@ final class DetailLinksStack: UIStackView {
     
     var links: FlightButtonLinks?
 
-    let titleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        label.numberOfLines = 1
-        label.textAlignment = .natural
-        label.text = "Links"
-        return label
-    }()
+    let titleLabel: SectionTitleLabel = SectionTitleLabel(titled: "External links")
     let articleButton: LargeTintedButton = {
         let button: LargeTintedButton = LargeTintedButton(text: "Article")
         button.addTarget(self, action: #selector(handleArticle), for: .touchUpInside)
