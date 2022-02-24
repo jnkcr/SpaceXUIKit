@@ -9,7 +9,7 @@ import UIKit
 
 final class CrewDetailVC: UIViewController {
     
-    let wikiURL: URL
+    let detailViewModel: CrewDetailVM
     
     let scrollView: UIScrollView = {
         let sv: UIScrollView = UIScrollView()
@@ -39,13 +39,17 @@ final class CrewDetailVC: UIViewController {
             scrollView.contentLayoutGuide.trailingAnchor.constraint(equalTo: infoStack.trailingAnchor),
             scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: infoStack.bottomAnchor),
         ])
+        // Actions
+        let interaction = UIContextMenuInteraction(delegate: self)
+        infoStack.wikiButton.addTarget(self, action: #selector(handleWikiButton), for: .touchUpInside)
+        infoStack.imageView.addInteraction(interaction)
     }
     
     init(viewModel: CrewDetailVM) {
-        wikiURL = viewModel.wikiURL
+        detailViewModel = viewModel
         infoStack = CrewDetailStack(vm: viewModel)
         super.init(nibName: nil, bundle: nil)
-        infoStack.wikiButton.addTarget(self, action: #selector(handleWikiButton), for: .touchUpInside)
+        
     }
     
     required init?(coder: NSCoder) {
@@ -58,7 +62,31 @@ extension CrewDetailVC {
     
     @objc
     func handleWikiButton() {
-        UIApplication.shared.open(wikiURL)
+        UIApplication.shared.open(detailViewModel.wikiURL)
+    }
+    
+}
+
+extension CrewDetailVC: UIContextMenuInteractionDelegate {
+    
+    func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
+        UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { actions in
+            
+            let imageInBrowserAction = UIAction(title: "Open in browser", image: UIImage(systemName: "safari")) { action in
+                UIApplication.shared.open(self.detailViewModel.imageURL)
+            }
+            
+            let shareAction = UIAction(title: "Share photo", image: UIImage(systemName: "square.and.arrow.up.circle")) { action in
+                guard let image = self.detailViewModel.memberPhoto else {
+                    self.shownCustomAlert(description: "There has been some problem with image. Please try again later.")
+                    return
+                }
+                let activityVC = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+                self.present(activityVC, animated: true)
+            }
+            
+            return UIMenu(title: "Photo of \(self.detailViewModel.nameDescription)", image: UIImage(systemName: "list.bullet"), children: [imageInBrowserAction, shareAction])
+        }
     }
     
 }

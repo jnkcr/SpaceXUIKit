@@ -15,6 +15,7 @@ final class CrewDetailStack: UIStackView {
         iv.layer.cornerRadius = 10
         iv.contentMode = .scaleAspectFit
         iv.clipsToBounds = true
+        iv.isUserInteractionEnabled = true
         return iv
     }()
     private let sectionLabel: SectionTitleLabel = SectionTitleLabel(titled: "General")
