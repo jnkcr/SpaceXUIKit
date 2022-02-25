@@ -41,7 +41,7 @@ final class SpaceFlightsVC: UIViewController {
     private let refreshBarButton: UIBarButtonItem = {
         UIBarButtonItem(image: UIImage(systemName: "arrow.triangle.2.circlepath"), style: .plain, target: self, action: #selector(redownloadAndRefreshTableData))
     }()
-    private let alertBarButton: UIBarButtonItem = {
+    lazy var alertBarButton: UIBarButtonItem = {
         UIBarButtonItem(image: UIImage(systemName: "multiply.circle"), style: .plain, target: self, action: #selector(showAlert))
     }()
     

@@ -111,6 +111,7 @@ extension SceneDelegate {
     
         private func requestAuthorization() {
             let center = UNUserNotificationCenter.current()
+            #warning("Check if you are already authorized first")
             center.requestAuthorization(options: [.alert, .sound]) { isGranted, error in
                 if isGranted {
                     print("NOTIFICATION ACCESS GRANTED")

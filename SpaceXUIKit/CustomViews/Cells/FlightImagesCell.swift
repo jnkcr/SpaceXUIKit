@@ -27,7 +27,8 @@ class FlightImagesCell: UITableViewCell {
         contentView.addSubview(flightImageView)
         // UI Config
         NSLayoutConstraint.activate([
-            flightImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            flightImageView.leadingAnchor.constraint(greaterThanOrEqualTo: contentView.leadingAnchor),
+            flightImageView.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor),
             flightImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: ConstraintsHelper.tinySpacing),
             flightImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -ConstraintsHelper.tinySpacing),
             flightImageView.heightAnchor.constraint(equalToConstant: 150),
