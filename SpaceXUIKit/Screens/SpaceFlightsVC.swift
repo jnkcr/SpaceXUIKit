@@ -69,7 +69,6 @@ final class SpaceFlightsVC: UIViewController {
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: selectedIndexPath, animated: animated)
         }
-        requestAuthorization()
     }
     
 }
@@ -92,17 +91,6 @@ extension SpaceFlightsVC {
         let refreshControl = UIRefreshControl()
         tableView.refreshControl = refreshControl
         tableView.refreshControl?.addTarget(self, action: #selector(redownloadAndRefreshTableData), for: .valueChanged)
-    }
-    
-    private func requestAuthorization() {
-        let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.alert, .sound]) { isGranted, error in
-            if isGranted {
-                print("NOTIFICATION ACCESS GRANTED")
-            } else {
-                self.shownCustomAlert(title: "Alert", description: "To get notifications you may consider allowing access in device settings.", confirmationText: "Ok")
-            }
-        }
     }
     
     @objc

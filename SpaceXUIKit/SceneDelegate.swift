@@ -47,6 +47,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
         
         UNUserNotificationCenter.current().delegate = self
+        requestAuthorization()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -101,6 +102,23 @@ extension SceneDelegate {
             return UIUserInterfaceStyle.unspecified
         }
     }
+    
+}
+
+// MARK: - Notifications
+
+extension SceneDelegate {
+    
+        private func requestAuthorization() {
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options: [.alert, .sound]) { isGranted, error in
+                if isGranted {
+                    print("NOTIFICATION ACCESS GRANTED")
+                } else {
+                    print("NOTIFICATION ACCESS DENIED")
+                }
+            }
+        }
     
 }
 
