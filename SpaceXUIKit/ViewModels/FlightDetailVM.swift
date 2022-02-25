@@ -15,7 +15,7 @@ final class FlightDetailVM {
     
     private let flightData: FlightAndPatch
     private let networkManager: ImageDownloadable
-    private var flightImages: [UIImage?] = []
+    var flightImages: [UIImage?] = []
     
     var flightImagesDelegate: FlightImagesDelegate?
     
@@ -44,8 +44,18 @@ final class FlightDetailVM {
         flightData.flight.success ? "Success" : "Failure"
     }
     
-    var successImage: UIImage {
+    var successIcon: UIImage {
         flightData.flight.success ? UIImage(systemName: "checkmark.circle")! : UIImage(systemName: "xmark.circle")!
+    }
+    
+    var numberOfImages: String {
+        if !(flightData.flight.links.flickr.small.isEmpty) {
+            return "Images available: \(flightData.flight.links.flickr.small.count)"
+        } else if !(flightData.flight.links.flickr.original.isEmpty) {
+            return "Images available: \(flightData.flight.links.flickr.original.count)"
+        } else {
+            return "Images available: 0"
+        }
     }
     
     lazy var buttonLinks: FlightButtonLinks = {

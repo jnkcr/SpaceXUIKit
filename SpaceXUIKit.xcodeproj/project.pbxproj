@@ -64,6 +64,8 @@
 		F48370AC27B6B37800D2146E /* ImageCropper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48370AB27B6B37800D2146E /* ImageCropper.swift */; };
 		F48370AE27B6B90500D2146E /* CrewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48370AD27B6B90500D2146E /* CrewCell.swift */; };
 		F48370B027B6CD3C00D2146E /* CrewCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48370AF27B6CD3C00D2146E /* CrewCellData.swift */; };
+		F48C039527C8D71A008C6471 /* SpaceFlightsImagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C039427C8D71A008C6471 /* SpaceFlightsImagesVC.swift */; };
+		F48C039727C8D7A8008C6471 /* FlightImagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C039627C8D7A8008C6471 /* FlightImagesCell.swift */; };
 		F49E9F9627AC32B80081238D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E9F9527AC32B80081238D /* AppDelegate.swift */; };
 		F49E9F9827AC32B80081238D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E9F9727AC32B80081238D /* SceneDelegate.swift */; };
 		F49E9F9F27AC32BA0081238D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F49E9F9E27AC32BA0081238D /* Assets.xcassets */; };
@@ -157,6 +159,8 @@
 		F48370AB27B6B37800D2146E /* ImageCropper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCropper.swift; sourceTree = "<group>"; };
 		F48370AD27B6B90500D2146E /* CrewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewCell.swift; sourceTree = "<group>"; };
 		F48370AF27B6CD3C00D2146E /* CrewCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewCellData.swift; sourceTree = "<group>"; };
+		F48C039427C8D71A008C6471 /* SpaceFlightsImagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceFlightsImagesVC.swift; sourceTree = "<group>"; };
+		F48C039627C8D7A8008C6471 /* FlightImagesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightImagesCell.swift; sourceTree = "<group>"; };
 		F49E9F9227AC32B80081238D /* SpaceXUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceXUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49E9F9527AC32B80081238D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F49E9F9727AC32B80081238D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -259,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				F4A4D12027AD64BE00163607 /* FlightCell.swift */,
+				F48C039627C8D7A8008C6471 /* FlightImagesCell.swift */,
 				F48370AD27B6B90500D2146E /* CrewCell.swift */,
 				F44DA4C327BD095C0011851B /* CrewHeader.swift */,
 			);
@@ -318,6 +323,7 @@
 			children = (
 				F4A4D11D27AD20F700163607 /* SpaceFlightsVC.swift */,
 				F4A4D12227AD76F900163607 /* SpaceFlightDetailVC.swift */,
+				F48C039427C8D71A008C6471 /* SpaceFlightsImagesVC.swift */,
 				F4A4D12427AD881B00163607 /* CrewVC.swift */,
 				F440003E27BE9BFB00F80C6C /* CrewDetailVC.swift */,
 				F48370A127B56B8800D2146E /* SettingsVC.swift */,
@@ -573,6 +579,7 @@
 				F4DCFF6E27C5137A00BA3B30 /* DateAndButtonStack.swift in Sources */,
 				F4F251F927C7B5900003DE09 /* ImagesSegueButtonStack.swift in Sources */,
 				F483709E27B41B8100D2146E /* Extensions.swift in Sources */,
+				F48C039527C8D71A008C6471 /* SpaceFlightsImagesVC.swift in Sources */,
 				F465051527BF92FD008B5D97 /* AnimationShuffler.swift in Sources */,
 				F477089B27B2C7D300847540 /* ConstraintsHelpers.swift in Sources */,
 				F477088627B111EC00847540 /* URLAdresses.swift in Sources */,
@@ -604,6 +611,7 @@
 				F477089927B28EDC00847540 /* DetailHighlightsView.swift in Sources */,
 				F483709A27B40AE800D2146E /* FlightCellData.swift in Sources */,
 				F49E9F9627AC32B80081238D /* AppDelegate.swift in Sources */,
+				F48C039727C8D7A8008C6471 /* FlightImagesCell.swift in Sources */,
 				F477089727B2692100847540 /* DetailHeaderView.swift in Sources */,
 				F48370AE27B6B90500D2146E /* CrewCell.swift in Sources */,
 				F477088227B10EAA00847540 /* NetworkManager.swift in Sources */,
