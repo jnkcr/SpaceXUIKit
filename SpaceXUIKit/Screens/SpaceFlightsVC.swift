@@ -22,14 +22,6 @@ final class SpaceFlightsVC: UIViewController {
         table.rowHeight = 70
         return table
     }()
-    private lazy var tableViewConstraints: [NSLayoutConstraint] = {
-        [
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
-        ]
-    }()
     private lazy var refreshBarButton: UIBarButtonItem = {
         UIBarButtonItem(image: UIImage(systemName: "arrow.triangle.2.circlepath"), style: .plain, target: self, action: #selector(redownloadAndRefreshTableData))
     }()
@@ -80,7 +72,12 @@ extension SpaceFlightsVC {
             loadingIndicatorView?.removeFromSuperview()
             loadingIndicatorView = nil
             view.addSubview(tableView)
-            NSLayoutConstraint.activate(tableViewConstraints)
+            NSLayoutConstraint.activate([
+                tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+                tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+                tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+                tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            ])
             configurePullToRefresh()
         }
     }

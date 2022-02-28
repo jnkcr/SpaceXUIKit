@@ -34,21 +34,14 @@ final class CrewVC: UIViewController {
         collection.showsVerticalScrollIndicator = false
         return collection
     }()
-
-    private lazy var collectionViewConstraints: [NSLayoutConstraint] = {
-        [
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.readableContentGuide.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.readableContentGuide.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-        ]
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = .systemBackground
         title = "Crew"
+        // Collection delegate
+        collectionView.delegate = self
         // Download data
         crewVM.downloadingDelegate = self
         crewVM.downloadCrew()
@@ -61,8 +54,6 @@ final class CrewVC: UIViewController {
             loadingIndicatorView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
         self.loadingIndicatorView = loadingIndicatorView
-        // Delegation
-        collectionView.delegate = self
     }
     
 }
@@ -76,7 +67,12 @@ extension CrewVC {
             loadingIndicatorView?.removeFromSuperview()
             loadingIndicatorView = nil
             view.addSubview(collectionView)
-            NSLayoutConstraint.activate(collectionViewConstraints)
+            NSLayoutConstraint.activate([
+                collectionView.topAnchor.constraint(equalTo: view.topAnchor),
+                collectionView.leadingAnchor.constraint(equalTo: view.readableContentGuide.leadingAnchor),
+                collectionView.trailingAnchor.constraint(equalTo: view.readableContentGuide.trailingAnchor),
+                collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            ])
         }
     }
     
