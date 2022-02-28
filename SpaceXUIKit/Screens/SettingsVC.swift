@@ -6,111 +6,101 @@
 //
 
 import UIKit
+import UserNotifications
 
 protocol AppearanceDelegate {
     func didChangeAppearanceStyle(to style: UIUserInterfaceStyle)
 }
 
-class SettingsVC: UIViewController {
+final class SettingsVC: UIViewController {
     
-    let statusLabel: UILabel = {
-        let label: UILabel = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.boldSystemFont(ofSize: 24)
-        label.text = "Automatic"
-        return label
-    }()
-    let autoStyleButton: UIButton = {
-        let button: UIButton = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.configuration = .tinted()
-        button.configuration?.cornerStyle = .capsule
-        button.tintColor = .systemYellow
-        button.setTitle("Automatic", for: .normal)
-        button.addTarget(self, action: #selector(handleAutomatic), for: .touchUpInside)
-        return button
-    }()
-    let lightStyleButton: UIButton = {
-        let button: UIButton = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.configuration = .tinted()
-        button.configuration?.cornerStyle = .capsule
-        button.tintColor = .systemYellow
-        button.setTitle("Light", for: .normal)
-        button.addTarget(self, action: #selector(handleLight), for: .touchUpInside)
-        return button
-    }()
-    let darkStyleButton: UIButton = {
-        let button: UIButton = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.configuration = .tinted()
-        button.configuration?.cornerStyle = .capsule
-        button.tintColor = .systemYellow
-        button.setTitle("Dark", for: .normal)
-        button.addTarget(self, action: #selector(handleDark), for: .touchUpInside)
-        return button
-    }()
-    
+    let settingsVM: SettingsVM = SettingsVM()
     var appearanceDelegate: AppearanceDelegate?
-
+    
+    let scrollView: UIScrollView = {
+        let sv: UIScrollView = UIScrollView()
+        sv.translatesAutoresizingMaskIntoConstraints = false
+        sv.alwaysBounceVertical = true
+        sv.showsVerticalScrollIndicator = false
+        return sv
+    }()
+    let settingsStack: SettingsStack = {
+        let stack: SettingsStack = SettingsStack()
+        stack.appearanceSection.segmentedControl.addTarget(self, action: #selector(handleSegmentedControl), for: .valueChanged)
+        stack.behaviourSection.crewLoadingSwitchStack.switchControl.addTarget(self, action: #selector(handleSwitch), for: .valueChanged)
+        stack.otherSection.alertStack.button.addTarget(self, action: #selector(handleAlert), for: .touchUpInside)
+        stack.otherSection.notificationTimeStack.button.addTarget(self, action: #selector(handleTimeNotification), for: .touchUpInside)
+        stack.otherSection.notificationCalendarStack.button.addTarget(self, action: #selector(handleCalendarNotification), for: .touchUpInside)
+        return stack
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         title = "Settings"
         // Subviews
-        view.addSubview(statusLabel)
-        view.addSubview(autoStyleButton)
-        view.addSubview(lightStyleButton)
-        view.addSubview(darkStyleButton)
+        view.addSubview(scrollView)
+        scrollView.addSubview(settingsStack)
         // UI Constraints
-        let buttonWidth: CGFloat = 200
         NSLayoutConstraint.activate([
-            // STATUS
-            statusLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -120),
-            statusLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            // AUTOMATIC
-            autoStyleButton.topAnchor.constraint(equalTo: statusLabel.bottomAnchor,constant: ConstraintsHelper.largeSpacing),
-            autoStyleButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            autoStyleButton.widthAnchor.constraint(equalToConstant: buttonWidth),
-            autoStyleButton.heightAnchor.constraint(equalToConstant: 50),
-            // LIGHT
-            lightStyleButton.topAnchor.constraint(equalTo: autoStyleButton.bottomAnchor,constant: ConstraintsHelper.smallSpacing),
-            lightStyleButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            lightStyleButton.widthAnchor.constraint(equalToConstant: buttonWidth),
-            lightStyleButton.heightAnchor.constraint(equalToConstant: 50),
-            // DARK
-            darkStyleButton.topAnchor.constraint(equalTo: lightStyleButton.bottomAnchor,constant: ConstraintsHelper.smallSpacing),
-            darkStyleButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            darkStyleButton.widthAnchor.constraint(equalToConstant: buttonWidth),
-            darkStyleButton.heightAnchor.constraint(equalToConstant: 50),
+            // SCROLLVIEW
+            scrollView.topAnchor.constraint(equalTo: view.readableContentGuide.topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.readableContentGuide.bottomAnchor),
+            scrollView.contentLayoutGuide.topAnchor.constraint(equalTo: settingsStack.topAnchor),
+            scrollView.contentLayoutGuide.leadingAnchor.constraint(equalTo: settingsStack.leadingAnchor),
+            scrollView.contentLayoutGuide.trailingAnchor.constraint(equalTo: settingsStack.trailingAnchor),
+            scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: settingsStack.bottomAnchor),
+            // SETTINGS
+            settingsStack.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: ConstraintsHelper.mediumSpacing),
+            settingsStack.leadingAnchor.constraint(equalTo: view.readableContentGuide.leadingAnchor),
+            settingsStack.trailingAnchor.constraint(equalTo: view.readableContentGuide.trailingAnchor),
         ])
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
+        settingsStack.appearanceSection.segmentedControl.selectedSegmentIndex = settingsVM.appearanceKey
+        settingsStack.behaviourSection.crewLoadingSwitchStack.switchControl.setOn(settingsVM.getSwitchState(), animated: true)
     }
     
 }
 
+// MARK: - Targets
+
 extension SettingsVC {
     
     @objc
-    private func handleAutomatic() {
-        statusLabel.text = "Automatic"
-        appearanceDelegate?.didChangeAppearanceStyle(to: .unspecified)
+    func handleSwitch() {
+        settingsVM.isLoadingCrewRightAway = settingsStack.behaviourSection.crewLoadingSwitchStack.switchControl.isOn
     }
     
     @objc
-    private func handleLight() {
-        statusLabel.text = "Light"
-        appearanceDelegate?.didChangeAppearanceStyle(to: .light)
+    func handleSegmentedControl() {
+        settingsVM.appearanceKey = settingsStack.appearanceSection.segmentedControl.selectedSegmentIndex
+        appearanceDelegate?.didChangeAppearanceStyle(to: settingsVM.getInterfaceStyle())
     }
     
     @objc
-    private func handleDark() {
-        statusLabel.text = "Dark"
-        appearanceDelegate?.didChangeAppearanceStyle(to: .dark)
+    private func handleAlert() {
+        shownCustomAlert(title: "Alert", description: "This is a generic text showcasing alert visuals.", confirmationText: "I like it")
+    }
+    
+    @objc
+    func handleTimeNotification() {
+        settingsVM.showTestingLocalNotification()
+    }
+    
+    @objc
+    func handleCalendarNotification() {
+        DispatchQueue.main.async {
+            let vc = NotificationSetupVC()
+            vc.modalPresentationStyle = .automatic
+            vc.modalTransitionStyle = .coverVertical
+            self.present(vc, animated: true)
+        }
     }
     
 }

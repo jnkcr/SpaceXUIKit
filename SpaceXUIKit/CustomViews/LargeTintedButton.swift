@@ -7,20 +7,20 @@
 
 import UIKit
 
-class LargeTintedButton: UIButton {
+final class LargeTintedButton: UIButton {
     
-    init(text: String, tint color: UIColor = .systemYellow) {
+    convenience init(text: String, tint color: UIColor = .systemYellow) {
+        self.init()
+        setTitle(text, for: .normal)
+        tintColor = color
+    }
+    
+    private init() {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
         configuration = .tinted()
         configuration?.cornerStyle = .capsule
         configuration?.buttonSize = .large
-        tintColor = color
-        setTitle(text, for: .normal)
-    }
-    
-    private init() {
-        super.init(frame: .zero)
     }
 
     override init(frame: CGRect) {

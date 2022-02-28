@@ -11,13 +11,15 @@ final class NetworkManager {
     
     private let flightsDownloader: FlightsDownloadable
     private let imageDownloader: ImageDownloadable
+    private let crewDownloader: CrewDownloadable
     
-    init(flightsDownloader: FlightsDownloadable = FlightsDownloader(), imageDownloader: ImageDownloadable = ImageDownloader()) {
+    init(flightsDownloader: FlightsDownloadable = FlightDownloader(), imageDownloader: ImageDownloadable = ImageDownloader(), crewDownloader: CrewDownloadable = CrewDownloader()) {
         self.flightsDownloader = flightsDownloader
         self.imageDownloader = imageDownloader
+        self.crewDownloader = crewDownloader
     }
     
-    func downloadFlights() async throws -> [Flight] {
+    func downloadAllPastFlights() async throws -> [Flight] {
         try await flightsDownloader.downloadAllPastFlights()
     }
     
@@ -25,4 +27,15 @@ final class NetworkManager {
         try await imageDownloader.downloadImage(from: urlStr)
     }
     
+    func downloadAllCrewMembers() async throws -> [CrewMember] {
+        try await crewDownloader.downloadAllCrewMembers()
+    }
+    
 }
+
+// MARK: - Conformance
+
+typealias FlightsAndImagesDownloadable = FlightsDownloadable & ImageDownloadable
+typealias CrewAndImagesDownloadable = CrewDownloadable & ImageDownloadable
+
+extension NetworkManager: FlightsDownloadable, ImageDownloadable, CrewDownloadable { }

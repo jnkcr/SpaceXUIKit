@@ -7,26 +7,63 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F4208D0127C39F66009BF199 /* CrewDetailStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4208D0027C39F66009BF199 /* CrewDetailStack.swift */; };
+		F4208D0327C3C572009BF199 /* CrewDetailTypeStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4208D0227C3C572009BF199 /* CrewDetailTypeStack.swift */; };
+		F4208D0527C3C5DA009BF199 /* CrewTypeLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4208D0427C3C5DA009BF199 /* CrewTypeLabel.swift */; };
+		F4208D0727C3C679009BF199 /* CrewInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4208D0627C3C679009BF199 /* CrewInfoLabel.swift */; };
+		F4208D0927C3C7CE009BF199 /* CrewDetailInfoContentStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4208D0827C3C7CE009BF199 /* CrewDetailInfoContentStack.swift */; };
+		F4208D0B27C3C9C3009BF199 /* CrewMemberInfoStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4208D0A27C3C9C3009BF199 /* CrewMemberInfoStack.swift */; };
+		F4208D0D27C3D879009BF199 /* astronaut04.json in Resources */ = {isa = PBXBuildFile; fileRef = F4208D0C27C3D879009BF199 /* astronaut04.json */; };
+		F4208D0F27C3E688009BF199 /* NotificationSetupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4208D0E27C3E688009BF199 /* NotificationSetupVC.swift */; };
+		F4208D1227C3ED25009BF199 /* NotificationTopBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4208D1127C3ED25009BF199 /* NotificationTopBanner.swift */; };
+		F434382227BA981300A57272 /* CrewMemberAndPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = F434382127BA981300A57272 /* CrewMemberAndPhoto.swift */; };
+		F440003527BE439100F80C6C /* DetailHighlightBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F440003427BE439100F80C6C /* DetailHighlightBlock.swift */; };
+		F440003B27BE50AE00F80C6C /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = F440003A27BE50AE00F80C6C /* Lottie */; };
+		F440003F27BE9BFB00F80C6C /* CrewDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F440003E27BE9BFB00F80C6C /* CrewDetailVC.swift */; };
+		F440004127BEA84200F80C6C /* CrewDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F440004027BEA84200F80C6C /* CrewDetailVM.swift */; };
+		F44DA4AF27BBC48C0011851B /* PropertyWrappers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4AE27BBC48C0011851B /* PropertyWrappers.swift */; };
+		F44DA4B127BBC8010011851B /* SettingsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4B027BBC8010011851B /* SettingsVM.swift */; };
+		F44DA4B527BBEB000011851B /* SwitchAndTitleStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4B427BBEB000011851B /* SwitchAndTitleStack.swift */; };
+		F44DA4B827BBF5B40011851B /* AppearanceSettingsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4B727BBF5B40011851B /* AppearanceSettingsStack.swift */; };
+		F44DA4BA27BBFDEE0011851B /* BehaviourSettingsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4B927BBFDEE0011851B /* BehaviourSettingsStack.swift */; };
+		F44DA4BC27BBFF1C0011851B /* SectionTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4BB27BBFF1C0011851B /* SectionTitleLabel.swift */; };
+		F44DA4BE27BC082A0011851B /* SettingsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4BD27BC082A0011851B /* SettingsStack.swift */; };
+		F44DA4C027BC18160011851B /* ButtonAndTitleStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4BF27BC18160011851B /* ButtonAndTitleStack.swift */; };
+		F44DA4C227BC19CC0011851B /* OtherSettingsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4C127BC19CC0011851B /* OtherSettingsStack.swift */; };
+		F44DA4C427BD095C0011851B /* CrewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4C327BD095C0011851B /* CrewHeader.swift */; };
+		F44DA4C627BD37E80011851B /* CrewCollectionLayoutProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F44DA4C527BD37E80011851B /* CrewCollectionLayoutProvider.swift */; };
+		F465050F27BF8F47008B5D97 /* rocket02.json in Resources */ = {isa = PBXBuildFile; fileRef = F465050E27BF8F47008B5D97 /* rocket02.json */; };
+		F465051127BF91B9008B5D97 /* rocket03.json in Resources */ = {isa = PBXBuildFile; fileRef = F465051027BF91B9008B5D97 /* rocket03.json */; };
+		F465051527BF92FD008B5D97 /* AnimationShuffler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465051427BF92FD008B5D97 /* AnimationShuffler.swift */; };
+		F465051727BFA345008B5D97 /* AlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F465051627BFA345008B5D97 /* AlertVC.swift */; };
 		F477088227B10EAA00847540 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477088127B10EAA00847540 /* NetworkManager.swift */; };
-		F477088427B10EEB00847540 /* FlightsDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477088327B10EEB00847540 /* FlightsDownloader.swift */; };
+		F477088427B10EEB00847540 /* FlightDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477088327B10EEB00847540 /* FlightDownloader.swift */; };
 		F477088627B111EC00847540 /* URLAdresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477088527B111EC00847540 /* URLAdresses.swift */; };
 		F477088827B112AC00847540 /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477088727B112AC00847540 /* CustomErrors.swift */; };
 		F477088B27B115C300847540 /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477088A27B115C300847540 /* Flight.swift */; };
-		F477088D27B1215000847540 /* SpaceFlightsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477088C27B1215000847540 /* SpaceFlightsViewModel.swift */; };
+		F477088D27B1215000847540 /* SpaceFlightsVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477088C27B1215000847540 /* SpaceFlightsVM.swift */; };
 		F477089127B1791F00847540 /* CustomDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477089027B1791F00847540 /* CustomDateFormatter.swift */; };
 		F477089327B18B1500847540 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477089227B18B1500847540 /* ImageDownloader.swift */; };
-		F477089527B2650600847540 /* FlightDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477089427B2650600847540 /* FlightDetailViewModel.swift */; };
+		F477089527B2650600847540 /* FlightDetailVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477089427B2650600847540 /* FlightDetailVM.swift */; };
 		F477089727B2692100847540 /* DetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477089627B2692100847540 /* DetailHeaderView.swift */; };
 		F477089927B28EDC00847540 /* DetailHighlightsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477089827B28EDC00847540 /* DetailHighlightsView.swift */; };
 		F477089B27B2C7D300847540 /* ConstraintsHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477089A27B2C7D300847540 /* ConstraintsHelpers.swift */; };
 		F483709527B3BDCA00D2146E /* DetailLinksStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F483709427B3BDCA00D2146E /* DetailLinksStack.swift */; };
-		F483709727B3CC6600D2146E /* ButtonLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F483709627B3CC6600D2146E /* ButtonLinks.swift */; };
-		F483709A27B40AE800D2146E /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F483709927B40AE800D2146E /* CellData.swift */; };
+		F483709727B3CC6600D2146E /* FlightButtonLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = F483709627B3CC6600D2146E /* FlightButtonLinks.swift */; };
+		F483709A27B40AE800D2146E /* FlightCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F483709927B40AE800D2146E /* FlightCellData.swift */; };
 		F483709C27B40F6D00D2146E /* FlightAndPatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F483709B27B40F6D00D2146E /* FlightAndPatch.swift */; };
 		F483709E27B41B8100D2146E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F483709D27B41B8100D2146E /* Extensions.swift */; };
 		F48370A027B423E500D2146E /* LoadingIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F483709F27B423E500D2146E /* LoadingIndicatorView.swift */; };
 		F48370A227B56B8800D2146E /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48370A127B56B8800D2146E /* SettingsVC.swift */; };
 		F48370A427B6560A00D2146E /* LargeTintedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48370A327B6560A00D2146E /* LargeTintedButton.swift */; };
+		F48370A627B67C0800D2146E /* CrewMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48370A527B67C0800D2146E /* CrewMember.swift */; };
+		F48370A827B67D3300D2146E /* CrewDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48370A727B67D3300D2146E /* CrewDownloader.swift */; };
+		F48370AA27B69BE700D2146E /* CrewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48370A927B69BE700D2146E /* CrewVM.swift */; };
+		F48370AC27B6B37800D2146E /* ImageCropper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48370AB27B6B37800D2146E /* ImageCropper.swift */; };
+		F48370AE27B6B90500D2146E /* CrewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48370AD27B6B90500D2146E /* CrewCell.swift */; };
+		F48370B027B6CD3C00D2146E /* CrewCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48370AF27B6CD3C00D2146E /* CrewCellData.swift */; };
+		F48C039527C8D71A008C6471 /* SpaceFlightsImagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C039427C8D71A008C6471 /* SpaceFlightsImagesVC.swift */; };
+		F48C039727C8D7A8008C6471 /* FlightImagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F48C039627C8D7A8008C6471 /* FlightImagesCell.swift */; };
 		F49E9F9627AC32B80081238D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E9F9527AC32B80081238D /* AppDelegate.swift */; };
 		F49E9F9827AC32B80081238D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E9F9727AC32B80081238D /* SceneDelegate.swift */; };
 		F49E9F9F27AC32BA0081238D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F49E9F9E27AC32BA0081238D /* Assets.xcassets */; };
@@ -34,10 +71,15 @@
 		F49E9FAD27AC32BA0081238D /* SpaceXUIKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E9FAC27AC32BA0081238D /* SpaceXUIKitTests.swift */; };
 		F49E9FB727AC32BA0081238D /* SpaceXUIKitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E9FB627AC32BA0081238D /* SpaceXUIKitUITests.swift */; };
 		F49E9FB927AC32BA0081238D /* SpaceXUIKitUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49E9FB827AC32BA0081238D /* SpaceXUIKitUITestsLaunchTests.swift */; };
+		F4A2977527BEC75500800DF8 /* astronaut01.json in Resources */ = {isa = PBXBuildFile; fileRef = F4A2977127BEC75400800DF8 /* astronaut01.json */; };
 		F4A4D11E27AD20F700163607 /* SpaceFlightsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4D11D27AD20F700163607 /* SpaceFlightsVC.swift */; };
 		F4A4D12127AD64BE00163607 /* FlightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4D12027AD64BE00163607 /* FlightCell.swift */; };
 		F4A4D12327AD76F900163607 /* SpaceFlightDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4D12227AD76F900163607 /* SpaceFlightDetailVC.swift */; };
 		F4A4D12527AD881B00163607 /* CrewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4D12427AD881B00163607 /* CrewVC.swift */; };
+		F4DCFF6C27C5106F00BA3B30 /* NotificationCalendarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DCFF6B27C5106F00BA3B30 /* NotificationCalendarVM.swift */; };
+		F4DCFF6E27C5137A00BA3B30 /* DateAndButtonStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DCFF6D27C5137A00BA3B30 /* DateAndButtonStack.swift */; };
+		F4DCFF7027C51BD100BA3B30 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DCFF6F27C51BD100BA3B30 /* LocalNotificationManager.swift */; };
+		F4F251F927C7B5900003DE09 /* ImagesSegueButtonStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F251F827C7B5900003DE09 /* ImagesSegueButtonStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,26 +100,62 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F4208D0027C39F66009BF199 /* CrewDetailStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewDetailStack.swift; sourceTree = "<group>"; };
+		F4208D0227C3C572009BF199 /* CrewDetailTypeStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewDetailTypeStack.swift; sourceTree = "<group>"; };
+		F4208D0427C3C5DA009BF199 /* CrewTypeLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewTypeLabel.swift; sourceTree = "<group>"; };
+		F4208D0627C3C679009BF199 /* CrewInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewInfoLabel.swift; sourceTree = "<group>"; };
+		F4208D0827C3C7CE009BF199 /* CrewDetailInfoContentStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewDetailInfoContentStack.swift; sourceTree = "<group>"; };
+		F4208D0A27C3C9C3009BF199 /* CrewMemberInfoStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewMemberInfoStack.swift; sourceTree = "<group>"; };
+		F4208D0C27C3D879009BF199 /* astronaut04.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronaut04.json; sourceTree = "<group>"; };
+		F4208D0E27C3E688009BF199 /* NotificationSetupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSetupVC.swift; sourceTree = "<group>"; };
+		F4208D1127C3ED25009BF199 /* NotificationTopBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTopBanner.swift; sourceTree = "<group>"; };
+		F434382127BA981300A57272 /* CrewMemberAndPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewMemberAndPhoto.swift; sourceTree = "<group>"; };
+		F440003427BE439100F80C6C /* DetailHighlightBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHighlightBlock.swift; sourceTree = "<group>"; };
+		F440003E27BE9BFB00F80C6C /* CrewDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewDetailVC.swift; sourceTree = "<group>"; };
+		F440004027BEA84200F80C6C /* CrewDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewDetailVM.swift; sourceTree = "<group>"; };
+		F44DA4AE27BBC48C0011851B /* PropertyWrappers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyWrappers.swift; sourceTree = "<group>"; };
+		F44DA4B027BBC8010011851B /* SettingsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVM.swift; sourceTree = "<group>"; };
+		F44DA4B427BBEB000011851B /* SwitchAndTitleStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchAndTitleStack.swift; sourceTree = "<group>"; };
+		F44DA4B727BBF5B40011851B /* AppearanceSettingsStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppearanceSettingsStack.swift; sourceTree = "<group>"; };
+		F44DA4B927BBFDEE0011851B /* BehaviourSettingsStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BehaviourSettingsStack.swift; sourceTree = "<group>"; };
+		F44DA4BB27BBFF1C0011851B /* SectionTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitleLabel.swift; sourceTree = "<group>"; };
+		F44DA4BD27BC082A0011851B /* SettingsStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStack.swift; sourceTree = "<group>"; };
+		F44DA4BF27BC18160011851B /* ButtonAndTitleStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAndTitleStack.swift; sourceTree = "<group>"; };
+		F44DA4C127BC19CC0011851B /* OtherSettingsStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherSettingsStack.swift; sourceTree = "<group>"; };
+		F44DA4C327BD095C0011851B /* CrewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CrewHeader.swift; path = SpaceXUIKit/CustomViews/Cells/CrewHeader.swift; sourceTree = SOURCE_ROOT; };
+		F44DA4C527BD37E80011851B /* CrewCollectionLayoutProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewCollectionLayoutProvider.swift; sourceTree = "<group>"; };
+		F465050E27BF8F47008B5D97 /* rocket02.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rocket02.json; sourceTree = "<group>"; };
+		F465051027BF91B9008B5D97 /* rocket03.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rocket03.json; sourceTree = "<group>"; };
+		F465051427BF92FD008B5D97 /* AnimationShuffler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationShuffler.swift; sourceTree = "<group>"; };
+		F465051627BFA345008B5D97 /* AlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertVC.swift; sourceTree = "<group>"; };
 		F477088127B10EAA00847540 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
-		F477088327B10EEB00847540 /* FlightsDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightsDownloader.swift; sourceTree = "<group>"; };
+		F477088327B10EEB00847540 /* FlightDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDownloader.swift; sourceTree = "<group>"; };
 		F477088527B111EC00847540 /* URLAdresses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLAdresses.swift; sourceTree = "<group>"; };
 		F477088727B112AC00847540 /* CustomErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrors.swift; sourceTree = "<group>"; };
 		F477088A27B115C300847540 /* Flight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
-		F477088C27B1215000847540 /* SpaceFlightsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceFlightsViewModel.swift; sourceTree = "<group>"; };
+		F477088C27B1215000847540 /* SpaceFlightsVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceFlightsVM.swift; sourceTree = "<group>"; };
 		F477089027B1791F00847540 /* CustomDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDateFormatter.swift; sourceTree = "<group>"; };
 		F477089227B18B1500847540 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
-		F477089427B2650600847540 /* FlightDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetailViewModel.swift; sourceTree = "<group>"; };
+		F477089427B2650600847540 /* FlightDetailVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetailVM.swift; sourceTree = "<group>"; };
 		F477089627B2692100847540 /* DetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderView.swift; sourceTree = "<group>"; };
 		F477089827B28EDC00847540 /* DetailHighlightsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHighlightsView.swift; sourceTree = "<group>"; };
 		F477089A27B2C7D300847540 /* ConstraintsHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstraintsHelpers.swift; sourceTree = "<group>"; };
 		F483709427B3BDCA00D2146E /* DetailLinksStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLinksStack.swift; sourceTree = "<group>"; };
-		F483709627B3CC6600D2146E /* ButtonLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonLinks.swift; sourceTree = "<group>"; };
-		F483709927B40AE800D2146E /* CellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellData.swift; sourceTree = "<group>"; };
+		F483709627B3CC6600D2146E /* FlightButtonLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightButtonLinks.swift; sourceTree = "<group>"; };
+		F483709927B40AE800D2146E /* FlightCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightCellData.swift; sourceTree = "<group>"; };
 		F483709B27B40F6D00D2146E /* FlightAndPatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightAndPatch.swift; sourceTree = "<group>"; };
 		F483709D27B41B8100D2146E /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F483709F27B423E500D2146E /* LoadingIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorView.swift; sourceTree = "<group>"; };
 		F48370A127B56B8800D2146E /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		F48370A327B6560A00D2146E /* LargeTintedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTintedButton.swift; sourceTree = "<group>"; };
+		F48370A527B67C0800D2146E /* CrewMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewMember.swift; sourceTree = "<group>"; };
+		F48370A727B67D3300D2146E /* CrewDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewDownloader.swift; sourceTree = "<group>"; };
+		F48370A927B69BE700D2146E /* CrewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewVM.swift; sourceTree = "<group>"; };
+		F48370AB27B6B37800D2146E /* ImageCropper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCropper.swift; sourceTree = "<group>"; };
+		F48370AD27B6B90500D2146E /* CrewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewCell.swift; sourceTree = "<group>"; };
+		F48370AF27B6CD3C00D2146E /* CrewCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewCellData.swift; sourceTree = "<group>"; };
+		F48C039427C8D71A008C6471 /* SpaceFlightsImagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceFlightsImagesVC.swift; sourceTree = "<group>"; };
+		F48C039627C8D7A8008C6471 /* FlightImagesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightImagesCell.swift; sourceTree = "<group>"; };
 		F49E9F9227AC32B80081238D /* SpaceXUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpaceXUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49E9F9527AC32B80081238D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F49E9F9727AC32B80081238D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,10 +167,15 @@
 		F49E9FB227AC32BA0081238D /* SpaceXUIKitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpaceXUIKitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F49E9FB627AC32BA0081238D /* SpaceXUIKitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXUIKitUITests.swift; sourceTree = "<group>"; };
 		F49E9FB827AC32BA0081238D /* SpaceXUIKitUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceXUIKitUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F4A2977127BEC75400800DF8 /* astronaut01.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = astronaut01.json; sourceTree = "<group>"; };
 		F4A4D11D27AD20F700163607 /* SpaceFlightsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceFlightsVC.swift; sourceTree = "<group>"; };
 		F4A4D12027AD64BE00163607 /* FlightCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightCell.swift; sourceTree = "<group>"; };
 		F4A4D12227AD76F900163607 /* SpaceFlightDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceFlightDetailVC.swift; sourceTree = "<group>"; };
 		F4A4D12427AD881B00163607 /* CrewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewVC.swift; sourceTree = "<group>"; };
+		F4DCFF6B27C5106F00BA3B30 /* NotificationCalendarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCalendarVM.swift; sourceTree = "<group>"; };
+		F4DCFF6D27C5137A00BA3B30 /* DateAndButtonStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAndButtonStack.swift; sourceTree = "<group>"; };
+		F4DCFF6F27C51BD100BA3B30 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
+		F4F251F827C7B5900003DE09 /* ImagesSegueButtonStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesSegueButtonStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +183,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F440003B27BE50AE00F80C6C /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,12 +204,91 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F4208CFF27C39AAB009BF199 /* CrewDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F4208D0027C39F66009BF199 /* CrewDetailStack.swift */,
+				F4208D0A27C3C9C3009BF199 /* CrewMemberInfoStack.swift */,
+				F4208D0227C3C572009BF199 /* CrewDetailTypeStack.swift */,
+				F4208D0827C3C7CE009BF199 /* CrewDetailInfoContentStack.swift */,
+				F4208D0427C3C5DA009BF199 /* CrewTypeLabel.swift */,
+				F4208D0627C3C679009BF199 /* CrewInfoLabel.swift */,
+			);
+			path = CrewDetail;
+			sourceTree = "<group>";
+		};
+		F4208D1027C3E693009BF199 /* NotificationSetup */ = {
+			isa = PBXGroup;
+			children = (
+				F4208D0E27C3E688009BF199 /* NotificationSetupVC.swift */,
+				F4208D1127C3ED25009BF199 /* NotificationTopBanner.swift */,
+				F4DCFF6D27C5137A00BA3B30 /* DateAndButtonStack.swift */,
+			);
+			path = NotificationSetup;
+			sourceTree = "<group>";
+		};
+		F440003627BE4FA400F80C6C /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				F465050E27BF8F47008B5D97 /* rocket02.json */,
+				F465051027BF91B9008B5D97 /* rocket03.json */,
+				F4A2977127BEC75400800DF8 /* astronaut01.json */,
+				F4208D0C27C3D879009BF199 /* astronaut04.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
+		F44DA4B227BBE1E20011851B /* FlightDetail */ = {
+			isa = PBXGroup;
+			children = (
+				F477089627B2692100847540 /* DetailHeaderView.swift */,
+				F477089827B28EDC00847540 /* DetailHighlightsView.swift */,
+				F440003427BE439100F80C6C /* DetailHighlightBlock.swift */,
+				F4F251F827C7B5900003DE09 /* ImagesSegueButtonStack.swift */,
+				F483709427B3BDCA00D2146E /* DetailLinksStack.swift */,
+			);
+			path = FlightDetail;
+			sourceTree = "<group>";
+		};
+		F44DA4B327BBE20D0011851B /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F4A4D12027AD64BE00163607 /* FlightCell.swift */,
+				F48C039627C8D7A8008C6471 /* FlightImagesCell.swift */,
+				F48370AD27B6B90500D2146E /* CrewCell.swift */,
+				F44DA4C327BD095C0011851B /* CrewHeader.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		F44DA4B627BBF5750011851B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				F44DA4BD27BC082A0011851B /* SettingsStack.swift */,
+				F44DA4B727BBF5B40011851B /* AppearanceSettingsStack.swift */,
+				F44DA4B927BBFDEE0011851B /* BehaviourSettingsStack.swift */,
+				F44DA4C127BC19CC0011851B /* OtherSettingsStack.swift */,
+				F44DA4B427BBEB000011851B /* SwitchAndTitleStack.swift */,
+				F44DA4BF27BC18160011851B /* ButtonAndTitleStack.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		F465051827BFA39B008B5D97 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				F465051627BFA345008B5D97 /* AlertVC.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
 		F477088027B10E9000847540 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				F477088127B10EAA00847540 /* NetworkManager.swift */,
-				F477088327B10EEB00847540 /* FlightsDownloader.swift */,
+				F477088327B10EEB00847540 /* FlightDownloader.swift */,
 				F477089227B18B1500847540 /* ImageDownloader.swift */,
+				F48370A727B67D3300D2146E /* CrewDownloader.swift */,
 				F477088527B111EC00847540 /* URLAdresses.swift */,
 				F477088727B112AC00847540 /* CustomErrors.swift */,
 			);
@@ -137,8 +300,11 @@
 			children = (
 				F477088A27B115C300847540 /* Flight.swift */,
 				F483709B27B40F6D00D2146E /* FlightAndPatch.swift */,
-				F483709927B40AE800D2146E /* CellData.swift */,
-				F483709627B3CC6600D2146E /* ButtonLinks.swift */,
+				F483709927B40AE800D2146E /* FlightCellData.swift */,
+				F483709627B3CC6600D2146E /* FlightButtonLinks.swift */,
+				F48370A527B67C0800D2146E /* CrewMember.swift */,
+				F434382127BA981300A57272 /* CrewMemberAndPhoto.swift */,
+				F48370AF27B6CD3C00D2146E /* CrewCellData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -148,7 +314,9 @@
 			children = (
 				F4A4D11D27AD20F700163607 /* SpaceFlightsVC.swift */,
 				F4A4D12227AD76F900163607 /* SpaceFlightDetailVC.swift */,
+				F48C039427C8D71A008C6471 /* SpaceFlightsImagesVC.swift */,
 				F4A4D12427AD881B00163607 /* CrewVC.swift */,
+				F440003E27BE9BFB00F80C6C /* CrewDetailVC.swift */,
 				F48370A127B56B8800D2146E /* SettingsVC.swift */,
 			);
 			path = Screens;
@@ -158,8 +326,12 @@
 			isa = PBXGroup;
 			children = (
 				F477089027B1791F00847540 /* CustomDateFormatter.swift */,
+				F48370AB27B6B37800D2146E /* ImageCropper.swift */,
 				F477089A27B2C7D300847540 /* ConstraintsHelpers.swift */,
 				F483709D27B41B8100D2146E /* Extensions.swift */,
+				F44DA4AE27BBC48C0011851B /* PropertyWrappers.swift */,
+				F465051427BF92FD008B5D97 /* AnimationShuffler.swift */,
+				F4DCFF6F27C51BD100BA3B30 /* LocalNotificationManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -167,8 +339,13 @@
 		F483709827B3D90A00D2146E /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				F477088C27B1215000847540 /* SpaceFlightsViewModel.swift */,
-				F477089427B2650600847540 /* FlightDetailViewModel.swift */,
+				F477088C27B1215000847540 /* SpaceFlightsVM.swift */,
+				F477089427B2650600847540 /* FlightDetailVM.swift */,
+				F48370A927B69BE700D2146E /* CrewVM.swift */,
+				F44DA4C527BD37E80011851B /* CrewCollectionLayoutProvider.swift */,
+				F440004027BEA84200F80C6C /* CrewDetailVM.swift */,
+				F44DA4B027BBC8010011851B /* SettingsVM.swift */,
+				F4DCFF6B27C5106F00BA3B30 /* NotificationCalendarVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -204,6 +381,7 @@
 				F477088027B10E9000847540 /* Networking */,
 				F4A4D11F27AD648100163607 /* CustomViews */,
 				F477088F27B178F600847540 /* Helpers */,
+				F440003627BE4FA400F80C6C /* Animations */,
 				F49E9F9E27AC32BA0081238D /* Assets.xcassets */,
 				F49E9FA027AC32BA0081238D /* LaunchScreen.storyboard */,
 				F49E9FA327AC32BA0081238D /* Info.plist */,
@@ -231,12 +409,15 @@
 		F4A4D11F27AD648100163607 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				F4A4D12027AD64BE00163607 /* FlightCell.swift */,
-				F477089627B2692100847540 /* DetailHeaderView.swift */,
-				F477089827B28EDC00847540 /* DetailHighlightsView.swift */,
-				F483709427B3BDCA00D2146E /* DetailLinksStack.swift */,
+				F44DA4B227BBE1E20011851B /* FlightDetail */,
+				F4208CFF27C39AAB009BF199 /* CrewDetail */,
+				F44DA4B627BBF5750011851B /* Settings */,
+				F44DA4B327BBE20D0011851B /* Cells */,
+				F465051827BFA39B008B5D97 /* Alert */,
+				F4208D1027C3E693009BF199 /* NotificationSetup */,
 				F483709F27B423E500D2146E /* LoadingIndicatorView.swift */,
 				F48370A327B6560A00D2146E /* LargeTintedButton.swift */,
+				F44DA4BB27BBFF1C0011851B /* SectionTitleLabel.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -257,6 +438,9 @@
 			dependencies = (
 			);
 			name = SpaceXUIKit;
+			packageProductDependencies = (
+				F440003A27BE50AE00F80C6C /* Lottie */,
+			);
 			productName = SpaceXUIKit;
 			productReference = F49E9F9227AC32B80081238D /* SpaceXUIKit.app */;
 			productType = "com.apple.product-type.application";
@@ -329,6 +513,9 @@
 				Base,
 			);
 			mainGroup = F49E9F8927AC32B80081238D;
+			packageReferences = (
+				F440003927BE50AE00F80C6C /* XCRemoteSwiftPackageReference "lottie-ios" */,
+			);
 			productRefGroup = F49E9F9327AC32B80081238D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -345,8 +532,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F465051127BF91B9008B5D97 /* rocket03.json in Resources */,
+				F4208D0D27C3D879009BF199 /* astronaut04.json in Resources */,
 				F49E9FA227AC32BA0081238D /* LaunchScreen.storyboard in Resources */,
 				F49E9F9F27AC32BA0081238D /* Assets.xcassets in Resources */,
+				F4A2977527BEC75500800DF8 /* astronaut01.json in Resources */,
+				F465050F27BF8F47008B5D97 /* rocket02.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,32 +562,69 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4208D1227C3ED25009BF199 /* NotificationTopBanner.swift in Sources */,
+				F4208D0927C3C7CE009BF199 /* CrewDetailInfoContentStack.swift in Sources */,
+				F4DCFF6E27C5137A00BA3B30 /* DateAndButtonStack.swift in Sources */,
+				F4F251F927C7B5900003DE09 /* ImagesSegueButtonStack.swift in Sources */,
 				F483709E27B41B8100D2146E /* Extensions.swift in Sources */,
+				F48C039527C8D71A008C6471 /* SpaceFlightsImagesVC.swift in Sources */,
+				F465051527BF92FD008B5D97 /* AnimationShuffler.swift in Sources */,
 				F477089B27B2C7D300847540 /* ConstraintsHelpers.swift in Sources */,
 				F477088627B111EC00847540 /* URLAdresses.swift in Sources */,
+				F44DA4C627BD37E80011851B /* CrewCollectionLayoutProvider.swift in Sources */,
 				F48370A027B423E500D2146E /* LoadingIndicatorView.swift in Sources */,
+				F4208D0B27C3C9C3009BF199 /* CrewMemberInfoStack.swift in Sources */,
+				F44DA4B127BBC8010011851B /* SettingsVM.swift in Sources */,
 				F477088827B112AC00847540 /* CustomErrors.swift in Sources */,
+				F48370AC27B6B37800D2146E /* ImageCropper.swift in Sources */,
 				F483709527B3BDCA00D2146E /* DetailLinksStack.swift in Sources */,
+				F434382227BA981300A57272 /* CrewMemberAndPhoto.swift in Sources */,
+				F440004127BEA84200F80C6C /* CrewDetailVM.swift in Sources */,
 				F477089327B18B1500847540 /* ImageDownloader.swift in Sources */,
-				F483709727B3CC6600D2146E /* ButtonLinks.swift in Sources */,
+				F483709727B3CC6600D2146E /* FlightButtonLinks.swift in Sources */,
+				F44DA4C427BD095C0011851B /* CrewHeader.swift in Sources */,
 				F4A4D11E27AD20F700163607 /* SpaceFlightsVC.swift in Sources */,
+				F4DCFF6C27C5106F00BA3B30 /* NotificationCalendarVM.swift in Sources */,
 				F48370A227B56B8800D2146E /* SettingsVC.swift in Sources */,
 				F477089127B1791F00847540 /* CustomDateFormatter.swift in Sources */,
+				F44DA4C227BC19CC0011851B /* OtherSettingsStack.swift in Sources */,
+				F48370AA27B69BE700D2146E /* CrewVM.swift in Sources */,
+				F4208D0327C3C572009BF199 /* CrewDetailTypeStack.swift in Sources */,
+				F4208D0727C3C679009BF199 /* CrewInfoLabel.swift in Sources */,
+				F48370A827B67D3300D2146E /* CrewDownloader.swift in Sources */,
 				F4A4D12127AD64BE00163607 /* FlightCell.swift in Sources */,
-				F477088427B10EEB00847540 /* FlightsDownloader.swift in Sources */,
+				F4208D0127C39F66009BF199 /* CrewDetailStack.swift in Sources */,
+				F477088427B10EEB00847540 /* FlightDownloader.swift in Sources */,
+				F44DA4C027BC18160011851B /* ButtonAndTitleStack.swift in Sources */,
 				F477089927B28EDC00847540 /* DetailHighlightsView.swift in Sources */,
-				F483709A27B40AE800D2146E /* CellData.swift in Sources */,
+				F483709A27B40AE800D2146E /* FlightCellData.swift in Sources */,
 				F49E9F9627AC32B80081238D /* AppDelegate.swift in Sources */,
+				F48C039727C8D7A8008C6471 /* FlightImagesCell.swift in Sources */,
 				F477089727B2692100847540 /* DetailHeaderView.swift in Sources */,
+				F48370AE27B6B90500D2146E /* CrewCell.swift in Sources */,
 				F477088227B10EAA00847540 /* NetworkManager.swift in Sources */,
+				F440003527BE439100F80C6C /* DetailHighlightBlock.swift in Sources */,
 				F4A4D12527AD881B00163607 /* CrewVC.swift in Sources */,
+				F44DA4BA27BBFDEE0011851B /* BehaviourSettingsStack.swift in Sources */,
+				F44DA4B527BBEB000011851B /* SwitchAndTitleStack.swift in Sources */,
+				F4DCFF7027C51BD100BA3B30 /* LocalNotificationManager.swift in Sources */,
 				F49E9F9827AC32B80081238D /* SceneDelegate.swift in Sources */,
+				F48370B027B6CD3C00D2146E /* CrewCellData.swift in Sources */,
+				F44DA4BE27BC082A0011851B /* SettingsStack.swift in Sources */,
 				F477088B27B115C300847540 /* Flight.swift in Sources */,
 				F483709C27B40F6D00D2146E /* FlightAndPatch.swift in Sources */,
 				F4A4D12327AD76F900163607 /* SpaceFlightDetailVC.swift in Sources */,
-				F477089527B2650600847540 /* FlightDetailViewModel.swift in Sources */,
-				F477088D27B1215000847540 /* SpaceFlightsViewModel.swift in Sources */,
+				F44DA4B827BBF5B40011851B /* AppearanceSettingsStack.swift in Sources */,
+				F465051727BFA345008B5D97 /* AlertVC.swift in Sources */,
+				F477089527B2650600847540 /* FlightDetailVM.swift in Sources */,
+				F440003F27BE9BFB00F80C6C /* CrewDetailVC.swift in Sources */,
+				F4208D0F27C3E688009BF199 /* NotificationSetupVC.swift in Sources */,
+				F44DA4BC27BBFF1C0011851B /* SectionTitleLabel.swift in Sources */,
+				F4208D0527C3C5DA009BF199 /* CrewTypeLabel.swift in Sources */,
+				F44DA4AF27BBC48C0011851B /* PropertyWrappers.swift in Sources */,
+				F477088D27B1215000847540 /* SpaceFlightsVM.swift in Sources */,
 				F48370A427B6560A00D2146E /* LargeTintedButton.swift in Sources */,
+				F48370A627B67C0800D2146E /* CrewMember.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -730,6 +958,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F440003927BE50AE00F80C6C /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 3.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F440003A27BE50AE00F80C6C /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F440003927BE50AE00F80C6C /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F49E9F8A27AC32B80081238D /* Project object */;
 }

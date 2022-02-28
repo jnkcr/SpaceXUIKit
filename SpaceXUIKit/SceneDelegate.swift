@@ -8,6 +8,8 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+    
+    @StoredInt(key: "appearance") var appearanceKey: Int
 
     var window: UIWindow?
     
@@ -41,7 +43,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         window?.rootViewController = tabbar
+        window?.overrideUserInterfaceStyle = getInterfaceStyle()
         window?.makeKeyAndVisible()
+        
+        UNUserNotificationCenter.current().delegate = self
+        requestAuthorization()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -78,6 +84,56 @@ extension SceneDelegate: AppearanceDelegate {
     
     func didChangeAppearanceStyle(to style: UIUserInterfaceStyle) {
         window?.overrideUserInterfaceStyle = style
+    }
+    
+}
+
+extension SceneDelegate {
+    
+    func getInterfaceStyle() -> UIUserInterfaceStyle {
+        switch appearanceKey {
+        case 0:
+            return UIUserInterfaceStyle.unspecified
+        case 1:
+            return UIUserInterfaceStyle.light
+        case 2:
+            return UIUserInterfaceStyle.dark
+        default:
+            return UIUserInterfaceStyle.unspecified
+        }
+    }
+    
+}
+
+// MARK: - Notifications
+
+extension SceneDelegate {
+    
+        private func requestAuthorization() {
+            let center = UNUserNotificationCenter.current()
+            // 1. Check if notification access has altready been granted
+            // 2. If not, then request access for notifications
+            center.getNotificationSettings { settings in
+                if settings.authorizationStatus == .authorized {
+                    print("NOTIFICATION ACCESS: already GRANTED..")
+                } else {
+                    center.requestAuthorization(options: [.alert, .sound]) { isGranted, error in
+                        if isGranted {
+                            print("NOTIFICATION ACCESS: newly GRANTED")
+                        } else {
+                            print("NOTIFICATION ACCESS: newly DENIED")
+                        }
+                    }
+                }
+            }
+        }
+    
+}
+
+extension SceneDelegate: UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner, .sound, .list])
     }
     
 }

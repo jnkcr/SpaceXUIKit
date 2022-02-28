@@ -7,19 +7,11 @@
 
 import UIKit
 
-class DetailLinksStack: UIStackView {
+final class DetailLinksStack: UIStackView {
     
-    var links: ButtonLinks?
+    var links: FlightButtonLinks?
 
-    let titleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        label.numberOfLines = 1
-        label.textAlignment = .natural
-        label.text = "Links"
-        return label
-    }()
+    let titleLabel: SectionTitleLabel = SectionTitleLabel(titled: "External links")
     let articleButton: LargeTintedButton = {
         let button: LargeTintedButton = LargeTintedButton(text: "Article")
         button.addTarget(self, action: #selector(handleArticle), for: .touchUpInside)
@@ -36,7 +28,7 @@ class DetailLinksStack: UIStackView {
         return button
     }()
     private lazy var writtenTextButtonsStack: UIStackView = {
-        let stack = UIStackView()
+        let stack: UIStackView = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
         stack.alignment = .center
@@ -44,7 +36,7 @@ class DetailLinksStack: UIStackView {
         return stack
     }()
     private lazy var allButtonsStack: UIStackView = {
-        let stack = UIStackView()
+        let stack: UIStackView = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .center
@@ -52,7 +44,7 @@ class DetailLinksStack: UIStackView {
         return stack
     }()
     
-    init(links: ButtonLinks) {
+    init(links: FlightButtonLinks) {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
         spacing = ConstraintsHelper.mediumSpacing

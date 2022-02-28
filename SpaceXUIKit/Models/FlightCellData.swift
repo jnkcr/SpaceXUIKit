@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct CellData {
+struct FlightCellData {
     let image: UIImage?
     let date: String
     let title: String

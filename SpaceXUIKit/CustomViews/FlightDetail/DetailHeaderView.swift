@@ -7,10 +7,10 @@
 
 import UIKit
 
-class DetailHeaderView: UIStackView {
+final class DetailHeaderView: UIStackView {
     
     private let nameLabel: UILabel = {
-        let label = UILabel()
+        let label: UILabel = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 30, weight: .bold)
         label.numberOfLines = 0
@@ -20,7 +20,7 @@ class DetailHeaderView: UIStackView {
     }()
     
     private let descriptionLabel: UILabel = {
-        let label = UILabel()
+        let label: UILabel = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .subheadline)
         label.numberOfLines = 0

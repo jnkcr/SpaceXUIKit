@@ -7,33 +7,33 @@
 
 import UIKit
 
-class FlightCell: UITableViewCell {
+final class FlightCell: UITableViewCell {
     
     static let reusableID: String = "flightCell"
-    var flightData: CellData? {
+    var flightData: FlightCellData? {
         didSet {
-            patchImage.image = flightData?.image ?? UIImage(systemName: "airplane.circle")
+            patchImageView.image = flightData?.image ?? UIImage(named: "falconHeavy")
             dateLabel.text = flightData?.date
             titleLabel.text = flightData?.title
         }
     }
     
-    private let patchImage: UIImageView = {
-        let imageView = UIImageView()
+    private let patchImageView: UIImageView = {
+        let imageView: UIImageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.tintColor = .systemYellow
         imageView.image = UIImage(systemName: "airplane.circle")
         return imageView
     }()
     private let infoStack: UIStackView = {
-        let stack = UIStackView()
+        let stack: UIStackView = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.spacing = ConstraintsHelper.tinySpacing
         return stack
     }()
-    let dateLabel: UILabel = {
-        let label = UILabel()
+    private let dateLabel: UILabel = {
+        let label: UILabel = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .caption1)
         label.textColor = .secondaryLabel
@@ -41,40 +41,47 @@ class FlightCell: UITableViewCell {
         label.adjustsFontSizeToFitWidth = false
         return label
     }()
-    let titleLabel: UILabel = {
-        let label = UILabel()
+    private let titleLabel: UILabel = {
+        let label: UILabel = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .headline)
         label.lineBreakMode = .byTruncatingTail
         label.adjustsFontSizeToFitWidth = false
         return label
     }()
+    private let cellStack: UIStackView = {
+        let stack: UIStackView = UIStackView()
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.axis = .horizontal
+        stack.spacing = ConstraintsHelper.padding
+        return stack
+    }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         // Subviews
-        contentView.addSubview(patchImage)
-        contentView.addSubview(infoStack)
         infoStack.addArrangedSubview(dateLabel)
         infoStack.addArrangedSubview(titleLabel)
+        contentView.addSubview(patchImageView)
+        contentView.addSubview(infoStack)
         // UI Configuration
         let size: CGFloat = 50
         NSLayoutConstraint.activate([
             // PATCH IMAGE
-            patchImage.centerYAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.centerYAnchor),
-            patchImage.leadingAnchor.constraint(equalTo: contentView.readableContentGuide.leadingAnchor),
-            patchImage.widthAnchor.constraint(equalToConstant: size),
-            patchImage.heightAnchor.constraint(equalToConstant: size),
-            // STACK
-            infoStack.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            infoStack.leadingAnchor.constraint(equalTo: patchImage.trailingAnchor, constant: ConstraintsHelper.padding),
-            infoStack.trailingAnchor.constraint(equalTo: contentView.readableContentGuide.trailingAnchor),
+            patchImageView.centerYAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.centerYAnchor),
+            patchImageView.leadingAnchor.constraint(equalTo: contentView.readableContentGuide.leadingAnchor),
+            patchImageView.widthAnchor.constraint(equalToConstant: size),
+            patchImageView.heightAnchor.constraint(equalToConstant: size),
             // DATE
             dateLabel.leadingAnchor.constraint(equalTo: infoStack.leadingAnchor),
             dateLabel.trailingAnchor.constraint(equalTo: infoStack.trailingAnchor),
             // FLIGHT TITLE
             titleLabel.leadingAnchor.constraint(equalTo: infoStack.leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: infoStack.trailingAnchor),
+            // STACK
+            infoStack.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            infoStack.leadingAnchor.constraint(equalTo: patchImageView.trailingAnchor, constant: ConstraintsHelper.padding),
+            infoStack.trailingAnchor.constraint(equalTo: contentView.readableContentGuide.trailingAnchor),
         ])
     }
     
