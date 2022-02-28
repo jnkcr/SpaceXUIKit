@@ -19,14 +19,13 @@ final class CrewDetailStack: UIStackView {
         return iv
     }()
     private let sectionLabel: SectionTitleLabel = SectionTitleLabel(titled: "General")
-    let memberInfoStack: CrewMemberInfoStack
     private let linksLabel: SectionTitleLabel = SectionTitleLabel(titled: "Links")
-    let wikiButton: LargeTintedButton
+    let wikiButton: LargeTintedButton = LargeTintedButton(text: "Wikipedia")
+    let memberInfoStack: CrewMemberInfoStack
 
     init(vm: CrewDetailVM) {
         imageView.image = vm.memberPhoto
         memberInfoStack = CrewMemberInfoStack(vm: vm)
-        wikiButton = LargeTintedButton(text: "Wikipedia")
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
         axis = .vertical

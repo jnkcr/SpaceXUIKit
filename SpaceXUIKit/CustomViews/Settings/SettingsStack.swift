@@ -9,15 +9,9 @@ import UIKit
 
 final class SettingsStack: UIStackView {
     
-    let appearanceSection: AppearanceSettingsStack = {
-        AppearanceSettingsStack()
-    }()
-    let behaviourSection: BehaviourSettingsStack = {
-        BehaviourSettingsStack()
-    }()
-    let otherSection: OtherSettingsStack = {
-        OtherSettingsStack()
-    }()
+    let appearanceSection: AppearanceSettingsStack = AppearanceSettingsStack()
+    let behaviourSection: BehaviourSettingsStack = BehaviourSettingsStack()
+    let otherSection: OtherSettingsStack = OtherSettingsStack()
 
     init() {
         super.init(frame: .zero)

@@ -9,18 +9,10 @@ import UIKit
 
 final class OtherSettingsStack: UIStackView {
 
-    private let title: SectionTitleLabel = {
-        SectionTitleLabel(titled: "Other")
-    }()
-    let alertStack: ButtonAndTitleStack = {
-        ButtonAndTitleStack(labeled: "Show alert", buttonText: "Show")
-    }()
-    let notificationTimeStack: ButtonAndTitleStack = {
-        ButtonAndTitleStack(labeled: "Time-based notification", buttonText: "Get")
-    }()
-    let notificationCalendarStack: ButtonAndTitleStack = {
-        ButtonAndTitleStack(labeled: "Calendar-based notification", buttonText: "Set")
-    }()
+    private let title: SectionTitleLabel = SectionTitleLabel(titled: "Other")
+    let alertStack: ButtonAndTitleStack = ButtonAndTitleStack(labeled: "Show alert", buttonText: "Show")
+    let notificationTimeStack: ButtonAndTitleStack = ButtonAndTitleStack(labeled: "Time-based notification", buttonText: "Get")
+    let notificationCalendarStack: ButtonAndTitleStack = ButtonAndTitleStack(labeled: "Calendar-based notification", buttonText: "Set")
     
     init() {
         super.init(frame: .zero)

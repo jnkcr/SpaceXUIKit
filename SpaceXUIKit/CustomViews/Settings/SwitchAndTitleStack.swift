@@ -20,7 +20,7 @@ final class SwitchAndTitleStack: UIStackView {
         return label
     }()
     let switchControl: UISwitch = {
-        let switcher = UISwitch()
+        let switcher: UISwitch = UISwitch()
         switcher.translatesAutoresizingMaskIntoConstraints = false
         switcher.onTintColor = .systemYellow
         switcher.preferredStyle = .automatic

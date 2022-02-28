@@ -12,14 +12,14 @@ final class SpaceFlightDetailVC: UIViewController {
     var flightDetailVM: FlightDetailVM
     
     private let scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
+        let scrollView: UIScrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.alwaysBounceVertical = true
         scrollView.showsVerticalScrollIndicator = false
         return scrollView
     }()
     private let stackView: UIStackView = {
-        let stack = UIStackView()
+        let stack: UIStackView = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .center

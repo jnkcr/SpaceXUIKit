@@ -11,9 +11,7 @@ final class CrewHeader: UICollectionReusableView {
     
     static let reuseID: String = "crewHeader"
     
-    let headerLabel: SectionTitleLabel = {
-        SectionTitleLabel(titled: "n/a")
-    }()
+    let headerLabel: SectionTitleLabel = SectionTitleLabel(titled: "n/a")
     
     override init(frame: CGRect) {
         super.init(frame: frame)

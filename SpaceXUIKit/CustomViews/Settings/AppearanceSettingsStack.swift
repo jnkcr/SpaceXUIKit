@@ -9,9 +9,7 @@ import UIKit
 
 final class AppearanceSettingsStack: UIStackView {
     
-    private let title: SectionTitleLabel = {
-        SectionTitleLabel(titled: "Appearance")
-    }()
+    private let title: SectionTitleLabel = SectionTitleLabel(titled: "Appearance")
     let segmentedControl: UISegmentedControl = {
         let segControl: UISegmentedControl = UISegmentedControl(items: ["auto", "light", "dark"])
         segControl.translatesAutoresizingMaskIntoConstraints = false

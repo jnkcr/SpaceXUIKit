@@ -21,7 +21,7 @@ final class LoadingIndicatorView: UIStackView {
         return label
     }()
     let progressBar: UIProgressView = {
-        let bar = UIProgressView()
+        let bar: UIProgressView = UIProgressView()
         bar.translatesAutoresizingMaskIntoConstraints = false
         bar.progressViewStyle = .default
         bar.progress = 0.0

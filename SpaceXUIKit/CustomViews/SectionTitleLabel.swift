@@ -9,14 +9,18 @@ import UIKit
 
 final class SectionTitleLabel: UILabel {
 
-    init(titled title: String, sized size: CGFloat = 20) {
+    convenience init(titled title: String, sized size: CGFloat = 20) {
+        self.init()
+        font = UIFont.systemFont(ofSize: size, weight: .bold)
+        text = title
+    }
+    
+    private init() {
         super.init(frame: .zero)
         translatesAutoresizingMaskIntoConstraints = false
-        font = UIFont.systemFont(ofSize: size, weight: .bold)
         textAlignment = .natural
         lineBreakMode = .byTruncatingTail
         numberOfLines = 1
-        text = title
     }
     
     required init?(coder: NSCoder) {

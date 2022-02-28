@@ -28,7 +28,7 @@ final class DetailLinksStack: UIStackView {
         return button
     }()
     private lazy var writtenTextButtonsStack: UIStackView = {
-        let stack = UIStackView()
+        let stack: UIStackView = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .horizontal
         stack.alignment = .center
@@ -36,7 +36,7 @@ final class DetailLinksStack: UIStackView {
         return stack
     }()
     private lazy var allButtonsStack: UIStackView = {
-        let stack = UIStackView()
+        let stack: UIStackView = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.alignment = .center

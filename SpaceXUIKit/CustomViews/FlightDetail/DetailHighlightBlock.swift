@@ -10,14 +10,14 @@ import UIKit
 final class DetailHighlightBlock: UIStackView {
     
     let icon: UIImageView = {
-        let imageView = UIImageView()
+        let imageView: UIImageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(systemName: "calendar.circle")
         imageView.tintColor = .systemYellow
         return imageView
     }()
     let titleLabel: UILabel = {
-        let label = UILabel()
+        let label: UILabel = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .headline)
         label.textAlignment = .center

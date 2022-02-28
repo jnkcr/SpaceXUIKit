@@ -19,21 +19,21 @@ final class FlightCell: UITableViewCell {
     }
     
     private let patchImageView: UIImageView = {
-        let imageView = UIImageView()
+        let imageView: UIImageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.tintColor = .systemYellow
         imageView.image = UIImage(systemName: "airplane.circle")
         return imageView
     }()
     private let infoStack: UIStackView = {
-        let stack = UIStackView()
+        let stack: UIStackView = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
         stack.spacing = ConstraintsHelper.tinySpacing
         return stack
     }()
     private let dateLabel: UILabel = {
-        let label = UILabel()
+        let label: UILabel = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .caption1)
         label.textColor = .secondaryLabel
@@ -42,7 +42,7 @@ final class FlightCell: UITableViewCell {
         return label
     }()
     private let titleLabel: UILabel = {
-        let label = UILabel()
+        let label: UILabel = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .headline)
         label.lineBreakMode = .byTruncatingTail

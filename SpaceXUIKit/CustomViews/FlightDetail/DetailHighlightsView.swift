@@ -9,15 +9,9 @@ import UIKit
 
 final class DetailHighlightsView: UIStackView {
     
-    let dStack: DetailHighlightBlock = {
-        DetailHighlightBlock(iconName: "calendar.circle")
-    }()
-    let cStack: DetailHighlightBlock = {
-        DetailHighlightBlock(iconName: "person.2.circle")
-    }()
-    let sStack: DetailHighlightBlock = {
-        DetailHighlightBlock(iconName: "checkmark.circle")
-    }()
+    let dateStack: DetailHighlightBlock = DetailHighlightBlock(iconName: "calendar.circle")
+    let crewStack: DetailHighlightBlock = DetailHighlightBlock(iconName: "person.2.circle")
+    let successStack: DetailHighlightBlock = DetailHighlightBlock(iconName: "checkmark.circle")
     
     init(dateDesc: String, crewDesc: String, successDesc: String, successImg: UIImage) {
         super.init(frame: .zero)
@@ -26,14 +20,14 @@ final class DetailHighlightsView: UIStackView {
         alignment = .fill
         spacing = (ConstraintsHelper.mediumSpacing + ConstraintsHelper.smallSpacing)
         // Labels text
-        dStack.titleLabel.text = dateDesc
-        cStack.titleLabel.text = crewDesc
-        sStack.titleLabel.text = successDesc
-        sStack.icon.image = successImg
+        dateStack.titleLabel.text = dateDesc
+        crewStack.titleLabel.text = crewDesc
+        successStack.titleLabel.text = successDesc
+        successStack.icon.image = successImg
         // Subviews
-        addArrangedSubview(dStack)
-        addArrangedSubview(cStack)
-        addArrangedSubview(sStack)
+        addArrangedSubview(dateStack)
+        addArrangedSubview(crewStack)
+        addArrangedSubview(successStack)
     }
 
     override init(frame: CGRect) {
