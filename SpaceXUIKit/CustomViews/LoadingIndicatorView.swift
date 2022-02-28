@@ -60,4 +60,8 @@ final class LoadingIndicatorView: UIStackView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        print("\nLoadingIndicatorView is being deinitiliazed.\n")
+    }
+    
 }

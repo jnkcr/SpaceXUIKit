@@ -11,9 +11,7 @@ final class SpaceFlightsVC: UIViewController {
     
     let spaceFlightsVM = SpaceFlightsVM()
     
-    private var loadingIndicatorView: LoadingIndicatorView? = {
-        LoadingIndicatorView(animationName: AnimationShuffler.getAnimationName(for: .rocket))
-    }()
+    private var loadingIndicatorView: LoadingIndicatorView?
     private let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .plain)
         table.translatesAutoresizingMaskIntoConstraints = false
@@ -24,12 +22,6 @@ final class SpaceFlightsVC: UIViewController {
         table.rowHeight = 70
         return table
     }()
-    private lazy var loadingIndicatorConstraints: [NSLayoutConstraint]? = {
-        [
-            loadingIndicatorView!.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loadingIndicatorView!.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-        ]
-    }()
     private lazy var tableViewConstraints: [NSLayoutConstraint] = {
         [
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -38,10 +30,10 @@ final class SpaceFlightsVC: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
         ]
     }()
-    private let refreshBarButton: UIBarButtonItem = {
+    private lazy var refreshBarButton: UIBarButtonItem = {
         UIBarButtonItem(image: UIImage(systemName: "arrow.triangle.2.circlepath"), style: .plain, target: self, action: #selector(redownloadAndRefreshTableData))
     }()
-    lazy var alertBarButton: UIBarButtonItem = {
+    private lazy var alertBarButton: UIBarButtonItem = {
         UIBarButtonItem(image: UIImage(systemName: "multiply.circle"), style: .plain, target: self, action: #selector(showAlert))
     }()
     
@@ -52,15 +44,21 @@ final class SpaceFlightsVC: UIViewController {
         view.backgroundColor = .systemBackground
         navigationItem.leftBarButtonItem = refreshBarButton
         navigationItem.rightBarButtonItem = alertBarButton
-        // Table
+        // Loading indicator view
+        let loadingIndicatorView: LoadingIndicatorView = LoadingIndicatorView(animationName: AnimationShuffler.getAnimationName(for: .rocket))
+        // Table delegates
         tableView.dataSource = self
         tableView.delegate = self
         // UI Configuration
-        view.addSubview(loadingIndicatorView!)
-        NSLayoutConstraint.activate(loadingIndicatorConstraints!)
+        view.addSubview(loadingIndicatorView)
+        NSLayoutConstraint.activate([
+            loadingIndicatorView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            loadingIndicatorView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+        ])
         // Download data
         spaceFlightsVM.loadingDelegate = self
         spaceFlightsVM.loadFlights()
+        self.loadingIndicatorView = loadingIndicatorView
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -101,7 +99,7 @@ extension SpaceFlightsVC {
     
     @objc
     private func showAlert() {
-        shownCustomAlert(title: "Error", description: "Upsssss", confirmationText: "Ok")
+        shownCustomAlert(title: "Error", description: "Upsssss!!! But do not worry. This is just a showcase error.", confirmationText: "Ok")
     }
  
 }
