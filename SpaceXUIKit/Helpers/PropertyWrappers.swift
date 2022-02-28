@@ -14,11 +14,9 @@ struct StoredBool {
     
     var wrappedValue: Bool {
         set {
-            print("Setting defaults for key <\(defaultKey)> to \(newValue)")
             defaults.set(newValue, forKey: defaultKey)
         }
         get {
-            print("Getting defaults for key <\(defaultKey)>")
             return defaults.bool(forKey: defaultKey)
         }
     }
@@ -36,11 +34,9 @@ struct StoredInt {
     
     var wrappedValue: Int {
         set {
-            print("Setting defaults for key <\(defaultKey)> to \(newValue)")
             defaults.set(newValue, forKey: defaultKey)
         }
         get {
-            print("Getting defaults for key <\(defaultKey)>")
             return defaults.integer(forKey: defaultKey)
         }
     }
