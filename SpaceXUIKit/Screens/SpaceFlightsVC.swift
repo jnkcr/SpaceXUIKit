@@ -9,7 +9,7 @@ import UIKit
 
 final class SpaceFlightsVC: UIViewController {
     
-    let spaceFlightsVM = SpaceFlightsVM()
+    let spaceFlightsVM: SpaceFlightsVM
     
     private var loadingIndicatorView: LoadingIndicatorView?
     private let tableView: UITableView = {
@@ -59,6 +59,15 @@ final class SpaceFlightsVC: UIViewController {
         if let selectedIndexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: selectedIndexPath, animated: animated)
         }
+    }
+    
+    init(viewModel: SpaceFlightsVM = SpaceFlightsVM()) {
+        spaceFlightsVM = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }

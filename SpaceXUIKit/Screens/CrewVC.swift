@@ -9,7 +9,7 @@ import UIKit
 
 final class CrewVC: UIViewController {
     
-    let crewVM: CrewVM = CrewVM()
+    let crewVM: CrewVM
     let crewLayoutProvider: CrewCollectionLayoutProvider = CrewCollectionLayoutProvider()
     private var loadingIndicatorView: LoadingIndicatorView?
     
@@ -54,6 +54,15 @@ final class CrewVC: UIViewController {
             loadingIndicatorView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
         ])
         self.loadingIndicatorView = loadingIndicatorView
+    }
+    
+    init(viewModel: CrewVM = CrewVM()) {
+        crewVM = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }
