@@ -1,5 +1,5 @@
 //
-//  DateAndButtonStack.swift
+//  DateAndTextFieldStack.swift
 //  SpaceXUIKit
 //
 //  Created by Jan Kučera on 22.02.2022.
@@ -7,8 +7,9 @@
 
 import UIKit
 
-class DateAndButtonStack: UIStackView {
+class DateAndTextFieldStack: UIStackView {
     
+    let messageSectionLabel: SectionTitleLabel = SectionTitleLabel(titled: "Message")
     let datePicker: UIDatePicker = {
         let picker: UIDatePicker = UIDatePicker()
         picker.translatesAutoresizingMaskIntoConstraints = false
@@ -17,14 +18,14 @@ class DateAndButtonStack: UIStackView {
         picker.minimumDate = Date.now
         return picker
     }()
-    let confirmationButton: UIButton = {
-        let button: UIButton = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.configuration = .filled()
-        button.configuration?.buttonSize = .large
-        button.tintColor = .systemYellow
-        button.setTitle("Notify me!", for: .normal)
-        return button
+    let textField: UITextField = {
+        let field: UITextField = UITextField()
+        field.placeholder = "Notification message"
+        field.keyboardType = .default
+        field.keyboardAppearance = .default
+        field.returnKeyType = .done
+        field.borderStyle = .roundedRect
+        return field
     }()
 
     init() {
@@ -32,10 +33,11 @@ class DateAndButtonStack: UIStackView {
         translatesAutoresizingMaskIntoConstraints = false
         axis = .vertical
         alignment = .fill
-        spacing = ConstraintsHelper.largeSpacing
+        spacing = ConstraintsHelper.mediumSpacing
         // Subviews
         addArrangedSubview(datePicker)
-        addArrangedSubview(confirmationButton)
+        addArrangedSubview(messageSectionLabel)
+        addArrangedSubview(textField)
     }
     
     required init(coder: NSCoder) {

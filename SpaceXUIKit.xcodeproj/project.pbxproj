@@ -77,7 +77,7 @@
 		F4A4D12327AD76F900163607 /* SpaceFlightDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4D12227AD76F900163607 /* SpaceFlightDetailVC.swift */; };
 		F4A4D12527AD881B00163607 /* CrewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A4D12427AD881B00163607 /* CrewVC.swift */; };
 		F4DCFF6C27C5106F00BA3B30 /* NotificationCalendarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DCFF6B27C5106F00BA3B30 /* NotificationCalendarVM.swift */; };
-		F4DCFF6E27C5137A00BA3B30 /* DateAndButtonStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DCFF6D27C5137A00BA3B30 /* DateAndButtonStack.swift */; };
+		F4DCFF6E27C5137A00BA3B30 /* DateAndTextFieldStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DCFF6D27C5137A00BA3B30 /* DateAndTextFieldStack.swift */; };
 		F4DCFF7027C51BD100BA3B30 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4DCFF6F27C51BD100BA3B30 /* LocalNotificationManager.swift */; };
 		F4F251F927C7B5900003DE09 /* ImagesSegueButtonStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4F251F827C7B5900003DE09 /* ImagesSegueButtonStack.swift */; };
 /* End PBXBuildFile section */
@@ -173,7 +173,7 @@
 		F4A4D12227AD76F900163607 /* SpaceFlightDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceFlightDetailVC.swift; sourceTree = "<group>"; };
 		F4A4D12427AD881B00163607 /* CrewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewVC.swift; sourceTree = "<group>"; };
 		F4DCFF6B27C5106F00BA3B30 /* NotificationCalendarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCalendarVM.swift; sourceTree = "<group>"; };
-		F4DCFF6D27C5137A00BA3B30 /* DateAndButtonStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAndButtonStack.swift; sourceTree = "<group>"; };
+		F4DCFF6D27C5137A00BA3B30 /* DateAndTextFieldStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateAndTextFieldStack.swift; sourceTree = "<group>"; };
 		F4DCFF6F27C51BD100BA3B30 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		F4F251F827C7B5900003DE09 /* ImagesSegueButtonStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesSegueButtonStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -217,14 +217,13 @@
 			path = CrewDetail;
 			sourceTree = "<group>";
 		};
-		F4208D1027C3E693009BF199 /* NotificationSetup */ = {
+		F4208D1027C3E693009BF199 /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
-				F4208D0E27C3E688009BF199 /* NotificationSetupVC.swift */,
-				F4208D1127C3ED25009BF199 /* NotificationTopBanner.swift */,
-				F4DCFF6D27C5137A00BA3B30 /* DateAndButtonStack.swift */,
+				F4A6EE0027CE819B005C164D /* NotificationSetupScreen */,
+				F4DCFF6F27C51BD100BA3B30 /* LocalNotificationManager.swift */,
 			);
-			path = NotificationSetup;
+			path = Notifications;
 			sourceTree = "<group>";
 		};
 		F440003627BE4FA400F80C6C /* Animations */ = {
@@ -290,7 +289,6 @@
 				F477089227B18B1500847540 /* ImageDownloader.swift */,
 				F48370A727B67D3300D2146E /* CrewDownloader.swift */,
 				F477088527B111EC00847540 /* URLAdresses.swift */,
-				F477088727B112AC00847540 /* CustomErrors.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -331,7 +329,7 @@
 				F483709D27B41B8100D2146E /* Extensions.swift */,
 				F44DA4AE27BBC48C0011851B /* PropertyWrappers.swift */,
 				F465051427BF92FD008B5D97 /* AnimationShuffler.swift */,
-				F4DCFF6F27C51BD100BA3B30 /* LocalNotificationManager.swift */,
+				F477088727B112AC00847540 /* CustomErrors.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -414,12 +412,22 @@
 				F44DA4B627BBF5750011851B /* Settings */,
 				F44DA4B327BBE20D0011851B /* Cells */,
 				F465051827BFA39B008B5D97 /* Alert */,
-				F4208D1027C3E693009BF199 /* NotificationSetup */,
+				F4208D1027C3E693009BF199 /* Notifications */,
 				F483709F27B423E500D2146E /* LoadingIndicatorView.swift */,
 				F48370A327B6560A00D2146E /* LargeTintedButton.swift */,
 				F44DA4BB27BBFF1C0011851B /* SectionTitleLabel.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		F4A6EE0027CE819B005C164D /* NotificationSetupScreen */ = {
+			isa = PBXGroup;
+			children = (
+				F4208D0E27C3E688009BF199 /* NotificationSetupVC.swift */,
+				F4208D1127C3ED25009BF199 /* NotificationTopBanner.swift */,
+				F4DCFF6D27C5137A00BA3B30 /* DateAndTextFieldStack.swift */,
+			);
+			path = NotificationSetupScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -564,7 +572,7 @@
 			files = (
 				F4208D1227C3ED25009BF199 /* NotificationTopBanner.swift in Sources */,
 				F4208D0927C3C7CE009BF199 /* CrewDetailInfoContentStack.swift in Sources */,
-				F4DCFF6E27C5137A00BA3B30 /* DateAndButtonStack.swift in Sources */,
+				F4DCFF6E27C5137A00BA3B30 /* DateAndTextFieldStack.swift in Sources */,
 				F4F251F927C7B5900003DE09 /* ImagesSegueButtonStack.swift in Sources */,
 				F483709E27B41B8100D2146E /* Extensions.swift in Sources */,
 				F48C039527C8D71A008C6471 /* SpaceFlightsImagesVC.swift in Sources */,
