@@ -10,6 +10,7 @@ import UIKit
 final class NotificationSetupVC: UIViewController {
     
     let notificationCalendarVM: NotificationCalendarVM
+    var standardViewHeight: CGFloat!
     lazy var tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
     
     let topBanner: NotificationTopBanner = NotificationTopBanner()
@@ -23,10 +24,13 @@ final class NotificationSetupVC: UIViewController {
         button.setTitle("Notify me!", for: .normal)
         return button
     }()
+    lazy var confirmationButtonHeightConstraint = confirmationButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        // Set view height
+        standardViewHeight = view.frame.size.height
         // Subviews
         view.addSubview(topBanner)
         view.addSubview(dateAndFieldStack)
@@ -37,6 +41,9 @@ final class NotificationSetupVC: UIViewController {
         view.addGestureRecognizer(tap)
         #warning("Removing gesture is not enough")
 //        dateAndFieldStack.datePicker.removeGestureRecognizer(tap)
+        // Keyboard observers
+        NotificationCenter.default.addObserver(self, selector: #selector(willShowKeyboard(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(willHideKeyboard(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         // UI Config
         NSLayoutConstraint.activate([
             // BANNER
@@ -51,7 +58,7 @@ final class NotificationSetupVC: UIViewController {
             // BUTTON
             confirmationButton.leadingAnchor.constraint(equalTo: view.readableContentGuide.leadingAnchor),
             confirmationButton.trailingAnchor.constraint(equalTo: view.readableContentGuide.trailingAnchor),
-            confirmationButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -ConstraintsHelper.largeSpacing),
+            confirmationButtonHeightConstraint
         ])
         // Add targets
         topBanner.cancelButton.addTarget(self, action: #selector(handleCancellation), for: .touchUpInside)
@@ -105,6 +112,20 @@ extension NotificationSetupVC {
     @objc
     func resingTextfieldByTapGesture() {
         dateAndFieldStack.textField.resignFirstResponder()
+    }
+    
+    @objc
+    func willShowKeyboard(notification: NSNotification) {
+        guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { fatalError("You dont have a keyboard?") }
+        confirmationButtonHeightConstraint.constant = -(keyboardSize.height)
+        view.layoutIfNeeded()
+        
+    }
+    
+    @objc
+    func willHideKeyboard(notification: NSNotification) {
+        confirmationButtonHeightConstraint.constant = 0
+        view.layoutIfNeeded()
     }
     
 }
