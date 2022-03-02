@@ -19,7 +19,7 @@ final class SpaceFlightsVC: UIViewController {
         table.separatorStyle = .none
         table.showsVerticalScrollIndicator = false
         table.register(FlightCell.self, forCellReuseIdentifier: FlightCell.reusableID)
-        table.rowHeight = 70
+        table.estimatedRowHeight = 70
         return table
     }()
     private lazy var refreshBarButton: UIBarButtonItem = {
