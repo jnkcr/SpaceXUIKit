@@ -35,6 +35,8 @@ final class NotificationSetupVC: UIViewController {
         dateAndFieldStack.textField.delegate = self
         // Tap gesture
         view.addGestureRecognizer(tap)
+        #warning("Removing gesture is not enough")
+//        dateAndFieldStack.datePicker.removeGestureRecognizer(tap)
         // UI Config
         NSLayoutConstraint.activate([
             // BANNER
