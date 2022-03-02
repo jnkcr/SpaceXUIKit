@@ -28,6 +28,7 @@ class SpaceFlightsImagesVC: UIViewController {
         title = "Flight images"
         // Table view delegates
         tableView.dataSource = self
+        tableView.delegate = self
         // Subviews
         view.addSubview(tableView)
         // UI Config

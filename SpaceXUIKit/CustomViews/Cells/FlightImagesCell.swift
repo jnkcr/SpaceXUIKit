@@ -19,19 +19,22 @@ class FlightImagesCell: UITableViewCell {
         imgView.clipsToBounds = true
         return imgView
     }()
+    lazy var imageHeightConstraint = flightImageView.heightAnchor.constraint(equalToConstant: 150)
+    lazy var imageWidthConstraint = flightImageView.widthAnchor.constraint(equalToConstant: 150)
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        translatesAutoresizingMaskIntoConstraints = false
         // Subviews
         contentView.addSubview(flightImageView)
         // UI Config
         NSLayoutConstraint.activate([
-            flightImageView.leadingAnchor.constraint(greaterThanOrEqualTo: contentView.leadingAnchor),
-            flightImageView.trailingAnchor.constraint(lessThanOrEqualTo: contentView.trailingAnchor),
+//            flightImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            flightImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            flightImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             flightImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: ConstraintsHelper.tinySpacing),
             flightImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -ConstraintsHelper.tinySpacing),
-            flightImageView.heightAnchor.constraint(equalToConstant: 150),
+            imageWidthConstraint,
+            imageHeightConstraint,
         ])
     }
     
@@ -42,7 +45,13 @@ class FlightImagesCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
-        contentView.backgroundColor = .systemBackground
+        let imageRatio = flightImageView.image!.size.height / flightImageView.image!.size.width
+        if selected {
+            contentView.backgroundColor = .systemBackground
+        } else {
+            imageHeightConstraint.constant = ConstraintsHelper.screenSizeWithoutPadding * imageRatio
+            
+        }
     }
 
 }
