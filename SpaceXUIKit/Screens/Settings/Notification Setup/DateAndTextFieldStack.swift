@@ -15,7 +15,7 @@ class DateAndTextFieldStack: UIStackView {
         let picker: UIDatePicker = UIDatePicker()
         picker.translatesAutoresizingMaskIntoConstraints = false
         picker.datePickerMode = .dateAndTime
-        picker.preferredDatePickerStyle = .automatic
+        picker.preferredDatePickerStyle = .inline
         picker.minimumDate = Date.now
         return picker
     }()
@@ -43,6 +43,8 @@ class DateAndTextFieldStack: UIStackView {
         addArrangedSubview(textField)
         // UI Config
         NSLayoutConstraint.activate([
+            datePicker.leadingAnchor.constraint(equalTo: leadingAnchor),
+            datePicker.trailingAnchor.constraint(equalTo: trailingAnchor),
             textField.leadingAnchor.constraint(equalTo: leadingAnchor),
             textField.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])

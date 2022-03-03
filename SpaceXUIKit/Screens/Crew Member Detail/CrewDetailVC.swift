@@ -37,9 +37,9 @@ final class CrewDetailVC: UIViewController {
             scrollView.contentLayoutGuide.topAnchor.constraint(equalTo: infoStack.topAnchor),
             scrollView.contentLayoutGuide.leadingAnchor.constraint(equalTo: infoStack.leadingAnchor),
             scrollView.contentLayoutGuide.trailingAnchor.constraint(equalTo: infoStack.trailingAnchor),
-            scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: infoStack.bottomAnchor),
+            scrollView.contentLayoutGuide.bottomAnchor.constraint(equalTo: infoStack.readableContentGuide.bottomAnchor),
         ])
-        // Actions
+        // Long press actions
         let interaction = UIContextMenuInteraction(delegate: self)
         infoStack.wikiButton.addTarget(self, action: #selector(handleWikiButton), for: .touchUpInside)
         infoStack.imageView.addInteraction(interaction)

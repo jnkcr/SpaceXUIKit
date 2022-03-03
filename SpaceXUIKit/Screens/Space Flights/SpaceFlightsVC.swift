@@ -20,6 +20,7 @@ final class SpaceFlightsVC: UIViewController {
         table.showsVerticalScrollIndicator = false
         table.register(FlightCell.self, forCellReuseIdentifier: FlightCell.reusableID)
         table.estimatedRowHeight = 70
+        table.cellLayoutMarginsFollowReadableWidth = true
         return table
     }()
     private lazy var refreshBarButton: UIBarButtonItem = {
@@ -74,7 +75,7 @@ final class SpaceFlightsVC: UIViewController {
 
 // MARK: - Additional functionality
 
-extension SpaceFlightsVC {
+private extension SpaceFlightsVC {
     
     private func activateTableView() {
         DispatchQueue.main.async { [self] in
@@ -100,7 +101,6 @@ extension SpaceFlightsVC {
     @objc
     private func redownloadAndRefreshTableData() {
         spaceFlightsVM.loadFlights()
-        DispatchQueue.main.async { self.tableView.refreshControl?.endRefreshing() }
     }
     
     @objc
@@ -124,7 +124,10 @@ extension SpaceFlightsVC: FlightsDownloadingDelegate {
         switch result {
         case .success():
             activateTableView()
-            DispatchQueue.main.async { self.tableView.reloadData() }
+            DispatchQueue.main.async {
+                self.tableView.refreshControl?.endRefreshing()
+                self.tableView.reloadData()
+            }
         case .failure(let error):
             shownCustomAlert(description: error.rawValue)
         }
@@ -155,9 +158,7 @@ extension SpaceFlightsVC: UITableViewDelegate {
     
     // Navigate to detail screen by selecting table row
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewModel = FlightDetailVM(flight: spaceFlightsVM.flights[indexPath.row])
-        let spaceFlightDetailVC = SpaceFlightDetailVC(viewModel: viewModel)
-        navigationController?.pushViewController(spaceFlightDetailVC, animated: true)
+        navigationController?.pushViewController(SpaceFlightDetailVC(viewModel: FlightDetailVM(flight: spaceFlightsVM.flights[indexPath.row])), animated: true)
     }
     
 }

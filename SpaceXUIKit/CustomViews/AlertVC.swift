@@ -49,7 +49,7 @@ final class AlertVC: UIViewController {
             // CONTAINER
             conteinerView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             conteinerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            conteinerView.widthAnchor.constraint(equalToConstant: 288),
+            conteinerView.widthAnchor.constraint(equalToConstant: 300),
             conteinerView.heightAnchor.constraint(equalToConstant: 220),
             // TITLE
             titleLabel.topAnchor.constraint(equalTo: conteinerView.topAnchor, constant: ConstraintsHelper.padding),

@@ -45,8 +45,8 @@ final class SettingsVC: UIViewController {
         NSLayoutConstraint.activate([
             // SCROLLVIEW
             scrollView.topAnchor.constraint(equalTo: view.readableContentGuide.topAnchor),
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.readableContentGuide.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.readableContentGuide.trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: view.readableContentGuide.bottomAnchor),
             scrollView.contentLayoutGuide.topAnchor.constraint(equalTo: settingsStack.topAnchor),
             scrollView.contentLayoutGuide.leadingAnchor.constraint(equalTo: settingsStack.leadingAnchor),

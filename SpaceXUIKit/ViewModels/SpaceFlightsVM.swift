@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol FlightsDownloadingDelegate {
+protocol FlightsDownloadingDelegate: AnyObject {
     func didChangeProgress(to value: Float)
     func didFinishLoading(with result: Result<Void, DownloadError>)
 }
@@ -15,7 +15,7 @@ protocol FlightsDownloadingDelegate {
 final class SpaceFlightsVM {
     
     private let networkManager: FlightsAndImagesDownloadable
-    var loadingDelegate: FlightsDownloadingDelegate?
+    weak var loadingDelegate: FlightsDownloadingDelegate?
     
     var flights: [FlightAndPatch] = []
     

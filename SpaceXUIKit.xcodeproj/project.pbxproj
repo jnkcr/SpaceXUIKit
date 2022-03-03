@@ -122,7 +122,7 @@
 		F44DA4BD27BC082A0011851B /* SettingsStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStack.swift; sourceTree = "<group>"; };
 		F44DA4BF27BC18160011851B /* ButtonAndTitleStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAndTitleStack.swift; sourceTree = "<group>"; };
 		F44DA4C127BC19CC0011851B /* OtherSettingsStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherSettingsStack.swift; sourceTree = "<group>"; };
-		F44DA4C327BD095C0011851B /* CrewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CrewHeader.swift; path = SpaceXUIKit/CustomViews/Cells/CrewHeader.swift; sourceTree = SOURCE_ROOT; };
+		F44DA4C327BD095C0011851B /* CrewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CrewHeader.swift; path = SpaceXUIKit/Screens/Crew/CrewHeader.swift; sourceTree = SOURCE_ROOT; };
 		F44DA4C527BD37E80011851B /* CrewCollectionLayoutProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrewCollectionLayoutProvider.swift; sourceTree = "<group>"; };
 		F465050E27BF8F47008B5D97 /* rocket02.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rocket02.json; sourceTree = "<group>"; };
 		F465051027BF91B9008B5D97 /* rocket03.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rocket03.json; sourceTree = "<group>"; };
@@ -204,7 +204,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F4208CFF27C39AAB009BF199 /* CrewDetail */ = {
+		F4208CFF27C39AAB009BF199 /* Crew Detail Stacks */ = {
 			isa = PBXGroup;
 			children = (
 				F4208D0027C39F66009BF199 /* CrewDetailStack.swift */,
@@ -214,16 +214,7 @@
 				F4208D0427C3C5DA009BF199 /* CrewTypeLabel.swift */,
 				F4208D0627C3C679009BF199 /* CrewInfoLabel.swift */,
 			);
-			path = CrewDetail;
-			sourceTree = "<group>";
-		};
-		F4208D1027C3E693009BF199 /* Notifications */ = {
-			isa = PBXGroup;
-			children = (
-				F4A6EE0027CE819B005C164D /* NotificationSetupScreen */,
-				F4DCFF6F27C51BD100BA3B30 /* LocalNotificationManager.swift */,
-			);
-			path = Notifications;
+			path = "Crew Detail Stacks";
 			sourceTree = "<group>";
 		};
 		F440003627BE4FA400F80C6C /* Animations */ = {
@@ -237,7 +228,7 @@
 			path = Animations;
 			sourceTree = "<group>";
 		};
-		F44DA4B227BBE1E20011851B /* FlightDetail */ = {
+		F44DA4B227BBE1E20011851B /* Flight Detail Stacks */ = {
 			isa = PBXGroup;
 			children = (
 				F477089627B2692100847540 /* DetailHeaderView.swift */,
@@ -246,21 +237,10 @@
 				F4F251F827C7B5900003DE09 /* ImagesSegueButtonStack.swift */,
 				F483709427B3BDCA00D2146E /* DetailLinksStack.swift */,
 			);
-			path = FlightDetail;
+			path = "Flight Detail Stacks";
 			sourceTree = "<group>";
 		};
-		F44DA4B327BBE20D0011851B /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				F4A4D12027AD64BE00163607 /* FlightCell.swift */,
-				F48C039627C8D7A8008C6471 /* FlightImagesCell.swift */,
-				F48370AD27B6B90500D2146E /* CrewCell.swift */,
-				F44DA4C327BD095C0011851B /* CrewHeader.swift */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		F44DA4B627BBF5750011851B /* Settings */ = {
+		F44DA4B627BBF5750011851B /* Settings Stacks */ = {
 			isa = PBXGroup;
 			children = (
 				F44DA4BD27BC082A0011851B /* SettingsStack.swift */,
@@ -270,15 +250,7 @@
 				F44DA4B427BBEB000011851B /* SwitchAndTitleStack.swift */,
 				F44DA4BF27BC18160011851B /* ButtonAndTitleStack.swift */,
 			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
-		F465051827BFA39B008B5D97 /* Alert */ = {
-			isa = PBXGroup;
-			children = (
-				F465051627BFA345008B5D97 /* AlertVC.swift */,
-			);
-			path = Alert;
+			path = "Settings Stacks";
 			sourceTree = "<group>";
 		};
 		F477088027B10E9000847540 /* Networking */ = {
@@ -310,12 +282,11 @@
 		F477088E27B1690900847540 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				F4A4D11D27AD20F700163607 /* SpaceFlightsVC.swift */,
-				F4A4D12227AD76F900163607 /* SpaceFlightDetailVC.swift */,
-				F48C039427C8D71A008C6471 /* SpaceFlightsImagesVC.swift */,
-				F4A4D12427AD881B00163607 /* CrewVC.swift */,
-				F440003E27BE9BFB00F80C6C /* CrewDetailVC.swift */,
-				F48370A127B56B8800D2146E /* SettingsVC.swift */,
+				F48583E627D0FC0300F04D9A /* Space Flights */,
+				F48583E727D0FC3000F04D9A /* Space Flight Detail */,
+				F48583E927D0FCB300F04D9A /* Crew */,
+				F48583EA27D0FCC900F04D9A /* Crew Member Detail */,
+				F48583EB27D0FD1A00F04D9A /* Settings */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -323,6 +294,7 @@
 		F477088F27B178F600847540 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				F4DCFF6F27C51BD100BA3B30 /* LocalNotificationManager.swift */,
 				F477089027B1791F00847540 /* CustomDateFormatter.swift */,
 				F48370AB27B6B37800D2146E /* ImageCropper.swift */,
 				F477089A27B2C7D300847540 /* ConstraintsHelpers.swift */,
@@ -346,6 +318,63 @@
 				F4DCFF6B27C5106F00BA3B30 /* NotificationCalendarVM.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F48583E627D0FC0300F04D9A /* Space Flights */ = {
+			isa = PBXGroup;
+			children = (
+				F4A4D11D27AD20F700163607 /* SpaceFlightsVC.swift */,
+				F4A4D12027AD64BE00163607 /* FlightCell.swift */,
+			);
+			path = "Space Flights";
+			sourceTree = "<group>";
+		};
+		F48583E727D0FC3000F04D9A /* Space Flight Detail */ = {
+			isa = PBXGroup;
+			children = (
+				F4A4D12227AD76F900163607 /* SpaceFlightDetailVC.swift */,
+				F44DA4B227BBE1E20011851B /* Flight Detail Stacks */,
+				F48583E827D0FC7B00F04D9A /* Flight Detail Images */,
+			);
+			path = "Space Flight Detail";
+			sourceTree = "<group>";
+		};
+		F48583E827D0FC7B00F04D9A /* Flight Detail Images */ = {
+			isa = PBXGroup;
+			children = (
+				F48C039427C8D71A008C6471 /* SpaceFlightsImagesVC.swift */,
+				F48C039627C8D7A8008C6471 /* FlightImagesCell.swift */,
+			);
+			path = "Flight Detail Images";
+			sourceTree = "<group>";
+		};
+		F48583E927D0FCB300F04D9A /* Crew */ = {
+			isa = PBXGroup;
+			children = (
+				F4A4D12427AD881B00163607 /* CrewVC.swift */,
+				F48370AD27B6B90500D2146E /* CrewCell.swift */,
+				F44DA4C327BD095C0011851B /* CrewHeader.swift */,
+			);
+			path = Crew;
+			sourceTree = "<group>";
+		};
+		F48583EA27D0FCC900F04D9A /* Crew Member Detail */ = {
+			isa = PBXGroup;
+			children = (
+				F440003E27BE9BFB00F80C6C /* CrewDetailVC.swift */,
+				F4208CFF27C39AAB009BF199 /* Crew Detail Stacks */,
+			);
+			path = "Crew Member Detail";
+			sourceTree = "<group>";
+		};
+		F48583EB27D0FD1A00F04D9A /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				F48370A127B56B8800D2146E /* SettingsVC.swift */,
+				F44DA4B627BBF5750011851B /* Settings Stacks */,
+				F4A6EE0027CE819B005C164D /* Notification Setup */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		F49E9F8927AC32B80081238D = {
@@ -374,8 +403,8 @@
 				F49E9F9527AC32B80081238D /* AppDelegate.swift */,
 				F49E9F9727AC32B80081238D /* SceneDelegate.swift */,
 				F477088E27B1690900847540 /* Screens */,
-				F477088927B115AB00847540 /* Models */,
 				F483709827B3D90A00D2146E /* ViewModels */,
+				F477088927B115AB00847540 /* Models */,
 				F477088027B10E9000847540 /* Networking */,
 				F4A4D11F27AD648100163607 /* CustomViews */,
 				F477088F27B178F600847540 /* Helpers */,
@@ -407,27 +436,22 @@
 		F4A4D11F27AD648100163607 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				F44DA4B227BBE1E20011851B /* FlightDetail */,
-				F4208CFF27C39AAB009BF199 /* CrewDetail */,
-				F44DA4B627BBF5750011851B /* Settings */,
-				F44DA4B327BBE20D0011851B /* Cells */,
-				F465051827BFA39B008B5D97 /* Alert */,
-				F4208D1027C3E693009BF199 /* Notifications */,
 				F483709F27B423E500D2146E /* LoadingIndicatorView.swift */,
+				F465051627BFA345008B5D97 /* AlertVC.swift */,
 				F48370A327B6560A00D2146E /* LargeTintedButton.swift */,
 				F44DA4BB27BBFF1C0011851B /* SectionTitleLabel.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
 		};
-		F4A6EE0027CE819B005C164D /* NotificationSetupScreen */ = {
+		F4A6EE0027CE819B005C164D /* Notification Setup */ = {
 			isa = PBXGroup;
 			children = (
 				F4208D0E27C3E688009BF199 /* NotificationSetupVC.swift */,
 				F4208D1127C3ED25009BF199 /* NotificationTopBanner.swift */,
 				F4DCFF6D27C5137A00BA3B30 /* DateAndTextFieldStack.swift */,
 			);
-			path = NotificationSetupScreen;
+			path = "Notification Setup";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -819,7 +843,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -846,7 +870,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

@@ -11,7 +11,11 @@ final class NotificationSetupVC: UIViewController {
     
     let notificationCalendarVM: NotificationCalendarVM
     var standardViewHeight: CGFloat!
-    lazy var tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+    lazy var tap: UITapGestureRecognizer = {
+        let tapGesture = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        tapGesture.cancelsTouchesInView = false
+        return tapGesture
+    }()
     
     let topBanner: NotificationTopBanner = NotificationTopBanner()
     let dateAndFieldStack: DateAndTextFieldStack = DateAndTextFieldStack()
@@ -39,8 +43,6 @@ final class NotificationSetupVC: UIViewController {
         dateAndFieldStack.textField.delegate = self
         // Tap gesture
         view.addGestureRecognizer(tap)
-        #warning("Removing gesture is not enough")
-//        dateAndFieldStack.datePicker.removeGestureRecognizer(tap)
         // Keyboard observers
         NotificationCenter.default.addObserver(self, selector: #selector(willShowKeyboard(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(willHideKeyboard(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -117,15 +119,12 @@ extension NotificationSetupVC {
     @objc
     func willShowKeyboard(notification: NSNotification) {
         guard let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue else { fatalError("You dont have a keyboard?") }
-        confirmationButtonHeightConstraint.constant = -(keyboardSize.height)
-        view.layoutIfNeeded()
-        
+        view.frame.origin.y = -(keyboardSize.height)
     }
     
     @objc
     func willHideKeyboard(notification: NSNotification) {
-        confirmationButtonHeightConstraint.constant = 0
-        view.layoutIfNeeded()
+        view.frame.origin.y = 0
     }
     
 }

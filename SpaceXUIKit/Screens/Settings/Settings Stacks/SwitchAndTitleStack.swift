@@ -36,6 +36,8 @@ final class SwitchAndTitleStack: UIStackView {
         // Subviews
         addArrangedSubview(title)
         addArrangedSubview(switchControl)
+        // UI
+        
     }
     
     required init(coder: NSCoder) {

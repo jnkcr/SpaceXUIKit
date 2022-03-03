@@ -61,6 +61,7 @@ final class LoadingIndicatorView: UIStackView {
     }
     
     deinit {
+        animationView.stop()
         print("\nLoadingIndicatorView is being deinitiliazed.\n")
     }
     
