@@ -63,7 +63,9 @@ final class SpaceFlightDetailVC: UIViewController {
             // STACK
             stackView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: ConstraintsHelper.padding),
             stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -ConstraintsHelper.padding),
-            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            stackView.leadingAnchor.constraint(equalTo: view.readableContentGuide.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: view.readableContentGuide.trailingAnchor),
+//            stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
             // IMAGES BUTTON
             imagesSegueButton.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
             imagesSegueButton.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
@@ -72,7 +74,6 @@ final class SpaceFlightDetailVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        reloadInputViews()
     }
     
     init(viewModel: FlightDetailVM) {

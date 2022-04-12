@@ -32,7 +32,7 @@ enum Section: String, CaseIterable {
     }
 }
 
-protocol CrewDownloadingDelegate {
+protocol CrewDownloadingDelegate: AnyObject {
     func didFinishDownloading(with result: Result<NSDiffableDataSourceSnapshot<Section, CrewCellData>, DownloadError>)
     func didChangeProgress(to value: Float)
 }
@@ -40,7 +40,7 @@ protocol CrewDownloadingDelegate {
 final class CrewVM {
     
     private let networkManager: CrewAndImagesDownloadable
-    var downloadingDelegate: CrewDownloadingDelegate?
+    weak var downloadingDelegate: CrewDownloadingDelegate?
     
     var crew: [CrewMemberAndPhoto] = []
     

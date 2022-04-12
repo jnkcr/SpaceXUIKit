@@ -23,6 +23,10 @@ final class SettingsStack: UIStackView {
         addArrangedSubview(appearanceSection)
         addArrangedSubview(behaviourSection)
         addArrangedSubview(otherSection)
+        // UI
+        NSLayoutConstraint.activate([
+            behaviourSection.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -2)
+        ])
     }
     
     required init(coder: NSCoder) {

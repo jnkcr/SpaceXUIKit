@@ -29,7 +29,8 @@ final class FlightCell: UITableViewCell {
         let stack: UIStackView = UIStackView()
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.axis = .vertical
-        stack.spacing = ConstraintsHelper.tinySpacing
+        stack.spacing = 0
+        stack.distribution = .fillProportionally
         return stack
     }()
     private let dateLabel: UILabel = {
@@ -62,14 +63,13 @@ final class FlightCell: UITableViewCell {
         // Subviews
         infoStack.addArrangedSubview(dateLabel)
         infoStack.addArrangedSubview(titleLabel)
-        contentView.addSubview(patchImageView)
-        contentView.addSubview(infoStack)
+        cellStack.addArrangedSubview(patchImageView)
+        cellStack.addArrangedSubview(infoStack)
+        contentView.addSubview(cellStack)
         // UI Configuration
         let size: CGFloat = 50
         NSLayoutConstraint.activate([
             // PATCH IMAGE
-            patchImageView.centerYAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.centerYAnchor),
-            patchImageView.leadingAnchor.constraint(equalTo: contentView.readableContentGuide.leadingAnchor),
             patchImageView.widthAnchor.constraint(equalToConstant: size),
             patchImageView.heightAnchor.constraint(equalToConstant: size),
             // DATE
@@ -79,9 +79,10 @@ final class FlightCell: UITableViewCell {
             titleLabel.leadingAnchor.constraint(equalTo: infoStack.leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: infoStack.trailingAnchor),
             // STACK
-            infoStack.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            infoStack.leadingAnchor.constraint(equalTo: patchImageView.trailingAnchor, constant: ConstraintsHelper.padding),
-            infoStack.trailingAnchor.constraint(equalTo: contentView.readableContentGuide.trailingAnchor),
+            cellStack.leadingAnchor.constraint(equalTo: contentView.readableContentGuide.leadingAnchor),
+            cellStack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: ConstraintsHelper.padding),
+            cellStack.trailingAnchor.constraint(equalTo: contentView.readableContentGuide.trailingAnchor),
+            cellStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -ConstraintsHelper.padding),
         ])
     }
     
