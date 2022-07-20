@@ -26,9 +26,6 @@ final class SpaceFlightsVC: UIViewController {
     private lazy var refreshBarButton: UIBarButtonItem = {
         UIBarButtonItem(image: UIImage(systemName: "arrow.triangle.2.circlepath"), style: .plain, target: self, action: #selector(redownloadAndRefreshTableData))
     }()
-    private lazy var alertBarButton: UIBarButtonItem = {
-        UIBarButtonItem(image: UIImage(systemName: "multiply.circle"), style: .plain, target: self, action: #selector(showAlert))
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +33,6 @@ final class SpaceFlightsVC: UIViewController {
         title = "Flights"
         view.backgroundColor = .systemBackground
         navigationItem.leftBarButtonItem = refreshBarButton
-        navigationItem.rightBarButtonItem = alertBarButton
         // Loading indicator view
         let loadingIndicatorView: LoadingIndicatorView = LoadingIndicatorView(animationName: AnimationShuffler.getAnimationName(for: .rocket))
         // Table delegates
@@ -103,11 +99,6 @@ private extension SpaceFlightsVC {
         spaceFlightsVM.loadFlights()
     }
     
-    @objc
-    private func showAlert() {
-        shownCustomAlert(title: "Error", description: "Upsssss!!! But do not worry. This is just a showcase error.", confirmationText: "Ok")
-    }
- 
 }
 
 extension SpaceFlightsVC: FlightsDownloadingDelegate {

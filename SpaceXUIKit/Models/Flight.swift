@@ -13,7 +13,7 @@ struct Flight: Codable, Identifiable {
     let name: String
     let dateUtc: String
     let flightNumber: Int
-    let success: Bool
+    let success: Bool?
     let crew: [Crew]
     let links: Links
     let details: String?

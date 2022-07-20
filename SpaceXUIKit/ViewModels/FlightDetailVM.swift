@@ -41,11 +41,11 @@ final class FlightDetailVM {
     }
     
     var successDescription: String {
-        flightData.flight.success ? "Success" : "Failure"
+        (flightData.flight.success ?? false) ? "Success" : "Failure"
     }
     
     var successIcon: UIImage {
-        flightData.flight.success ? UIImage(systemName: "checkmark.circle")! : UIImage(systemName: "xmark.circle")!
+        (flightData.flight.success ?? false) ? UIImage(systemName: "checkmark.circle")! : UIImage(systemName: "xmark.circle")!
     }
     
     var numberOfImages: String {
